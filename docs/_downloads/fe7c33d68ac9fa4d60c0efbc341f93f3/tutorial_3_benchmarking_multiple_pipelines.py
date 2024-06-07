@@ -1,11 +1,12 @@
 """
 ===========================================
-Tutorial 3: Benchmarking mulitple pipelines
+Tutorial 3: Benchmarking multiple pipelines
 ===========================================
 
 In this last part, we extend the previous example by assessing the
 classification score of not one but three classification pipelines.
 """
+
 # Authors: Pedro L. C. Rodrigues, Sylvain Chevallier
 #
 # https://github.com/plcrodrigues/Workshop-MOABB-BCI-Graz-2019
@@ -24,7 +25,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.svm import SVC
 
 import moabb
-from moabb.datasets import BNCI2014001, Zhou2016
+from moabb.datasets import BNCI2014_001, Zhou2016
 from moabb.evaluations import WithinSessionEvaluation
 from moabb.paradigms import LeftRightImagery
 
@@ -32,7 +33,6 @@ from moabb.paradigms import LeftRightImagery
 mne.set_log_level("CRITICAL")
 moabb.set_log_level("info")
 warnings.filterwarnings("ignore")
-
 
 ##############################################################################
 # Creating Pipelines
@@ -55,7 +55,7 @@ pipelines["MDM"] = make_pipeline(Covariances("oas"), MDM(metric="riemann"))
 ##############################################################################
 # The following lines go exactly as in the previous tutorial, where we end up
 # obtaining a pandas dataframe containing the results of the evaluation.
-datasets = [BNCI2014001(), Zhou2016()]
+datasets = [BNCI2014_001(), Zhou2016()]
 subj = [1, 2, 3]
 for d in datasets:
     d.subject_list = subj

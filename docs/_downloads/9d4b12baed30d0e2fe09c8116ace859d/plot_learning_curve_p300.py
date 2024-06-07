@@ -15,6 +15,7 @@ We will compare two pipelines :
 
 We will use the P300 paradigm, which uses the AUC as metric.
 """
+
 # Authors: Jan Sosulski
 #
 # License: BSD (3-clause)
@@ -24,15 +25,15 @@ import warnings
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+from mne.decoding import Vectorizer
 from pyriemann.estimation import XdawnCovariances
 from pyriemann.spatialfilters import Xdawn
 from pyriemann.tangentspace import TangentSpace
-from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 from sklearn.pipeline import make_pipeline
 
 import moabb
-from moabb.datasets import BNCI2014009
+from moabb.datasets import BNCI2014_009
 from moabb.evaluations import WithinSessionEvaluation
 from moabb.paradigms import P300
 
@@ -41,28 +42,7 @@ from moabb.paradigms import P300
 warnings.simplefilter(action="ignore", category=FutureWarning)
 warnings.simplefilter(action="ignore", category=RuntimeWarning)
 
-
 moabb.set_log_level("info")
-
-##############################################################################
-# This is an auxiliary transformer that allows one to vectorize data
-# structures in a pipeline For instance, in the case of a X with dimensions
-# Nt x Nc x Ns, one might be interested in a new data structure with
-# dimensions Nt x (Nc.Ns)
-
-
-class Vectorizer(BaseEstimator, TransformerMixin):
-    def __init__(self):
-        pass
-
-    def fit(self, X, y):
-        """fit."""
-        return self
-
-    def transform(self, X):
-        """transform. """
-        return np.reshape(X, (X.shape[0], -1))
-
 
 ##############################################################################
 # Create Pipelines
@@ -98,7 +78,7 @@ pipelines["Xdw+LDA"] = make_pipeline(
 # and dataset size.
 
 paradigm = P300(resample=processing_sampling_rate)
-dataset = BNCI2014009()
+dataset = BNCI2014_009()
 # Remove the slicing of the subject list to evaluate multiple subjects
 dataset.subject_list = dataset.subject_list[1:2]
 datasets = [dataset]
@@ -116,7 +96,6 @@ evaluation = WithinSessionEvaluation(
     suffix="examples_lr",
     overwrite=overwrite,
 )
-
 
 results = evaluation.process(pipelines)
 

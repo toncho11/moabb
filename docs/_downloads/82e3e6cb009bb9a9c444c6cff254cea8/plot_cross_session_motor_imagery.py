@@ -19,6 +19,7 @@ one session out cross-validation. For each session in the dataset, a model
 is trained on every other session and performance are evaluated on the current
 session.
 """
+
 # Authors: Alexandre Barachant <alexandre.barachant@gmail.com>
 #          Sylvain Chevallier <sylvain.chevallier@uvsq.fr>
 #
@@ -34,7 +35,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
 
 import moabb
-from moabb.datasets import BNCI2014001
+from moabb.datasets import BNCI2014_001
 from moabb.evaluations import CrossSessionEvaluation
 from moabb.paradigms import LeftRightImagery
 
@@ -65,7 +66,7 @@ pipelines["RG+LR"] = make_pipeline(
 # Evaluation
 # ----------
 #
-# We define the paradigm (LeftRightImagery) and the dataset (BNCI2014001).
+# We define the paradigm (LeftRightImagery) and the dataset (BNCI2014_001).
 # The evaluation will return a DataFrame containing a single AUC score for
 # each subject / session of the dataset, and for each pipeline.
 #
@@ -75,7 +76,7 @@ pipelines["RG+LR"] = make_pipeline(
 
 paradigm = LeftRightImagery()
 # Because this is being auto-generated we only use 2 subjects
-dataset = BNCI2014001()
+dataset = BNCI2014_001()
 dataset.subject_list = dataset.subject_list[:2]
 datasets = [dataset]
 overwrite = False  # set to True if we want to overwrite cached results
@@ -93,6 +94,9 @@ print(results.head())
 #
 # Here we plot the results. We first make a pointplot with the average
 # performance of each pipeline across session and subjects.
+# The second plot is a paired scatter plot. Each point representing the score
+# of a single session. An algorithm will outperform another is most of the
+# points are in its quadrant.
 
 fig, axes = plt.subplots(1, 2, figsize=[8, 4], sharey=True)
 
@@ -106,15 +110,10 @@ sns.stripplot(
     zorder=1,
     palette="Set1",
 )
-sns.pointplot(data=results, y="score", x="pipeline", ax=axes[0], zorder=1, palette="Set1")
+sns.pointplot(data=results, y="score", x="pipeline", ax=axes[0], palette="Set1")
 
 axes[0].set_ylabel("ROC AUC")
 axes[0].set_ylim(0.5, 1)
-
-##############################################################################
-# The second plot is a paired scatter plot. Each point representing the score
-# of a single session. An algorithm will outperform another is most of the
-# points are in its quadrant.
 
 paired = results.pivot_table(
     values="score", columns="pipeline", index=["subject", "session"]

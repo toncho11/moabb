@@ -1,7 +1,7 @@
 """
-===================
+=====================
 Within Session SSVEP
-===================
+=====================
 
 This Example show how to perform a within-session SSVEP analysis on the
 MAMEM dataset 3, using a CCA pipeline.
@@ -10,6 +10,7 @@ The within-session evaluation assesses the performance of a classification
 pipeline using a 5-fold cross-validation. The reported metric (here, accuracy)
 is the average of all fold.
 """
+
 # Authors: Sylvain Chevallier <sylvain.chevallier@uvsq.fr>
 #
 # License: BSD (3-clause)

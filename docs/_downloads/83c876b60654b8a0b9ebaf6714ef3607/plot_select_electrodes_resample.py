@@ -8,6 +8,7 @@ electrodes and to resample to a specific sampling rate. There is also a
 utility function to select common electrodes shared between datasets.
 This tutorial demonstrates how to use this functionality.
 """
+
 # Authors: Sylvain Chevallier <sylvain.chevallier@uvsq.fr>
 #
 # License: BSD (3-clause)
@@ -20,7 +21,7 @@ from sklearn.linear_model import LogisticRegression as LR
 from sklearn.pipeline import make_pipeline
 
 import moabb.analysis.plotting as moabb_plt
-from moabb.datasets import BNCI2014001, Zhou2016
+from moabb.datasets import BNCI2014_001, Zhou2016
 from moabb.datasets.utils import find_intersecting_channels
 from moabb.evaluations import WithinSessionEvaluation
 from moabb.paradigms import LeftRightImagery
@@ -33,7 +34,7 @@ from moabb.paradigms import LeftRightImagery
 # Load 2 subjects of BNCI 2014-004 and Zhou2016 datasets, with 2 sessions each
 
 subj = [1, 2]
-datasets = [Zhou2016(), BNCI2014001()]
+datasets = [Zhou2016(), BNCI2014_001()]
 for d in datasets:
     d.subject_list = subj
 
