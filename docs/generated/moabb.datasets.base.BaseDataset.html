@@ -12,7 +12,7 @@
     <link rel="icon" sizes="144x144" href="../_static/favicon-144.png" type="image/png">
     <link rel="mask-icon" href="../_static/favicon_mask-icon.svg" color="#222832" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="500x500" href="../_static/favicon-500.png" type="image/png">
-    <title>moabb.datasets.base.BaseDataset &#8212; moabb 1.2.0-dev documentation</title>
+    <title>moabb.datasets.base.BaseDataset &#8212; moabb 1.3.0-dev documentation</title>
   
   
   
@@ -52,7 +52,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=b76c3557"></script>
+    <script src="../_static/documentation_options.js?v=cba09fd8"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -80,7 +80,7 @@
     <link rel="prev" title="moabb.datasets.compound_dataset.BI_Il" href="moabb.datasets.compound_dataset.BI_Il.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.2.0" />
+  <meta name="docsearch:version" content="1.3.0" />
   </head>
   
   
@@ -145,8 +145,8 @@
     
     
     
-    <img src="../_static/moabb_light.svg" class="logo__image only-light" alt="moabb 1.2.0-dev documentation - Home"/>
-    <img src="../_static/moabb_dark.svg" class="logo__image only-dark pst-js-only" alt="moabb 1.2.0-dev documentation - Home"/>
+    <img src="../_static/moabb_light.svg" class="logo__image only-light" alt="moabb 1.3.0-dev documentation - Home"/>
+    <img src="../_static/moabb_dark.svg" class="logo__image only-dark pst-js-only" alt="moabb 1.3.0-dev documentation - Home"/>
   
   
 </a></div>
@@ -417,6 +417,8 @@
 <li class="toctree-l1"><a class="reference internal" href="moabb.datasets.ErpCore2021_N170.html">moabb.datasets.ErpCore2021_N170</a></li>
 <li class="toctree-l1"><a class="reference internal" href="moabb.datasets.ErpCore2021_N400.html">moabb.datasets.ErpCore2021_N400</a></li>
 <li class="toctree-l1"><a class="reference internal" href="moabb.datasets.ErpCore2021_P3.html">moabb.datasets.ErpCore2021_P3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moabb.datasets.Kojima2024A.html">moabb.datasets.Kojima2024A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moabb.datasets.Kojima2024B.html">moabb.datasets.Kojima2024B</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="moabb.datasets.Kalunga2016.html">moabb.datasets.Kalunga2016</a></li>
@@ -614,15 +616,15 @@
 <h1>moabb.datasets.base.BaseDataset<a class="headerlink" href="#moabb-datasets-base-basedataset" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="moabb.datasets.base.BaseDataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">moabb.datasets.base.</span></span><span class="sig-name descname"><span class="pre">BaseDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subjects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sessions_per_subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paradigm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000.0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/base.py#L311-L699"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#moabb.datasets.base.BaseDataset" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">moabb.datasets.base.</span></span><span class="sig-name descname"><span class="pre">BaseDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subjects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sessions_per_subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paradigm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000.0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/base.py#L312-L744"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#moabb.datasets.base.BaseDataset" title="Link to this definition">#</a></dt>
 <dd><p>Abstract Moabb BaseDataset.</p>
 <p>Parameters required for all datasets</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>subjects</strong> (<em>List</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – List of subject number (or tuple or numpy array)</p></li>
-<li><p><strong>sessions_per_subject</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of sessions per subject (if varying, take minimum)</p></li>
-<li><p><strong>events</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a><em> of </em><em>strings</em>) – String codes for events matched with labels in the stim channel.
+<li><p><strong>subjects</strong> (<em>List</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – List of subject number (or tuple or numpy array)</p></li>
+<li><p><strong>sessions_per_subject</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Number of sessions per subject (if varying, take minimum)</p></li>
+<li><p><strong>events</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em> of </em><em>strings</em>) – String codes for events matched with labels in the stim channel.
 Currently imagery codes codes can include:
 - left_hand
 - right_hand
@@ -645,22 +647,22 @@ The code should be in CamelCase.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="moabb.datasets.base.BaseDataset.data_path">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><span class="pre">Path</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/base.py#L667-L699"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#moabb.datasets.base.BaseDataset.data_path" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.14)"><span class="pre">Path</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/base.py#L712-L744"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#moabb.datasets.base.BaseDataset.data_path" title="Link to this definition">#</a></dt>
 <dd><p>Get path to local copy of a subject data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>subject</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Number of subject to use</p></li>
-<li><p><strong>path</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Location of where to look for the data storing location.
+<li><p><strong>subject</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Number of subject to use</p></li>
+<li><p><strong>path</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Location of where to look for the data storing location.
 If None, the environment variable or config parameter
 <code class="docutils literal notranslate"><span class="pre">MNE_DATASETS_(dataset)_PATH</span></code> is used. If it doesn’t exist, the
 “~/mne_data” directory is used. If the dataset
 is not found under the given path, the data
 will be automatically downloaded to the specified folder.</p></li>
-<li><p><strong>force_update</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Force update of the dataset even if a local copy exists.</p></li>
+<li><p><strong>force_update</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Force update of the dataset even if a local copy exists.</p></li>
 <li><p><strong>update_path</strong> (bool | None <strong>Deprecated</strong>) – If True, set the MNE_DATASETS_(dataset)_PATH in mne-python
 config to the given path. If None, the user is prompted.</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, or </em><em>None</em>) – If not None, override default verbose level
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, or </em><em>None</em>) – If not None, override default verbose level
 (see <a class="reference external" href="https://mne.tools/stable/generated/mne.verbose.html#mne.verbose" title="(in MNE v1.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.verbose()</span></code></a>).</p></li>
 </ul>
 </dd>
@@ -669,32 +671,32 @@ config to the given path. If None, the user is prompted.</p></li>
 list of length one, for compatibility.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a> of <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="moabb.datasets.base.BaseDataset.download">
-<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/base.py#L485-L544"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#moabb.datasets.base.BaseDataset.download" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/base.py#L530-L589"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#moabb.datasets.base.BaseDataset.download" title="Link to this definition">#</a></dt>
 <dd><p>Download all data from the dataset.</p>
 <p>This function is only useful to download all the dataset at once.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>subject_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em> | </em><em>None</em>) – List of subjects id to download, if None all subjects
+<li><p><strong>subject_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><em>None</em>) – List of subjects id to download, if None all subjects
 are downloaded.</p></li>
-<li><p><strong>path</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Location of where to look for the data storing location.
+<li><p><strong>path</strong> (<em>None</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Location of where to look for the data storing location.
 If None, the environment variable or config parameter
 <code class="docutils literal notranslate"><span class="pre">MNE_DATASETS_(dataset)_PATH</span></code> is used. If it doesn’t exist, the
 “~/mne_data” directory is used. If the dataset
 is not found under the given path, the data
 will be automatically downloaded to the specified folder.</p></li>
-<li><p><strong>force_update</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Force update of the dataset even if a local copy exists.</p></li>
-<li><p><strong>update_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em> | </em><em>None</em>) – If True, set the MNE_DATASETS_(dataset)_PATH in mne-python
+<li><p><strong>force_update</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Force update of the dataset even if a local copy exists.</p></li>
+<li><p><strong>update_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – If True, set the MNE_DATASETS_(dataset)_PATH in mne-python
 config to the given path. If None, the user is prompted.</p></li>
-<li><p><strong>accept</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>) – Accept licence term to download the data, if any. Default: False</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, or </em><em>None</em>) – If not None, override default verbose level
+<li><p><strong>accept</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Accept licence term to download the data, if any. Default: False</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, or </em><em>None</em>) – If not None, override default verbose level
 (see <a class="reference external" href="https://mne.tools/stable/generated/mne.verbose.html#mne.verbose" title="(in MNE v1.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">mne.verbose()</span></code></a>).</p></li>
 </ul>
 </dd>
@@ -702,8 +704,34 @@ config to the given path. If None, the user is prompted.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="moabb.datasets.base.BaseDataset.get_block_repetition">
+<span class="sig-name descname"><span class="pre">get_block_repetition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paradigm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subjects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repetition_list</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/base.py#L411-L450"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#moabb.datasets.base.BaseDataset.get_block_repetition" title="Link to this definition">#</a></dt>
+<dd><p>Select data for all provided subjects, blocks and repetitions.</p>
+<p>subject -&gt; session -&gt; run -&gt; block -&gt; repetition</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#moabb.datasets.base.BaseDataset.get_data" title="moabb.datasets.base.BaseDataset.get_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseDataset.get_data</span></code></a></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subjects</strong> (<em>List</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – List of subject number</p></li>
+<li><p><strong>block_list</strong> (<em>List</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – List of block number</p></li>
+<li><p><strong>repetition_list</strong> (<em>List</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – List of repetition number inside a block</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong> – dict containing the raw data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="moabb.datasets.base.BaseDataset.get_data">
-<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subjects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_pipeline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/base.py#L407-L483"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#moabb.datasets.base.BaseDataset.get_data" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subjects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_pipeline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/NeuroTechX/moabb/blob/develop/moabb/datasets/base.py#L452-L528"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#moabb.datasets.base.BaseDataset.get_data" title="Link to this definition">#</a></dt>
 <dd><p>Return the data corresponding to a list of subjects.</p>
 <p>The returned data is a dictionary with the following structure:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;subject_id&#39;</span> <span class="p">:</span>
@@ -727,8 +755,8 @@ as input depending on whether <code class="docutils literal notranslate"><span c
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>subjects</strong> (<em>List</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – List of subject number</p></li>
-<li><p><strong>cache_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a><em> | </em><a class="reference internal" href="moabb.datasets.base.CacheConfig.html#moabb.datasets.base.CacheConfig" title="moabb.datasets.base.CacheConfig"><em>CacheConfig</em></a>) – Configuration for caching of datasets. See <code class="docutils literal notranslate"><span class="pre">CacheConfig</span></code>
+<li><p><strong>subjects</strong> (<em>List</em><em> of </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – List of subject number</p></li>
+<li><p><strong>cache_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em> | </em><a class="reference internal" href="moabb.datasets.base.CacheConfig.html#moabb.datasets.base.CacheConfig" title="moabb.datasets.base.CacheConfig"><em>CacheConfig</em></a>) – Configuration for caching of datasets. See <code class="docutils literal notranslate"><span class="pre">CacheConfig</span></code>
 for details.</p></li>
 <li><p><strong>process_pipeline</strong> (<em>Pipeline</em><em> | </em><em>None</em>) – Optional processing pipeline to apply to the data.
 To generate an adequate pipeline, we recommend using
@@ -802,8 +830,8 @@ i.e. no call to <code class="docutils literal notranslate"><span class="pre">fit
 </div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to process a dataset using the moabb.paradigms.FixedIntervalWindowsProcessing paradigm. This paradigm creates epochs at fixed intervals, ignoring the stim channel and events of the datasets. Therefore, it is compatible with all the datasets. Unfortunately, this paradigm is not compatible with the MOABB evaluation framework. However, it can be used to process datasets for unsupervised algorithms."><img alt="" src="../_images/sphx_glr_plot_fixed_interval_windows_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/data_management_and_configuration/plot_fixed_interval_windows.html#sphx-glr-auto-examples-data-management-and-configuration-plot-fixed-interval-windows-py"><span class="std std-ref">Fixed interval windows processing</span></a></p>
   <div class="sphx-glr-thumbnail-title">Fixed interval windows processing</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Tutorial: Within-Session Splitting on Real MI Dataset"><img alt="" src="../_images/sphx_glr_tutorial_6_within_session_splitter_thumb.png" />
-<p><a class="reference internal" href="../auto_examples/how_to_benchmark/tutorial_6_within_session_splitter.html#sphx-glr-auto-examples-how-to-benchmark-tutorial-6-within-session-splitter-py"><span class="std std-ref">Tutorial: Within-Session Splitting on Real MI Dataset</span></a></p>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Tutorial: Within-Session Splitting on Real MI Dataset"><img alt="" src="../_images/sphx_glr_plot_within_session_splitter_thumb.png" />
+<p><a class="reference internal" href="../auto_examples/how_to_benchmark/plot_within_session_splitter.html#sphx-glr-auto-examples-how-to-benchmark-plot-within-session-splitter-py"><span class="std std-ref">Tutorial: Within-Session Splitting on Real MI Dataset</span></a></p>
   <div class="sphx-glr-thumbnail-title">Tutorial: Within-Session Splitting on Real MI Dataset</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="This tutorial shows how to use the moabb.analysis.plotting.dataset_bubble_plot function to visualize, at a glance, the number of subjects and sessions in each dataset and the number of trials per session."><img alt="" src="../_images/sphx_glr_plot_dataset_bubbles_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/advanced_examples/plot_dataset_bubbles.html#sphx-glr-auto-examples-advanced-examples-plot-dataset-bubbles-py"><span class="std std-ref">Dataset bubble plot</span></a></p>
@@ -838,6 +866,9 @@ i.e. no call to <code class="docutils literal notranslate"><span class="pre">fit
 </div><div class="sphx-glr-thumbcontainer" tooltip="The MOABB codebase comes with convenience plotting utilities and some statistical testing. This tutorial focuses on what those exactly are and how they can be used."><img alt="" src="../_images/sphx_glr_plot_statistical_analysis_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/advanced_examples/plot_statistical_analysis.html#sphx-glr-auto-examples-advanced-examples-plot-statistical-analysis-py"><span class="std std-ref">Statistical Analysis</span></a></p>
   <div class="sphx-glr-thumbnail-title">Statistical Analysis</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The following tutorial creates a dataset that contains data in the form of epochs. A special paradigm is provided, which calls an additional method on the dataset so that MOABB can process it correctly. After this, a standard classification is performed."><img alt="" src="../_images/sphx_glr_plot_use_an_X_y_dataset_thumb.png" />
+<p><a class="reference internal" href="../auto_examples/advanced_examples/plot_use_an_X_y_dataset.html#sphx-glr-auto-examples-advanced-examples-plot-use-an-x-y-dataset-py"><span class="std std-ref">Tutorial 6: Using X y data (epoched data) instead of continuous signal</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Tutorial 6: Using X y data (epoched data) instead of continuous signal</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to perform a within session motor imagery analysis on the very popular dataset 2a from the BCI competition IV."><img alt="" src="../_images/sphx_glr_plot_learning_curve_motor_imagery_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/learning_curve/plot_learning_curve_motor_imagery.html#sphx-glr-auto-examples-learning-curve-plot-learning-curve-motor-imagery-py"><span class="std std-ref">Within Session Motor Imagery with Learning Curve</span></a></p>
   <div class="sphx-glr-thumbnail-title">Within Session Motor Imagery with Learning Curve</div>
@@ -897,6 +928,7 @@ i.e. no call to <code class="docutils literal notranslate"><span class="pre">fit
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moabb.datasets.base.BaseDataset"><code class="docutils literal notranslate"><span class="pre">BaseDataset</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moabb.datasets.base.BaseDataset.data_path"><code class="docutils literal notranslate"><span class="pre">BaseDataset.data_path()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moabb.datasets.base.BaseDataset.download"><code class="docutils literal notranslate"><span class="pre">BaseDataset.download()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moabb.datasets.base.BaseDataset.get_block_repetition"><code class="docutils literal notranslate"><span class="pre">BaseDataset.get_block_repetition()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moabb.datasets.base.BaseDataset.get_data"><code class="docutils literal notranslate"><span class="pre">BaseDataset.get_data()</span></code></a></li>
 </ul>
 </li>

@@ -12,7 +12,7 @@
     <link rel="icon" sizes="144x144" href="_static/favicon-144.png" type="image/png">
     <link rel="mask-icon" href="_static/favicon_mask-icon.svg" color="#222832" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="500x500" href="_static/favicon-500.png" type="image/png">
-    <title>Data Summary &#8212; moabb 1.2.0-dev documentation</title>
+    <title>Data Summary &#8212; moabb 1.3.0-dev documentation</title>
   
   
   
@@ -52,7 +52,7 @@
 
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="_static/documentation_options.js?v=b76c3557"></script>
+    <script src="_static/documentation_options.js?v=cba09fd8"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -80,7 +80,7 @@
     <link rel="prev" title="The largest EEG-based Benchmark for Open Science" href="paper_results.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.2.0" />
+  <meta name="docsearch:version" content="1.3.0" />
   </head>
   
   
@@ -145,8 +145,8 @@
     
     
     
-    <img src="_static/moabb_light.svg" class="logo__image only-light" alt="moabb 1.2.0-dev documentation - Home"/>
-    <img src="_static/moabb_dark.svg" class="logo__image only-dark pst-js-only" alt="moabb 1.2.0-dev documentation - Home"/>
+    <img src="_static/moabb_light.svg" class="logo__image only-light" alt="moabb 1.3.0-dev documentation - Home"/>
+    <img src="_static/moabb_dark.svg" class="logo__image only-dark pst-js-only" alt="moabb 1.3.0-dev documentation - Home"/>
   
   
 </a></div>
@@ -427,6 +427,9 @@ datasets are listed here but this list not complete yet, check API for complete
 documentation.</p>
 <p>Do not hesitate to help us complete this list. It is also possible to add new datasets,
 there is a tutorial explaining how to do so, and we welcome warmly any new contributions!</p>
+<p>It is possible to use an external dataset within MOABB as long as it is in Brain Imaging Data Structure (BIDS) format.
+See this <a class="reference external" href="https://bids-specification.readthedocs.io/en/stable/#:~:text=The%20Brain%20Imaging%20Data%20Structure%20(BIDS)%20is%20a%20simple%20and,to%20help%20implement%20the%20standard.">guide</a> for more information on how to structure your data according to BIDS
+You can use this <a class="reference external" href="https://moabb.neurotechx.com/docs/api/generated/moabb.datasets.base.LocalBIDSDataset.html#moabb.datasets.base.LocalBIDSDataset">class</a> to convert your local dataset to work within MOABB without creating a new dataset class.</p>
 <p>See also <a class="reference external" href="https://github.com/NeuroTechX/moabb/wiki/Datasets-Support">Datasets-Support</a> for supplementary
 detail on datasets (class name, size, licence, etc.)
 Dataset, #Subj, #Chan, #Classes, #Trials, Trial length, Freq, #Session, #Runs, Total_trials, PapersWithCode leaderboard</p>
@@ -493,7 +496,19 @@ The function will generate a figure like this:</p>
 <td><p>480</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/alexandremotorimagery-moabb">Yes</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.BNCI2014_001.html#moabb.datasets.BNCI2014_001" title="moabb.datasets.BNCI2014_001"><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2014_001</span></code></a></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2003_004</span></code></p></td>
+<td><p>5</p></td>
+<td><p>118</p></td>
+<td><p>2</p></td>
+<td><p>84</p></td>
+<td><p>3.5</p></td>
+<td><p>100</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1400</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.BNCI2014_001.html#moabb.datasets.BNCI2014_001" title="moabb.datasets.BNCI2014_001"><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2014_001</span></code></a></p></td>
 <td><p>9</p></td>
 <td><p>22</p></td>
 <td><p>4</p></td>
@@ -505,7 +520,7 @@ The function will generate a figure like this:</p>
 <td><p>62208</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/bnci2014-001-moabb-1">Yes</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.BNCI2014_002.html#moabb.datasets.BNCI2014_002" title="moabb.datasets.BNCI2014_002"><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2014_002</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.BNCI2014_002.html#moabb.datasets.BNCI2014_002" title="moabb.datasets.BNCI2014_002"><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2014_002</span></code></a></p></td>
 <td><p>14</p></td>
 <td><p>15</p></td>
 <td><p>2</p></td>
@@ -517,7 +532,7 @@ The function will generate a figure like this:</p>
 <td><p>17920</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/bnci2014-002-moabb-1">Yes</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.BNCI2014_004.html#moabb.datasets.BNCI2014_004" title="moabb.datasets.BNCI2014_004"><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2014_004</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.BNCI2014_004.html#moabb.datasets.BNCI2014_004" title="moabb.datasets.BNCI2014_004"><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2014_004</span></code></a></p></td>
 <td><p>9</p></td>
 <td><p>3</p></td>
 <td><p>2</p></td>
@@ -529,7 +544,7 @@ The function will generate a figure like this:</p>
 <td><p>32400</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/bnci2014-004-moabb-1">Yes</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.BNCI2015_001.html#moabb.datasets.BNCI2015_001" title="moabb.datasets.BNCI2015_001"><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2015_001</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.BNCI2015_001.html#moabb.datasets.BNCI2015_001" title="moabb.datasets.BNCI2015_001"><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2015_001</span></code></a></p></td>
 <td><p>12</p></td>
 <td><p>13</p></td>
 <td><p>2</p></td>
@@ -541,7 +556,7 @@ The function will generate a figure like this:</p>
 <td><p>14400</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/bnci2015-001-moabb-1">Yes</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.BNCI2015_004.html#moabb.datasets.BNCI2015_004" title="moabb.datasets.BNCI2015_004"><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2015_004</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.BNCI2015_004.html#moabb.datasets.BNCI2015_004" title="moabb.datasets.BNCI2015_004"><code class="xref py py-class docutils literal notranslate"><span class="pre">BNCI2015_004</span></code></a></p></td>
 <td><p>9</p></td>
 <td><p>30</p></td>
 <td><p>5</p></td>
@@ -553,7 +568,7 @@ The function will generate a figure like this:</p>
 <td><p>7200</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/bnci2015-004-moabb-1">Yes</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Cho2017.html#moabb.datasets.Cho2017" title="moabb.datasets.Cho2017"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cho2017</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Cho2017.html#moabb.datasets.Cho2017" title="moabb.datasets.Cho2017"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cho2017</span></code></a></p></td>
 <td><p>52</p></td>
 <td><p>64</p></td>
 <td><p>2</p></td>
@@ -565,7 +580,7 @@ The function will generate a figure like this:</p>
 <td><p>9800</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/cho2017-moabb">Yes</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Lee2019_MI.html#moabb.datasets.Lee2019_MI" title="moabb.datasets.Lee2019_MI"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lee2019_MI</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Lee2019_MI.html#moabb.datasets.Lee2019_MI" title="moabb.datasets.Lee2019_MI"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lee2019_MI</span></code></a></p></td>
 <td><p>54</p></td>
 <td><p>62</p></td>
 <td><p>2</p></td>
@@ -577,7 +592,7 @@ The function will generate a figure like this:</p>
 <td><p>11000</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/lee2019-mi-moabb-1">Yes</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.GrosseWentrup2009.html#moabb.datasets.GrosseWentrup2009" title="moabb.datasets.GrosseWentrup2009"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrosseWentrup2009</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.GrosseWentrup2009.html#moabb.datasets.GrosseWentrup2009" title="moabb.datasets.GrosseWentrup2009"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrosseWentrup2009</span></code></a></p></td>
 <td><p>10</p></td>
 <td><p>128</p></td>
 <td><p>2</p></td>
@@ -589,7 +604,7 @@ The function will generate a figure like this:</p>
 <td><p>3000</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/grossewentrup2009-moabb">Yes</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Schirrmeister2017.html#moabb.datasets.Schirrmeister2017" title="moabb.datasets.Schirrmeister2017"><code class="xref py py-class docutils literal notranslate"><span class="pre">Schirrmeister2017</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Schirrmeister2017.html#moabb.datasets.Schirrmeister2017" title="moabb.datasets.Schirrmeister2017"><code class="xref py py-class docutils literal notranslate"><span class="pre">Schirrmeister2017</span></code></a></p></td>
 <td><p>14</p></td>
 <td><p>128</p></td>
 <td><p>4</p></td>
@@ -601,7 +616,7 @@ The function will generate a figure like this:</p>
 <td><p>13440</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/schirrmeister2017-moabb">Yes</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Ofner2017.html#moabb.datasets.Ofner2017" title="moabb.datasets.Ofner2017"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ofner2017</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Ofner2017.html#moabb.datasets.Ofner2017" title="moabb.datasets.Ofner2017"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ofner2017</span></code></a></p></td>
 <td><p>15</p></td>
 <td><p>61</p></td>
 <td><p>7</p></td>
@@ -613,7 +628,7 @@ The function will generate a figure like this:</p>
 <td><p>63000</p></td>
 <td><p>No</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.PhysionetMI.html#moabb.datasets.PhysionetMI" title="moabb.datasets.PhysionetMI"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysionetMI</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.PhysionetMI.html#moabb.datasets.PhysionetMI" title="moabb.datasets.PhysionetMI"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysionetMI</span></code></a></p></td>
 <td><p>109</p></td>
 <td><p>64</p></td>
 <td><p>4</p></td>
@@ -625,7 +640,7 @@ The function will generate a figure like this:</p>
 <td><p>69760</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/physionetmotorimagery-moabb">Yes</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Shin2017A.html#moabb.datasets.Shin2017A" title="moabb.datasets.Shin2017A"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shin2017A</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Shin2017A.html#moabb.datasets.Shin2017A" title="moabb.datasets.Shin2017A"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shin2017A</span></code></a></p></td>
 <td><p>29</p></td>
 <td><p>30</p></td>
 <td><p>2</p></td>
@@ -637,7 +652,7 @@ The function will generate a figure like this:</p>
 <td><p>5220</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/shin2017a-moabb">Yes</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Shin2017B.html#moabb.datasets.Shin2017B" title="moabb.datasets.Shin2017B"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shin2017B</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Shin2017B.html#moabb.datasets.Shin2017B" title="moabb.datasets.Shin2017B"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shin2017B</span></code></a></p></td>
 <td><p>29</p></td>
 <td><p>30</p></td>
 <td><p>2</p></td>
@@ -649,7 +664,7 @@ The function will generate a figure like this:</p>
 <td><p>5220</p></td>
 <td><p>No</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Weibo2014.html#moabb.datasets.Weibo2014" title="moabb.datasets.Weibo2014"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weibo2014</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Weibo2014.html#moabb.datasets.Weibo2014" title="moabb.datasets.Weibo2014"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weibo2014</span></code></a></p></td>
 <td><p>10</p></td>
 <td><p>60</p></td>
 <td><p>7</p></td>
@@ -661,7 +676,7 @@ The function will generate a figure like this:</p>
 <td><p>5600</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/weibo2014-moabb">Yes</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Zhou2016.html#moabb.datasets.Zhou2016" title="moabb.datasets.Zhou2016"><code class="xref py py-class docutils literal notranslate"><span class="pre">Zhou2016</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Zhou2016.html#moabb.datasets.Zhou2016" title="moabb.datasets.Zhou2016"><code class="xref py py-class docutils literal notranslate"><span class="pre">Zhou2016</span></code></a></p></td>
 <td><p>4</p></td>
 <td><p>14</p></td>
 <td><p>3</p></td>
@@ -673,7 +688,7 @@ The function will generate a figure like this:</p>
 <td><p>11496</p></td>
 <td><p><a class="reference external" href="https://paperswithcode.com/dataset/zhou2016-moabb">Yes</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Stieger2021.html#moabb.datasets.Stieger2021" title="moabb.datasets.Stieger2021"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stieger2021</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Stieger2021.html#moabb.datasets.Stieger2021" title="moabb.datasets.Stieger2021"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stieger2021</span></code></a></p></td>
 <td><p>62</p></td>
 <td><p>64</p></td>
 <td><p>4</p></td>
@@ -685,7 +700,7 @@ The function will generate a figure like this:</p>
 <td><p>250000</p></td>
 <td><p>No</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Liu2024.html#moabb.datasets.Liu2024" title="moabb.datasets.Liu2024"><code class="xref py py-class docutils literal notranslate"><span class="pre">Liu2024</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Liu2024.html#moabb.datasets.Liu2024" title="moabb.datasets.Liu2024"><code class="xref py py-class docutils literal notranslate"><span class="pre">Liu2024</span></code></a></p></td>
 <td><p>50</p></td>
 <td><p>29</p></td>
 <td><p>2</p></td>
@@ -697,7 +712,7 @@ The function will generate a figure like this:</p>
 <td><p>2000</p></td>
 <td><p>No</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Beetl2021_A.html#moabb.datasets.Beetl2021_A" title="moabb.datasets.Beetl2021_A"><code class="xref py py-class docutils literal notranslate"><span class="pre">Beetl2021_A</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Beetl2021_A.html#moabb.datasets.Beetl2021_A" title="moabb.datasets.Beetl2021_A"><code class="xref py py-class docutils literal notranslate"><span class="pre">Beetl2021_A</span></code></a></p></td>
 <td><p>4</p></td>
 <td><p>63</p></td>
 <td><p>4</p></td>
@@ -709,7 +724,7 @@ The function will generate a figure like this:</p>
 <td><p>1490</p></td>
 <td><p>No</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Beetl2021_B.html#moabb.datasets.Beetl2021_B" title="moabb.datasets.Beetl2021_B"><code class="xref py py-class docutils literal notranslate"><span class="pre">Beetl2021_B</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Beetl2021_B.html#moabb.datasets.Beetl2021_B" title="moabb.datasets.Beetl2021_B"><code class="xref py py-class docutils literal notranslate"><span class="pre">Beetl2021_B</span></code></a></p></td>
 <td><p>2</p></td>
 <td><p>32</p></td>
 <td><p>4</p></td>
@@ -721,7 +736,7 @@ The function will generate a figure like this:</p>
 <td><p>1590</p></td>
 <td><p>No</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Dreyer2023A.html#moabb.datasets.Dreyer2023A" title="moabb.datasets.Dreyer2023A"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dreyer2023A</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Dreyer2023A.html#moabb.datasets.Dreyer2023A" title="moabb.datasets.Dreyer2023A"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dreyer2023A</span></code></a></p></td>
 <td><p>60</p></td>
 <td><p>27</p></td>
 <td><p>2</p></td>
@@ -733,7 +748,7 @@ The function will generate a figure like this:</p>
 <td><p>14400</p></td>
 <td><p>No</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Dreyer2023B.html#moabb.datasets.Dreyer2023B" title="moabb.datasets.Dreyer2023B"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dreyer2023B</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Dreyer2023B.html#moabb.datasets.Dreyer2023B" title="moabb.datasets.Dreyer2023B"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dreyer2023B</span></code></a></p></td>
 <td><p>21</p></td>
 <td><p>27</p></td>
 <td><p>2</p></td>
@@ -745,7 +760,7 @@ The function will generate a figure like this:</p>
 <td><p>5040</p></td>
 <td><p>No</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Dreyer2023C.html#moabb.datasets.Dreyer2023C" title="moabb.datasets.Dreyer2023C"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dreyer2023C</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Dreyer2023C.html#moabb.datasets.Dreyer2023C" title="moabb.datasets.Dreyer2023C"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dreyer2023C</span></code></a></p></td>
 <td><p>6</p></td>
 <td><p>27</p></td>
 <td><p>2</p></td>
@@ -757,7 +772,7 @@ The function will generate a figure like this:</p>
 <td><p>1440</p></td>
 <td><p>No</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Dreyer2023.html#moabb.datasets.Dreyer2023" title="moabb.datasets.Dreyer2023"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dreyer2023</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Dreyer2023.html#moabb.datasets.Dreyer2023" title="moabb.datasets.Dreyer2023"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dreyer2023</span></code></a></p></td>
 <td><p>87</p></td>
 <td><p>27</p></td>
 <td><p>2</p></td>
@@ -1000,6 +1015,24 @@ The function will generate a figure like this:</p>
 <td><p>~400 All</p></td>
 <td><p>1.0</p></td>
 <td><p>1024</p></td>
+<td><p>1</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/moabb.datasets.Kojima2024A.html#moabb.datasets.Kojima2024A" title="moabb.datasets.Kojima2024A"><code class="xref py py-class docutils literal notranslate"><span class="pre">Kojima2024A</span></code></a></p></td>
+<td><p>11</p></td>
+<td><p>64</p></td>
+<td><p>~130 NT / ~65 T</p></td>
+<td><p>1.0</p></td>
+<td><p>1000</p></td>
+<td><p>1</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/moabb.datasets.Kojima2024B.html#moabb.datasets.Kojima2024B" title="moabb.datasets.Kojima2024B"><code class="xref py py-class docutils literal notranslate"><span class="pre">Kojima2024B</span></code></a></p></td>
+<td><p>15</p></td>
+<td><p>64</p></td>
+<td><p>2160 NT / 720 T</p></td>
+<td><p>1.0</p></td>
+<td><p>1000</p></td>
 <td><p>1</p></td>
 <td><p>No</p></td>
 </tr>
@@ -1255,7 +1288,7 @@ is a resting state experiment.</p>
 <td><p>12</p></td>
 <td><p>16</p></td>
 <td><p>2</p></td>
-<td><p>10</p></td>
+<td><p>5</p></td>
 <td><p>60</p></td>
 <td><p>512</p></td>
 <td><p>1</p></td>
