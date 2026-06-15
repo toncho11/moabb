@@ -17,7 +17,9 @@ to easily scale to many datasets.
 import matplotlib.pyplot as plt
 
 from moabb import benchmark, set_log_level
+from moabb.analysis.chance_level import chance_by_chance
 from moabb.analysis.plotting import score_plot
+from moabb.paradigms import LeftRightImagery
 
 
 set_log_level("info")
@@ -46,6 +48,24 @@ set_log_level("info")
 # pipeline-name__estimator-name_parameter. Note that pipeline and estimator names MUST
 # be in lower case (no capital letters allowed).
 # If the grid search is already implemented it will load the previous results
+#
+# Optional: CodeCarbon Configuration for GridSearch Benchmarks
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+# Grid search can be computationally expensive. You may want to track emissions
+# during the optimization process. Configure CodeCarbon as needed:
+#
+# .. code-block:: python
+#
+#     codecarbon_config = {
+#         'tracking_mode': 'machine',
+#         'save_to_file': True,
+#         'output_file': 'gridsearch_emissions.csv',
+#         'log_level': 'info'
+#     }
+#
+# With ``tracking_mode='machine'``, CodeCarbon will track the entire machine's
+# power consumption, which is useful for benchmarking.
 
 results = benchmark(
     pipelines="./pipelines_grid/",
@@ -54,8 +74,9 @@ results = benchmark(
     include_datasets=["Zhou2016"],
     results="./results/",
     overwrite=False,
-    plot=False,
     output="./benchmark/",
+    suffix="benchmark_grid",
+    plot=False,
 )
 
 ###############################################################################
@@ -63,5 +84,11 @@ results = benchmark(
 # pandas dataframe, and can be used to generate figures. The analysis & figures
 # are saved in the ``benchmark`` folder.
 
-score_plot(results)
+###############################################################################
+# Compute chance levels for the dataset used in the benchmark.
+
+paradigm = LeftRightImagery()
+chance_levels = chance_by_chance(results, alpha=[0.05, 0.01])
+
+score_plot(results, chance_level=chance_levels)
 plt.show()

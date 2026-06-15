@@ -7,12 +7,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="moabb icon" sizes="180x180" href="../../_static/moabb_logo.png" type="image/png">
+    <link rel="moabb icon" sizes="180x180" href="../../_static/_static/moabb_logo.png" type="image/png">
     <link rel="icon" href="../../_static/favicon.svg" type="image/svg+xml">
     <link rel="icon" sizes="144x144" href="../../_static/favicon-144.png" type="image/png">
     <link rel="mask-icon" href="../../_static/favicon_mask-icon.svg" color="#222832" type="image/svg+xml">
-    <link rel="apple-touch-icon" sizes="500x500" href="../../_static/favicon-500.png" type="image/png">
-    <title>Hinss2021 classification example &#8212; moabb 1.3.0-dev documentation</title>
+    <link rel="apple-touch-icon" sizes="500x500" href="../../_static/favicon-500.png" type="image/png"><meta property="og:title" content="Hinss2021 classification example" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://moabb.neurotechx.com/docs/auto_examples/advanced_examples/plot_hinss2021_classification.html" />
+<meta property="og:site_name" content="MOABB - Mother of all BCI Benchmarks" />
+<meta property="og:description" content="This example shows how to use the Hinss2021 dataset with the resting state paradigm. In this example, we aim to determine the most effective channel selection strategy for the moabb.datasets.Hinss2..." />
+<meta property="og:image" content="https://moabb.neurotechx.com/docs/_static/moabb_og_card.png" />
+<meta property="og:image:alt" content="MOABB - Mother of all BCI Benchmarks: 158 open EEG datasets for reproducible BCI research" />
+<meta name="description" content="This example shows how to use the Hinss2021 dataset with the resting state paradigm. In this example, we aim to determine the most effective channel selection strategy for the moabb.datasets.Hinss2..." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@NeuroTechX" />
+
+    <title>Hinss2021 classification example &#8212; MOABB Documentation</title>
   
   
   
@@ -31,70 +41,130 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/neurotechx/moabb/refs/heads/develop/docs/source/_static/css/custom.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-2.0.4/b-3.0.2/b-html5-3.0.2/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d694e5f0" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/macro-table.css?v=4c18d17a" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.0/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.2.6/css/buttons.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchpanes/2.3.5/css/searchPanes.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/3.1.3/css/select.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/4.0.6/css/fixedHeader.dataTables.css" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
     <script src="../../_static/jquery.js?v=5d32c60e"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../../_static/documentation_options.js?v=cba09fd8"></script>
+    <script src="../../_static/documentation_options.js?v=1558bf76"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5WJBKDMSTE"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-5WJBKDMSTE');
-            </script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-5WJBKDMSTE');
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/advanced_examples/plot_hinss2021_classification';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.datatables.net/v/dt/dt-2.0.4/b-3.0.2/b-html5-3.0.2/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.2.0/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.6/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.6/js/buttons.html5.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.6/js/buttons.colVis.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.6/js/buttons.print.js"></script>
+    <script src="https://cdn.datatables.net/select/3.1.3/js/dataTables.select.js"></script>
+    <script src="https://cdn.datatables.net/searchpanes/2.3.5/js/dataTables.searchPanes.js"></script>
+    <script src="https://cdn.datatables.net/searchpanes/2.3.5/js/searchPanes.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/4.0.6/js/dataTables.fixedHeader.js"></script>
+    <script src="../../_static/js/section-nav-hierarchy.js?v=c53969c2"></script>
+    <script src="../../_static/js/macro-table.js?v=c799a707"></script>
+    <link rel="canonical" href="https://moabb.neurotechx.com/docs/auto_examples/advanced_examples/plot_hinss2021_classification.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="MNE Epochs-based pipelines" href="plot_mne_and_scikit_estimators.html" />
     <link rel="prev" title="GridSearch within a session" href="plot_grid_search_withinsession.html" />
+    <link rel="canonical" href="https://moabb.neurotechx.com/docs/auto_examples/advanced_examples/plot_hinss2021_classification.html" />
+
+    
+    
+
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "MOABB",
+          "item": "https://moabb.neurotechx.com/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Hinss2021 classification example",
+          "item": "https://moabb.neurotechx.com/docs/auto_examples/advanced_examples/plot_hinss2021_classification.html"
+        }
+      ]
+    }
+    </script>
+    
+
+    
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.3.0" />
-  </head>
+  <meta name="docsearch:version" content="1.5.0dev0" />
   
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
+  </head>
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -117,11 +187,13 @@
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-  <aside class="bd-header-announcement d-print-none d-none" aria-label="Announcement" data-pst-announcement-url="https://raw.githubusercontent.com/neurotechx/moabb/develop/docs/source/_templates/custom-template.html"></aside>
 </div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content"><strong>Using MOABB in academic work?</strong> <a class='moabb-announcement-cta' href='cite.html'>Cite MOABB</a> <span class='moabb-announcement-secondary'>DOI: <a href='https://doi.org/10.5281/zenodo.10034223'>10.5281/zenodo.10034223</a> · Explore <a href='paper_results.html'>benchmark results</a></span></div>
+</aside>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -145,8 +217,8 @@
     
     
     
-    <img src="../../_static/moabb_light.svg" class="logo__image only-light" alt="moabb 1.3.0-dev documentation - Home"/>
-    <img src="../../_static/moabb_dark.svg" class="logo__image only-dark pst-js-only" alt="moabb 1.3.0-dev documentation - Home"/>
+    <img src="../../_static/moabb_light.svg" class="logo__image only-light" alt="MOABB Documentation - Home"/>
+    <img src="../../_static/moabb_dark.svg" class="logo__image only-dark pst-js-only" alt="MOABB Documentation - Home"/>
   
   
 </a></div>
@@ -240,11 +312,44 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="External Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/NeuroTechX/moabb" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/moabb/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
       
     </div>
     
@@ -352,18 +457,58 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="External Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/NeuroTechX/moabb" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/moabb/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
         
       </div>
     
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
         <div class="sidebar-primary-item">
+
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
@@ -373,8 +518,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_1_simple_example_motor_imagery.html">Tutorial 1: Simple Motor Imagery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_2_using_mulitple_datasets.html">Tutorial 2: Using multiple datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_3_benchmarking_multiple_pipelines.html">Tutorial 3: Benchmarking multiple pipelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_4_adding_a_dataset.html">Tutorial 4: Creating a dataset class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_5_build_a_custom_dataset.html">Tutorial 5: Creating a dataset class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_4_adding_a_dataset.html">Tutorial 4: Creating custom datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_5_combining_datasets.html">Tutorial 5: Combining Multiple Datasets into a Single Dataset</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../paradigm_examples/index.html">Paradigm-Specific Evaluation Examples (Within- &amp; Cross-Session)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -396,25 +541,28 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../how_to_benchmark/index.html">Benchmarking and Pipeline Evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../how_to_benchmark/example_codecarbon.html">Benchmarking with MOABB showing the CO2 footprint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how_to_benchmark/noplot_example_codecarbon.html">Benchmarking with MOABB showing the CO2 footprint</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how_to_benchmark/plot_benchmark.html">Benchmarking with MOABB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how_to_benchmark/plot_benchmark_grid_search.html">Benchmarking with MOABB with Grid Search</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how_to_benchmark/plot_within_session_splitter.html">Tutorial: Within-Session Splitting on Real MI Dataset</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Advanced examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="noplot_mne_features_pipeline.html">Pipelines using the mne-features library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_dataset_bubbles.html">Dataset bubble plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_dreyer_clf_scores_vs_subj_info.html">Examples of analysis of a Dreyer2023 A dataset.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_filterbank_csp_vs_csp.html">FilterBank CSP versus CSP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_grid_search_withinsession.html">GridSearch within a session</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Hinss2021 classification example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_mne_and_scikit_estimators.html">MNE Epochs-based pipelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_mne_features_pipeline.html">Pipelines using the mne-features library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_phmd_ml_spectrum.html">Spectral analysis of the trials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_pre_processing_steps.html">Playing with the pre-processing steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_pseudoonline.html">Pseudo-Online Motor Imagery with Sliding Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_riemannian_artifact_rejection.html">Riemannian Artifact Rejection as a Pre-processing Step</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_select_electrodes_resample.html">Select Electrodes and Resampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_statistical_analysis.html">Statistical Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_use_an_X_y_dataset.html">Tutorial 6: Using X y data (epoched data) instead of continuous signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_sliding_estimator.html">Time-Resolved Decoding with SlidingEstimator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_statistical_analysis.html">Statistical Analysis and Chance Level Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_use_an_X_y_dataset.html">Using X y data (epoched data) instead of continuous signal</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../learning_curve/index.html">Evaluation with learning curve</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -481,11 +629,9 @@
 </div>
               
               
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+<div>
+  
+  
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="#sphx-glr-download-auto-examples-advanced-examples-plot-hinss2021-classification-py"><span class="std std-ref">Go to the end</span></a>
@@ -510,13 +656,13 @@ The pipelines under consideration are:</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.channelselection</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">ElectrodeSelection</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.estimation</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.spatialfilters</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Xdawn</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.tangentspace</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.base</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TransformerMixin</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.discriminant_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span> <span class="k">as</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" title="sklearn.discriminant_analysis.LinearDiscriminantAnalysis" class="sphx-glr-backref-module-sklearn-discriminant_analysis sphx-glr-backref-type-py-class"><span class="n">LDA</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.channelselection</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">ElectrodeSelection</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.estimation</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.spatialfilters</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Xdawn</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.tangentspace</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.base</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TransformerMixin</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.discriminant_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span> <span class="k">as</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" title="sklearn.discriminant_analysis.LinearDiscriminantAnalysis" class="sphx-glr-backref-module-sklearn-discriminant_analysis sphx-glr-backref-type-py-class"><span class="n">LDA</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">moabb</span><span class="w"> </span><span class="kn">import</span> <a href="../../generated/moabb.set_log_level.html#moabb.set_log_level" title="moabb.set_log_level" class="sphx-glr-backref-module-moabb sphx-glr-backref-type-py-function"><span class="n">set_log_level</span></a>
 <span class="kn">from</span><span class="w"> </span><span class="nn">moabb.datasets</span><span class="w"> </span><span class="kn">import</span> <a href="../../generated/moabb.datasets.Hinss2021.html#moabb.datasets.Hinss2021" title="moabb.datasets.Hinss2021" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class"><span class="n">Hinss2021</span></a>
@@ -535,7 +681,7 @@ The pipelines under consideration are:</p>
 <h2>Create util transformer<a class="headerlink" href="#create-util-transformer" title="Link to this heading">#</a></h2>
 <p>Let’s create a scikit transformer mixin, that will
 select electrodes based on the covariance information</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">EpochSelectChannel</span><span class="p">(</span><a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TransformerMixin</span></a><span class="p">):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">EpochSelectChannel</span><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TransformerMixin</span></a><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Select channels based on covariance information.&quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_chan</span><span class="p">,</span> <span class="n">cov_est</span><span class="p">):</span>
@@ -545,7 +691,7 @@ select electrodes based on the covariance information</p>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">_y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># Get the covariances of the channels for each epoch.</span>
-        <span class="n">covs</span> <span class="o">=</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cov_est</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">covs</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cov_est</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="c1"># Get the average covariance between the channels</span>
         <span class="n">m</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><span class="n">covs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="c1"># Select the `n_chan` channels having the maximum covariances.</span>
@@ -569,7 +715,7 @@ select electrodes based on the covariance information</p>
 <li><p>Select a subset of subjects and specific events for analysis</p></li>
 </ol>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we define the mne events for the RestingState paradigm.</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">events</span></a> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">easy</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">diff</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">events</span></a> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;easy&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;diff&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 <span class="c1"># The paradigm is adapted to the P300 paradigm.</span>
 <a href="../../generated/moabb.paradigms.RestingStateToP300Adapter.html#moabb.paradigms.RestingStateToP300Adapter" title="moabb.paradigms.RestingStateToP300Adapter" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a> <span class="o">=</span> <a href="../../generated/moabb.paradigms.RestingStateToP300Adapter.html#moabb.paradigms.RestingStateToP300Adapter" title="moabb.paradigms.RestingStateToP300Adapter" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class"><span class="n">RestingStateToP300Adapter</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">events</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">events</span></a><span class="p">,</span> <span class="n">tmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="c1"># We define a list with the dataset to use</span>
@@ -590,21 +736,21 @@ select electrodes based on the covariance information</p>
 <p>Pipelines must be a dict of scikit-learning pipeline transformer.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a> <span class="o">=</span> <span class="p">{}</span>
 
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">[</span><span class="s2">&quot;Xdawn+Cov+TS+LDA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span>
-    <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Xdawn</span></a><span class="p">(</span><span class="n">nfilter</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="s2">&quot;lwf&quot;</span><span class="p">),</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a><span class="p">(),</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" title="sklearn.discriminant_analysis.LinearDiscriminantAnalysis" class="sphx-glr-backref-module-sklearn-discriminant_analysis sphx-glr-backref-type-py-class"><span class="n">LDA</span></a><span class="p">()</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">[</span><span class="s2">&quot;Xdawn+Cov+TS+LDA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Xdawn</span></a><span class="p">(</span><span class="n">nfilter</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="s2">&quot;lwf&quot;</span><span class="p">),</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a><span class="p">(),</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" title="sklearn.discriminant_analysis.LinearDiscriminantAnalysis" class="sphx-glr-backref-module-sklearn-discriminant_analysis sphx-glr-backref-type-py-class"><span class="n">LDA</span></a><span class="p">()</span>
 <span class="p">)</span>
 
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">[</span><span class="s2">&quot;Cov+ElSel+TS+LDA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span>
-    <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="s2">&quot;lwf&quot;</span><span class="p">),</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">ElectrodeSelection</span></a><span class="p">(</span><span class="n">nelec</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a><span class="p">(),</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" title="sklearn.discriminant_analysis.LinearDiscriminantAnalysis" class="sphx-glr-backref-module-sklearn-discriminant_analysis sphx-glr-backref-type-py-class"><span class="n">LDA</span></a><span class="p">()</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">[</span><span class="s2">&quot;Cov+ElSel+TS+LDA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="s2">&quot;lwf&quot;</span><span class="p">),</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">ElectrodeSelection</span></a><span class="p">(</span><span class="n">nelec</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a><span class="p">(),</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" title="sklearn.discriminant_analysis.LinearDiscriminantAnalysis" class="sphx-glr-backref-module-sklearn-discriminant_analysis sphx-glr-backref-type-py-class"><span class="n">LDA</span></a><span class="p">()</span>
 <span class="p">)</span>
 
 <span class="c1"># Pay attention here that the channel selection took place before computing the covariances:</span>
 <span class="c1"># It is done on time epochs.</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">[</span><span class="s2">&quot;ElSel+Cov+TS+LDA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span>
-    <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">EpochSelectChannel</span></a><span class="p">(</span><span class="n">n_chan</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">cov_est</span><span class="o">=</span><span class="s2">&quot;lwf&quot;</span><span class="p">),</span>
-    <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="s2">&quot;lwf&quot;</span><span class="p">),</span>
-    <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a><span class="p">(),</span>
-    <a href="http://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" title="sklearn.discriminant_analysis.LinearDiscriminantAnalysis" class="sphx-glr-backref-module-sklearn-discriminant_analysis sphx-glr-backref-type-py-class"><span class="n">LDA</span></a><span class="p">(),</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">[</span><span class="s2">&quot;ElSel+Cov+TS+LDA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">EpochSelectChannel</span></a><span class="p">(</span><span class="n">n_chan</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">cov_est</span><span class="o">=</span><span class="s2">&quot;lwf&quot;</span><span class="p">),</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="s2">&quot;lwf&quot;</span><span class="p">),</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a><span class="p">(),</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis" title="sklearn.discriminant_analysis.LinearDiscriminantAnalysis" class="sphx-glr-backref-module-sklearn-discriminant_analysis sphx-glr-backref-type-py-class"><span class="n">LDA</span></a><span class="p">(),</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -613,33 +759,440 @@ select electrodes based on the covariance information</p>
 <h2>Run evaluation<a class="headerlink" href="#run-evaluation" title="Link to this heading">#</a></h2>
 <p>Compare the pipeline using a cross session evaluation.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here should be cross-session</span>
-<a href="../../generated/moabb.evaluations.CrossSessionEvaluation.html#moabb.evaluations.CrossSessionEvaluation" title="moabb.evaluations.CrossSessionEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">evaluation</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.CrossSessionEvaluation.html#moabb.evaluations.CrossSessionEvaluation" title="moabb.evaluations.CrossSessionEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class"><span class="n">CrossSessionEvaluation</span></a><span class="p">(</span>
-    <a href="../../generated/moabb.paradigms.RestingStateToP300Adapter.html#moabb.paradigms.RestingStateToP300Adapter" title="moabb.paradigms.RestingStateToP300Adapter" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a><span class="o">=</span><a href="../../generated/moabb.paradigms.RestingStateToP300Adapter.html#moabb.paradigms.RestingStateToP300Adapter" title="moabb.paradigms.RestingStateToP300Adapter" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a><span class="p">,</span>
-    <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">datasets</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">datasets</span></a><span class="p">,</span>
-    <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span>
+<a href="../../generated/moabb.evaluations.CrossSessionEvaluation.html#moabb.evaluations.CrossSessionEvaluation" title="moabb.evaluations.CrossSessionEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">evaluation</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.CrossSessionEvaluation.html#moabb.evaluations.CrossSessionEvaluation" title="moabb.evaluations.CrossSessionEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class"><span class="n">CrossSessionEvaluation</span></a><span class="p">(</span><a href="../../generated/moabb.paradigms.RestingStateToP300Adapter.html#moabb.paradigms.RestingStateToP300Adapter" title="moabb.paradigms.RestingStateToP300Adapter" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a><span class="o">=</span><a href="../../generated/moabb.paradigms.RestingStateToP300Adapter.html#moabb.paradigms.RestingStateToP300Adapter" title="moabb.paradigms.RestingStateToP300Adapter" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">datasets</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">datasets</span></a><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="n">results</span> <span class="o">=</span> <a href="../../generated/moabb.evaluations.base.BaseEvaluation.html#moabb.evaluations.base.BaseEvaluation.process" title="moabb.evaluations.base.BaseEvaluation.process" class="sphx-glr-backref-module-moabb-evaluations-base sphx-glr-backref-type-py-method"><span class="n">evaluation</span><span class="o">.</span><span class="n">process</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">)</span>
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.base.BaseEvaluation.html#moabb.evaluations.base.BaseEvaluation.process" title="moabb.evaluations.base.BaseEvaluation.process" class="sphx-glr-backref-module-moabb-evaluations-base sphx-glr-backref-type-py-method"><span class="n">evaluation</span><span class="o">.</span><span class="n">process</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Hinss2021-CrossSession:   0%|          | 0/2 [00:00&lt;?, ?it/s]
-Hinss2021-CrossSession:  50%|█████     | 1/2 [00:00&lt;00:00,  2.84it/s]
-Hinss2021-CrossSession: 100%|██████████| 2/2 [00:00&lt;00:00,  2.87it/s]
-Hinss2021-CrossSession: 100%|██████████| 2/2 [00:00&lt;00:00,  2.87it/s]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>  0%|                                               | 0.00/181M [00:00&lt;?, ?B/s]
+  0%|                                      | 12.3k/181M [00:00&lt;41:52, 72.1kB/s]
+  0%|                                       | 41.0k/181M [00:00&lt;22:23, 135kB/s]
+  0%|                                       | 94.2k/181M [00:00&lt;13:20, 226kB/s]
+  0%|                                        | 170k/181M [00:00&lt;09:17, 325kB/s]
+  0%|                                        | 264k/181M [00:00&lt;07:07, 423kB/s]
+  0%|                                        | 362k/181M [00:00&lt;06:08, 491kB/s]
+  0%|                                        | 494k/181M [00:01&lt;04:59, 602kB/s]
+  0%|▏                                       | 657k/181M [00:01&lt;04:03, 741kB/s]
+  0%|▏                                       | 854k/181M [00:01&lt;03:20, 899kB/s]
+  1%|▏                                     | 1.10M/181M [00:01&lt;02:43, 1.10MB/s]
+  1%|▎                                     | 1.43M/181M [00:01&lt;02:07, 1.41MB/s]
+  1%|▎                                     | 1.71M/181M [00:01&lt;01:58, 1.51MB/s]
+  1%|▍                                     | 2.25M/181M [00:02&lt;01:25, 2.09MB/s]
+  1%|▌                                     | 2.56M/181M [00:02&lt;01:26, 2.05MB/s]
+  2%|▌                                     | 2.82M/181M [00:02&lt;01:32, 1.94MB/s]
+  2%|▋                                     | 3.18M/181M [00:02&lt;01:27, 2.04MB/s]
+  2%|▋                                     | 3.52M/181M [00:02&lt;01:25, 2.08MB/s]
+  2%|▊                                     | 3.96M/181M [00:02&lt;01:17, 2.29MB/s]
+  2%|▉                                     | 4.32M/181M [00:03&lt;01:17, 2.29MB/s]
+  3%|▉                                     | 4.72M/181M [00:03&lt;01:15, 2.35MB/s]
+  3%|█                                     | 5.09M/181M [00:03&lt;01:14, 2.35MB/s]
+  3%|█▏                                    | 5.49M/181M [00:03&lt;01:13, 2.39MB/s]
+  3%|█▏                                    | 5.85M/181M [00:03&lt;01:14, 2.36MB/s]
+  3%|█▎                                    | 6.21M/181M [00:03&lt;01:14, 2.33MB/s]
+  4%|█▍                                    | 6.61M/181M [00:03&lt;01:12, 2.41MB/s]
+  4%|█▍                                    | 7.01M/181M [00:04&lt;01:11, 2.43MB/s]
+  4%|█▌                                    | 7.48M/181M [00:04&lt;01:06, 2.60MB/s]
+  4%|█▋                                    | 7.86M/181M [00:04&lt;01:08, 2.53MB/s]
+  5%|█▋                                    | 8.23M/181M [00:04&lt;01:09, 2.49MB/s]
+  5%|█▊                                    | 8.59M/181M [00:04&lt;01:11, 2.42MB/s]
+  5%|█▊                                    | 8.87M/181M [00:04&lt;01:17, 2.22MB/s]
+  5%|█▉                                    | 9.29M/181M [00:05&lt;01:12, 2.36MB/s]
+  5%|██                                    | 9.63M/181M [00:05&lt;01:14, 2.30MB/s]
+  6%|██                                    | 10.0M/181M [00:05&lt;01:13, 2.32MB/s]
+  6%|██▏                                   | 10.4M/181M [00:05&lt;01:14, 2.30MB/s]
+  6%|██▎                                   | 10.7M/181M [00:05&lt;01:13, 2.32MB/s]
+  6%|██▎                                   | 11.1M/181M [00:05&lt;01:16, 2.21MB/s]
+  6%|██▍                                   | 11.5M/181M [00:06&lt;01:11, 2.36MB/s]
+  7%|██▍                                   | 11.8M/181M [00:06&lt;01:15, 2.24MB/s]
+  7%|██▌                                   | 12.2M/181M [00:06&lt;01:15, 2.25MB/s]
+  7%|██▋                                   | 12.5M/181M [00:06&lt;01:13, 2.29MB/s]
+  7%|██▋                                   | 12.9M/181M [00:06&lt;01:10, 2.38MB/s]
+  7%|██▊                                   | 13.4M/181M [00:06&lt;01:07, 2.47MB/s]
+  8%|██▉                                   | 13.8M/181M [00:06&lt;01:07, 2.47MB/s]
+  8%|██▉                                   | 14.2M/181M [00:07&lt;01:04, 2.57MB/s]
+  8%|███                                   | 14.5M/181M [00:07&lt;01:07, 2.45MB/s]
+  8%|███▏                                  | 14.9M/181M [00:07&lt;01:08, 2.43MB/s]
+  8%|███▏                                  | 15.3M/181M [00:07&lt;01:08, 2.41MB/s]
+  9%|███▎                                  | 15.7M/181M [00:07&lt;01:08, 2.40MB/s]
+  9%|███▍                                  | 16.2M/181M [00:07&lt;01:02, 2.64MB/s]
+  9%|███▍                                  | 16.6M/181M [00:08&lt;01:02, 2.63MB/s]
+  9%|███▌                                  | 17.0M/181M [00:08&lt;01:04, 2.55MB/s]
+ 10%|███▋                                  | 17.4M/181M [00:08&lt;01:03, 2.56MB/s]
+ 10%|███▋                                  | 17.6M/181M [00:08&lt;01:11, 2.28MB/s]
+ 10%|███▊                                  | 18.0M/181M [00:08&lt;01:12, 2.26MB/s]
+ 10%|███▊                                  | 18.4M/181M [00:08&lt;01:08, 2.37MB/s]
+ 10%|███▉                                  | 18.8M/181M [00:09&lt;01:07, 2.40MB/s]
+ 11%|████                                  | 19.2M/181M [00:09&lt;01:07, 2.40MB/s]
+ 11%|████                                  | 19.5M/181M [00:09&lt;01:06, 2.42MB/s]
+ 11%|████▏                                 | 19.9M/181M [00:09&lt;01:05, 2.44MB/s]
+ 11%|████▎                                 | 20.3M/181M [00:09&lt;01:06, 2.40MB/s]
+ 11%|████▎                                 | 20.6M/181M [00:09&lt;01:14, 2.15MB/s]
+ 12%|████▍                                 | 20.9M/181M [00:09&lt;01:13, 2.17MB/s]
+ 12%|████▍                                 | 21.1M/181M [00:10&lt;01:21, 1.96MB/s]
+ 12%|████▌                                 | 21.5M/181M [00:10&lt;01:15, 2.11MB/s]
+ 12%|████▌                                 | 21.8M/181M [00:10&lt;01:18, 2.04MB/s]
+ 12%|████▋                                 | 22.3M/181M [00:10&lt;01:10, 2.26MB/s]
+ 13%|████▊                                 | 22.6M/181M [00:10&lt;01:09, 2.29MB/s]
+ 13%|████▊                                 | 23.0M/181M [00:10&lt;01:06, 2.38MB/s]
+ 13%|████▉                                 | 23.4M/181M [00:11&lt;01:08, 2.32MB/s]
+ 13%|████▉                                 | 23.7M/181M [00:11&lt;01:10, 2.24MB/s]
+ 13%|█████                                 | 24.1M/181M [00:11&lt;01:07, 2.31MB/s]
+ 13%|█████                                 | 24.4M/181M [00:11&lt;01:12, 2.15MB/s]
+ 14%|█████▏                                | 24.8M/181M [00:11&lt;01:08, 2.28MB/s]
+ 14%|█████▎                                | 25.1M/181M [00:11&lt;01:09, 2.25MB/s]
+ 14%|█████▎                                | 25.5M/181M [00:12&lt;01:08, 2.25MB/s]
+ 14%|█████▍                                | 25.9M/181M [00:12&lt;01:05, 2.38MB/s]
+ 15%|█████▌                                | 26.3M/181M [00:12&lt;01:04, 2.38MB/s]
+ 15%|█████▌                                | 26.7M/181M [00:12&lt;01:03, 2.44MB/s]
+ 15%|█████▋                                | 27.1M/181M [00:12&lt;01:04, 2.39MB/s]
+ 15%|█████▊                                | 27.4M/181M [00:12&lt;01:05, 2.34MB/s]
+ 15%|█████▊                                | 27.8M/181M [00:12&lt;01:05, 2.33MB/s]
+ 16%|█████▉                                | 28.1M/181M [00:13&lt;01:05, 2.32MB/s]
+ 16%|█████▉                                | 28.5M/181M [00:13&lt;01:04, 2.37MB/s]
+ 16%|██████                                | 28.9M/181M [00:13&lt;01:06, 2.30MB/s]
+ 16%|██████▏                               | 29.2M/181M [00:13&lt;01:07, 2.26MB/s]
+ 16%|██████▏                               | 29.5M/181M [00:13&lt;01:09, 2.17MB/s]
+ 17%|██████▎                               | 29.9M/181M [00:13&lt;01:08, 2.20MB/s]
+ 17%|██████▎                               | 30.4M/181M [00:14&lt;01:02, 2.41MB/s]
+ 17%|██████▍                               | 30.7M/181M [00:14&lt;01:03, 2.37MB/s]
+ 17%|██████▌                               | 31.1M/181M [00:14&lt;01:03, 2.37MB/s]
+ 17%|██████▌                               | 31.5M/181M [00:14&lt;01:02, 2.40MB/s]
+ 18%|██████▋                               | 31.8M/181M [00:14&lt;01:03, 2.37MB/s]
+ 18%|██████▊                               | 32.2M/181M [00:14&lt;01:03, 2.34MB/s]
+ 18%|██████▊                               | 32.6M/181M [00:15&lt;01:02, 2.38MB/s]
+ 18%|██████▉                               | 33.0M/181M [00:15&lt;01:01, 2.40MB/s]
+ 18%|██████▉                               | 33.3M/181M [00:15&lt;01:02, 2.36MB/s]
+ 19%|███████                               | 33.7M/181M [00:15&lt;01:01, 2.39MB/s]
+ 19%|███████▏                              | 34.1M/181M [00:15&lt;01:03, 2.33MB/s]
+ 19%|███████▏                              | 34.4M/181M [00:15&lt;01:03, 2.31MB/s]
+ 19%|███████▎                              | 34.9M/181M [00:15&lt;00:59, 2.45MB/s]
+ 19%|███████▍                              | 35.2M/181M [00:16&lt;01:03, 2.31MB/s]
+ 20%|███████▍                              | 35.6M/181M [00:16&lt;01:00, 2.39MB/s]
+ 20%|███████▌                              | 35.9M/181M [00:16&lt;01:04, 2.26MB/s]
+ 20%|███████▌                              | 36.3M/181M [00:16&lt;01:02, 2.32MB/s]
+ 20%|███████▋                              | 36.7M/181M [00:16&lt;01:02, 2.31MB/s]
+ 20%|███████▊                              | 37.0M/181M [00:16&lt;01:06, 2.17MB/s]
+ 21%|███████▊                              | 37.4M/181M [00:17&lt;01:02, 2.30MB/s]
+ 21%|███████▉                              | 37.7M/181M [00:17&lt;01:01, 2.32MB/s]
+ 21%|████████                              | 38.2M/181M [00:17&lt;00:59, 2.40MB/s]
+ 21%|████████                              | 38.6M/181M [00:17&lt;00:57, 2.49MB/s]
+ 22%|████████▏                             | 39.0M/181M [00:17&lt;00:54, 2.61MB/s]
+ 22%|████████▎                             | 39.5M/181M [00:17&lt;00:52, 2.69MB/s]
+ 22%|████████▎                             | 39.8M/181M [00:18&lt;00:58, 2.40MB/s]
+ 22%|████████▍                             | 40.1M/181M [00:18&lt;01:00, 2.35MB/s]
+ 22%|████████▌                             | 40.5M/181M [00:18&lt;00:58, 2.38MB/s]
+ 23%|████████▌                             | 40.8M/181M [00:18&lt;01:02, 2.26MB/s]
+ 23%|████████▋                             | 41.5M/181M [00:18&lt;00:50, 2.79MB/s]
+ 23%|████████▊                             | 41.8M/181M [00:18&lt;00:52, 2.64MB/s]
+ 23%|████████▊                             | 42.2M/181M [00:18&lt;00:53, 2.59MB/s]
+ 24%|████████▉                             | 42.7M/181M [00:19&lt;00:51, 2.67MB/s]
+ 24%|█████████                             | 43.0M/181M [00:19&lt;00:53, 2.59MB/s]
+ 24%|█████████                             | 43.4M/181M [00:19&lt;00:55, 2.49MB/s]
+ 24%|█████████▏                            | 43.7M/181M [00:19&lt;00:59, 2.32MB/s]
+ 24%|█████████▏                            | 44.1M/181M [00:19&lt;00:59, 2.31MB/s]
+ 24%|█████████▎                            | 44.3M/181M [00:19&lt;01:06, 2.06MB/s]
+ 25%|█████████▎                            | 44.5M/181M [00:20&lt;01:11, 1.90MB/s]
+ 25%|█████████▍                            | 44.8M/181M [00:20&lt;01:15, 1.80MB/s]
+ 25%|█████████▍                            | 45.2M/181M [00:20&lt;01:05, 2.07MB/s]
+ 25%|█████████▌                            | 45.6M/181M [00:20&lt;01:00, 2.22MB/s]
+ 25%|█████████▋                            | 46.0M/181M [00:20&lt;00:57, 2.33MB/s]
+ 26%|█████████▋                            | 46.4M/181M [00:20&lt;00:55, 2.41MB/s]
+ 26%|█████████▊                            | 46.8M/181M [00:21&lt;00:55, 2.40MB/s]
+ 26%|█████████▉                            | 47.2M/181M [00:21&lt;00:55, 2.39MB/s]
+ 26%|█████████▉                            | 47.4M/181M [00:21&lt;01:36, 1.39MB/s]
+ 26%|██████████                            | 47.7M/181M [00:21&lt;01:36, 1.38MB/s]
+ 27%|██████████                            | 48.0M/181M [00:21&lt;01:22, 1.62MB/s]
+ 27%|██████████▏                           | 48.4M/181M [00:22&lt;01:11, 1.85MB/s]
+ 27%|██████████▏                           | 48.8M/181M [00:22&lt;01:07, 1.96MB/s]
+ 27%|██████████▎                           | 49.2M/181M [00:22&lt;01:04, 2.03MB/s]
+ 27%|██████████▍                           | 49.5M/181M [00:22&lt;01:03, 2.07MB/s]
+ 28%|██████████▍                           | 49.8M/181M [00:22&lt;01:02, 2.10MB/s]
+ 28%|██████████▌                           | 50.3M/181M [00:22&lt;00:57, 2.27MB/s]
+ 28%|██████████▋                           | 50.7M/181M [00:23&lt;00:55, 2.33MB/s]
+ 28%|██████████▋                           | 50.9M/181M [00:23&lt;00:59, 2.19MB/s]
+ 28%|██████████▊                           | 51.3M/181M [00:23&lt;00:57, 2.24MB/s]
+ 29%|██████████▊                           | 51.7M/181M [00:23&lt;00:57, 2.25MB/s]
+ 29%|██████████▉                           | 51.9M/181M [00:23&lt;01:03, 2.04MB/s]
+ 29%|██████████▉                           | 52.3M/181M [00:23&lt;01:01, 2.11MB/s]
+ 29%|███████████                           | 52.5M/181M [00:24&lt;01:07, 1.91MB/s]
+ 29%|███████████                           | 52.9M/181M [00:24&lt;01:03, 2.02MB/s]
+ 29%|███████████▏                          | 53.2M/181M [00:24&lt;01:04, 1.97MB/s]
+ 29%|███████████▏                          | 53.4M/181M [00:24&lt;01:09, 1.85MB/s]
+ 30%|███████████▎                          | 53.8M/181M [00:24&lt;01:04, 1.98MB/s]
+ 30%|███████████▎                          | 54.1M/181M [00:24&lt;01:01, 2.06MB/s]
+ 30%|███████████▍                          | 54.5M/181M [00:24&lt;00:57, 2.19MB/s]
+ 30%|███████████▍                          | 54.8M/181M [00:25&lt;01:02, 2.02MB/s]
+ 31%|███████████▌                          | 55.4M/181M [00:25&lt;00:50, 2.49MB/s]
+ 31%|███████████▋                          | 55.7M/181M [00:25&lt;00:51, 2.42MB/s]
+ 31%|███████████▊                          | 56.1M/181M [00:25&lt;00:53, 2.34MB/s]
+ 31%|███████████▊                          | 56.3M/181M [00:25&lt;00:59, 2.11MB/s]
+ 31%|███████████▉                          | 56.7M/181M [00:25&lt;00:56, 2.22MB/s]
+ 32%|███████████▉                          | 57.0M/181M [00:26&lt;00:56, 2.21MB/s]
+ 32%|████████████                          | 57.5M/181M [00:26&lt;00:52, 2.35MB/s]
+ 32%|████████████▏                         | 57.8M/181M [00:26&lt;00:52, 2.36MB/s]
+ 32%|████████████▏                         | 58.2M/181M [00:26&lt;00:51, 2.39MB/s]
+ 32%|████████████▎                         | 58.6M/181M [00:26&lt;00:49, 2.45MB/s]
+ 33%|████████████▍                         | 59.1M/181M [00:26&lt;00:49, 2.49MB/s]
+ 33%|████████████▍                         | 59.5M/181M [00:27&lt;00:47, 2.56MB/s]
+ 33%|████████████▌                         | 59.9M/181M [00:27&lt;00:46, 2.60MB/s]
+ 33%|████████████▋                         | 60.2M/181M [00:27&lt;00:52, 2.32MB/s]
+ 33%|████████████▋                         | 60.5M/181M [00:27&lt;00:53, 2.27MB/s]
+ 34%|████████████▊                         | 61.0M/181M [00:27&lt;00:48, 2.46MB/s]
+ 34%|████████████▊                         | 61.3M/181M [00:27&lt;00:49, 2.42MB/s]
+ 34%|████████████▉                         | 61.7M/181M [00:27&lt;00:52, 2.29MB/s]
+ 34%|█████████████                         | 62.1M/181M [00:28&lt;00:50, 2.37MB/s]
+ 34%|█████████████                         | 62.5M/181M [00:28&lt;00:49, 2.40MB/s]
+ 35%|█████████████▏                        | 62.8M/181M [00:28&lt;00:50, 2.33MB/s]
+ 35%|█████████████▏                        | 63.1M/181M [00:28&lt;00:53, 2.19MB/s]
+ 35%|█████████████▎                        | 63.5M/181M [00:28&lt;00:50, 2.33MB/s]
+ 35%|█████████████▍                        | 63.9M/181M [00:28&lt;00:49, 2.38MB/s]
+ 36%|█████████████▍                        | 64.3M/181M [00:29&lt;00:47, 2.44MB/s]
+ 36%|█████████████▌                        | 64.6M/181M [00:29&lt;00:50, 2.33MB/s]
+ 36%|█████████████▋                        | 65.1M/181M [00:29&lt;00:48, 2.40MB/s]
+ 36%|█████████████▋                        | 65.4M/181M [00:29&lt;00:48, 2.39MB/s]
+ 36%|█████████████▊                        | 65.9M/181M [00:29&lt;00:45, 2.51MB/s]
+ 37%|█████████████▉                        | 66.3M/181M [00:29&lt;00:46, 2.47MB/s]
+ 37%|█████████████▉                        | 66.6M/181M [00:30&lt;00:46, 2.47MB/s]
+ 37%|██████████████                        | 67.0M/181M [00:30&lt;00:46, 2.48MB/s]
+ 37%|██████████████▏                       | 67.4M/181M [00:30&lt;00:47, 2.39MB/s]
+ 37%|██████████████▏                       | 67.7M/181M [00:30&lt;00:48, 2.35MB/s]
+ 38%|██████████████▎                       | 68.1M/181M [00:30&lt;00:47, 2.36MB/s]
+ 38%|██████████████▎                       | 68.5M/181M [00:30&lt;00:48, 2.33MB/s]
+ 38%|██████████████▍                       | 68.8M/181M [00:31&lt;00:49, 2.28MB/s]
+ 38%|██████████████▌                       | 69.2M/181M [00:31&lt;00:48, 2.31MB/s]
+ 38%|██████████████▌                       | 69.6M/181M [00:31&lt;00:47, 2.33MB/s]
+ 39%|██████████████▋                       | 69.9M/181M [00:31&lt;00:47, 2.35MB/s]
+ 39%|██████████████▊                       | 70.5M/181M [00:31&lt;00:41, 2.68MB/s]
+ 39%|██████████████▊                       | 70.9M/181M [00:31&lt;00:42, 2.60MB/s]
+ 39%|██████████████▉                       | 71.3M/181M [00:31&lt;00:42, 2.57MB/s]
+ 40%|███████████████                       | 71.6M/181M [00:32&lt;00:43, 2.51MB/s]
+ 40%|███████████████                       | 72.0M/181M [00:32&lt;00:44, 2.47MB/s]
+ 40%|███████████████▏                      | 72.4M/181M [00:32&lt;00:45, 2.41MB/s]
+ 40%|███████████████▎                      | 72.8M/181M [00:32&lt;00:42, 2.56MB/s]
+ 40%|███████████████▎                      | 73.2M/181M [00:32&lt;00:44, 2.42MB/s]
+ 41%|███████████████▍                      | 73.4M/181M [00:32&lt;00:49, 2.17MB/s]
+ 41%|███████████████▍                      | 73.8M/181M [00:33&lt;00:48, 2.23MB/s]
+ 41%|███████████████▌                      | 74.2M/181M [00:33&lt;00:45, 2.34MB/s]
+ 41%|███████████████▋                      | 74.6M/181M [00:33&lt;00:43, 2.46MB/s]
+ 41%|███████████████▋                      | 74.9M/181M [00:33&lt;00:48, 2.19MB/s]
+ 42%|███████████████▊                      | 75.2M/181M [00:33&lt;00:48, 2.20MB/s]
+ 42%|███████████████▉                      | 75.7M/181M [00:33&lt;00:45, 2.34MB/s]
+ 42%|███████████████▉                      | 76.0M/181M [00:34&lt;00:47, 2.22MB/s]
+ 42%|████████████████                      | 76.4M/181M [00:34&lt;00:45, 2.32MB/s]
+ 42%|████████████████                      | 76.7M/181M [00:34&lt;00:45, 2.31MB/s]
+ 43%|████████████████▏                     | 77.0M/181M [00:34&lt;00:50, 2.08MB/s]
+ 43%|████████████████▏                     | 77.4M/181M [00:34&lt;00:48, 2.14MB/s]
+ 43%|████████████████▎                     | 77.6M/181M [00:34&lt;00:51, 2.03MB/s]
+ 43%|████████████████▎                     | 78.0M/181M [00:34&lt;00:48, 2.13MB/s]
+ 43%|████████████████▍                     | 78.4M/181M [00:35&lt;00:45, 2.24MB/s]
+ 43%|████████████████▌                     | 78.7M/181M [00:35&lt;00:48, 2.10MB/s]
+ 44%|████████████████▌                     | 79.1M/181M [00:35&lt;00:46, 2.21MB/s]
+ 44%|████████████████▋                     | 79.5M/181M [00:35&lt;00:43, 2.32MB/s]
+ 44%|████████████████▊                     | 79.9M/181M [00:35&lt;00:43, 2.34MB/s]
+ 44%|████████████████▊                     | 80.1M/181M [00:35&lt;00:47, 2.11MB/s]
+ 44%|████████████████▉                     | 80.5M/181M [00:36&lt;00:45, 2.19MB/s]
+ 45%|████████████████▉                     | 80.8M/181M [00:36&lt;00:45, 2.21MB/s]
+ 45%|█████████████████                     | 81.2M/181M [00:36&lt;00:44, 2.23MB/s]
+ 45%|█████████████████                     | 81.6M/181M [00:36&lt;00:42, 2.33MB/s]
+ 45%|█████████████████▏                    | 82.0M/181M [00:36&lt;00:42, 2.34MB/s]
+ 45%|█████████████████▎                    | 82.4M/181M [00:36&lt;00:41, 2.38MB/s]
+ 46%|█████████████████▎                    | 82.6M/181M [00:37&lt;00:52, 1.89MB/s]
+ 46%|█████████████████▍                    | 82.8M/181M [00:37&lt;00:57, 1.72MB/s]
+ 46%|█████████████████▍                    | 83.1M/181M [00:37&lt;00:56, 1.73MB/s]
+ 46%|█████████████████▌                    | 83.5M/181M [00:37&lt;00:49, 1.98MB/s]
+ 46%|█████████████████▌                    | 83.7M/181M [00:37&lt;00:52, 1.85MB/s]
+ 46%|█████████████████▋                    | 84.2M/181M [00:37&lt;00:46, 2.10MB/s]
+ 47%|█████████████████▋                    | 84.5M/181M [00:38&lt;00:44, 2.15MB/s]
+ 47%|█████████████████▊                    | 84.8M/181M [00:38&lt;00:48, 2.00MB/s]
+ 47%|█████████████████▉                    | 85.2M/181M [00:38&lt;00:44, 2.16MB/s]
+ 47%|█████████████████▉                    | 85.6M/181M [00:38&lt;00:41, 2.29MB/s]
+ 47%|██████████████████                    | 86.0M/181M [00:38&lt;00:41, 2.30MB/s]
+ 48%|██████████████████                    | 86.3M/181M [00:38&lt;00:42, 2.26MB/s]
+ 48%|██████████████████▏                   | 86.6M/181M [00:38&lt;00:44, 2.14MB/s]
+ 48%|██████████████████▎                   | 87.0M/181M [00:39&lt;00:42, 2.24MB/s]
+ 48%|██████████████████▎                   | 87.3M/181M [00:39&lt;00:42, 2.21MB/s]
+ 48%|██████████████████▍                   | 87.8M/181M [00:39&lt;00:40, 2.32MB/s]
+ 49%|██████████████████▍                   | 88.1M/181M [00:39&lt;00:39, 2.34MB/s]
+ 49%|██████████████████▌                   | 88.5M/181M [00:39&lt;00:38, 2.41MB/s]
+ 49%|██████████████████▋                   | 88.9M/181M [00:39&lt;00:37, 2.46MB/s]
+ 49%|██████████████████▋                   | 89.3M/181M [00:40&lt;00:38, 2.38MB/s]
+ 50%|██████████████████▊                   | 89.7M/181M [00:40&lt;00:38, 2.37MB/s]
+ 50%|██████████████████▉                   | 90.0M/181M [00:40&lt;00:39, 2.28MB/s]
+ 50%|██████████████████▉                   | 90.4M/181M [00:40&lt;00:39, 2.31MB/s]
+ 50%|███████████████████                   | 90.6M/181M [00:40&lt;00:42, 2.15MB/s]
+ 50%|███████████████████                   | 91.1M/181M [00:40&lt;00:39, 2.31MB/s]
+ 51%|███████████████████▏                  | 91.5M/181M [00:41&lt;00:36, 2.48MB/s]
+ 51%|███████████████████▎                  | 91.8M/181M [00:41&lt;00:40, 2.21MB/s]
+ 51%|███████████████████▎                  | 92.1M/181M [00:41&lt;00:40, 2.19MB/s]
+ 51%|███████████████████▍                  | 92.6M/181M [00:41&lt;00:37, 2.39MB/s]
+ 51%|███████████████████▍                  | 92.8M/181M [00:41&lt;00:37, 2.35MB/s]
+ 51%|███████████████████▌                  | 93.1M/181M [00:41&lt;00:42, 2.08MB/s]
+ 52%|███████████████████▌                  | 93.3M/181M [00:41&lt;00:46, 1.88MB/s]
+ 52%|███████████████████▋                  | 93.6M/181M [00:42&lt;00:45, 1.93MB/s]
+ 52%|███████████████████▋                  | 93.9M/181M [00:42&lt;00:46, 1.89MB/s]
+ 52%|███████████████████▊                  | 94.3M/181M [00:42&lt;00:41, 2.07MB/s]
+ 52%|███████████████████▊                  | 94.6M/181M [00:42&lt;00:43, 2.01MB/s]
+ 52%|███████████████████▉                  | 95.0M/181M [00:42&lt;00:40, 2.14MB/s]
+ 53%|████████████████████                  | 95.3M/181M [00:42&lt;00:39, 2.18MB/s]
+ 53%|████████████████████                  | 95.8M/181M [00:43&lt;00:34, 2.48MB/s]
+ 53%|████████████████████▏                 | 96.1M/181M [00:43&lt;00:37, 2.27MB/s]
+ 53%|████████████████████▏                 | 96.5M/181M [00:43&lt;00:37, 2.27MB/s]
+ 53%|████████████████████▎                 | 96.8M/181M [00:43&lt;00:37, 2.23MB/s]
+ 54%|████████████████████▍                 | 97.3M/181M [00:43&lt;00:34, 2.43MB/s]
+ 54%|████████████████████▍                 | 97.6M/181M [00:43&lt;00:34, 2.41MB/s]
+ 54%|████████████████████▌                 | 98.0M/181M [00:43&lt;00:34, 2.43MB/s]
+ 54%|████████████████████▋                 | 98.3M/181M [00:44&lt;00:36, 2.28MB/s]
+ 54%|████████████████████▋                 | 98.6M/181M [00:44&lt;00:37, 2.18MB/s]
+ 55%|████████████████████▊                 | 99.1M/181M [00:44&lt;00:35, 2.30MB/s]
+ 55%|████████████████████▊                 | 99.3M/181M [00:44&lt;00:39, 2.05MB/s]
+ 55%|████████████████████▉                 | 99.6M/181M [00:44&lt;00:38, 2.11MB/s]
+ 55%|████████████████████▉                 | 99.9M/181M [00:44&lt;00:40, 2.01MB/s]
+ 55%|█████████████████████▌                 | 100M/181M [00:45&lt;00:37, 2.18MB/s]
+ 56%|█████████████████████▋                 | 101M/181M [00:45&lt;00:36, 2.20MB/s]
+ 56%|█████████████████████▋                 | 101M/181M [00:45&lt;00:38, 2.07MB/s]
+ 56%|█████████████████████▊                 | 101M/181M [00:45&lt;00:35, 2.22MB/s]
+ 56%|█████████████████████▉                 | 102M/181M [00:45&lt;00:34, 2.30MB/s]
+ 56%|██████████████████████                 | 102M/181M [00:45&lt;00:31, 2.51MB/s]
+ 57%|██████████████████████                 | 103M/181M [00:46&lt;00:30, 2.53MB/s]
+ 57%|██████████████████████▏                | 103M/181M [00:46&lt;00:30, 2.55MB/s]
+ 57%|██████████████████████▎                | 103M/181M [00:46&lt;00:34, 2.27MB/s]
+ 57%|██████████████████████▎                | 104M/181M [00:46&lt;00:36, 2.10MB/s]
+ 57%|██████████████████████▍                | 104M/181M [00:46&lt;00:35, 2.15MB/s]
+ 58%|██████████████████████▍                | 104M/181M [00:46&lt;00:34, 2.25MB/s]
+ 58%|██████████████████████▌                | 105M/181M [00:47&lt;00:37, 2.04MB/s]
+ 58%|██████████████████████▌                | 105M/181M [00:47&lt;00:58, 1.29MB/s]
+ 58%|██████████████████████▋                | 105M/181M [00:47&lt;00:53, 1.42MB/s]
+ 58%|██████████████████████▋                | 106M/181M [00:47&lt;00:47, 1.59MB/s]
+ 59%|██████████████████████▊                | 106M/181M [00:47&lt;00:43, 1.73MB/s]
+ 59%|██████████████████████▉                | 106M/181M [00:48&lt;00:38, 1.95MB/s]
+ 59%|██████████████████████▉                | 107M/181M [00:48&lt;00:35, 2.11MB/s]
+ 59%|███████████████████████                | 107M/181M [00:48&lt;00:37, 1.98MB/s]
+ 59%|███████████████████████                | 107M/181M [00:48&lt;00:39, 1.86MB/s]
+ 59%|███████████████████████▏               | 108M/181M [00:48&lt;00:36, 2.01MB/s]
+ 60%|███████████████████████▏               | 108M/181M [00:48&lt;00:39, 1.85MB/s]
+ 60%|███████████████████████▎               | 108M/181M [00:49&lt;00:38, 1.88MB/s]
+ 60%|███████████████████████▍               | 109M/181M [00:49&lt;00:35, 2.06MB/s]
+ 60%|███████████████████████▍               | 109M/181M [00:49&lt;00:34, 2.12MB/s]
+ 60%|███████████████████████▌               | 109M/181M [00:49&lt;00:33, 2.14MB/s]
+ 61%|███████████████████████▋               | 110M/181M [00:49&lt;00:31, 2.30MB/s]
+ 61%|███████████████████████▋               | 110M/181M [00:49&lt;00:31, 2.26MB/s]
+ 61%|███████████████████████▊               | 110M/181M [00:50&lt;00:29, 2.36MB/s]
+ 61%|███████████████████████▉               | 111M/181M [00:50&lt;00:28, 2.46MB/s]
+ 61%|███████████████████████▉               | 111M/181M [00:50&lt;00:30, 2.31MB/s]
+ 62%|████████████████████████               | 112M/181M [00:50&lt;00:29, 2.35MB/s]
+ 62%|████████████████████████               | 112M/181M [00:50&lt;00:28, 2.44MB/s]
+ 62%|████████████████████████▏              | 112M/181M [00:50&lt;00:28, 2.43MB/s]
+ 62%|████████████████████████▎              | 113M/181M [00:50&lt;00:27, 2.44MB/s]
+ 62%|████████████████████████▎              | 113M/181M [00:51&lt;00:31, 2.18MB/s]
+ 63%|████████████████████████▍              | 113M/181M [00:51&lt;00:33, 2.02MB/s]
+ 63%|████████████████████████▍              | 114M/181M [00:51&lt;00:29, 2.29MB/s]
+ 63%|████████████████████████▌              | 114M/181M [00:51&lt;00:29, 2.30MB/s]
+ 63%|████████████████████████▋              | 115M/181M [00:51&lt;00:28, 2.35MB/s]
+ 63%|████████████████████████▊              | 115M/181M [00:51&lt;00:26, 2.47MB/s]
+ 64%|████████████████████████▊              | 115M/181M [00:52&lt;00:26, 2.44MB/s]
+ 64%|████████████████████████▉              | 116M/181M [00:52&lt;00:26, 2.51MB/s]
+ 64%|█████████████████████████              | 116M/181M [00:52&lt;00:25, 2.50MB/s]
+ 64%|█████████████████████████              | 117M/181M [00:52&lt;00:25, 2.53MB/s]
+ 65%|█████████████████████████▏             | 117M/181M [00:52&lt;00:26, 2.42MB/s]
+ 65%|█████████████████████████▏             | 117M/181M [00:52&lt;00:28, 2.25MB/s]
+ 65%|█████████████████████████▎             | 118M/181M [00:53&lt;00:28, 2.26MB/s]
+ 65%|█████████████████████████▍             | 118M/181M [00:53&lt;00:27, 2.26MB/s]
+ 65%|█████████████████████████▍             | 118M/181M [00:53&lt;00:27, 2.27MB/s]
+ 66%|█████████████████████████▌             | 119M/181M [00:53&lt;00:27, 2.27MB/s]
+ 66%|█████████████████████████▋             | 119M/181M [00:53&lt;00:26, 2.34MB/s]
+ 66%|█████████████████████████▋             | 119M/181M [00:53&lt;00:29, 2.08MB/s]
+ 66%|█████████████████████████▋             | 119M/181M [00:54&lt;00:32, 1.92MB/s]
+ 66%|█████████████████████████▊             | 120M/181M [00:54&lt;00:29, 2.05MB/s]
+ 66%|█████████████████████████▉             | 120M/181M [00:54&lt;00:30, 2.01MB/s]
+ 67%|█████████████████████████▉             | 121M/181M [00:54&lt;00:28, 2.09MB/s]
+ 67%|██████████████████████████             | 121M/181M [00:54&lt;00:27, 2.20MB/s]
+ 67%|██████████████████████████             | 121M/181M [00:54&lt;00:27, 2.16MB/s]
+ 67%|██████████████████████████▏            | 122M/181M [00:54&lt;00:25, 2.30MB/s]
+ 68%|██████████████████████████▎            | 122M/181M [00:55&lt;00:21, 2.72MB/s]
+ 68%|██████████████████████████▍            | 123M/181M [00:55&lt;00:24, 2.43MB/s]
+ 68%|██████████████████████████▍            | 123M/181M [00:55&lt;00:23, 2.42MB/s]
+ 68%|██████████████████████████▌            | 123M/181M [00:55&lt;00:24, 2.38MB/s]
+ 68%|██████████████████████████▋            | 124M/181M [00:55&lt;00:23, 2.47MB/s]
+ 69%|██████████████████████████▋            | 124M/181M [00:55&lt;00:23, 2.48MB/s]
+ 69%|██████████████████████████▊            | 124M/181M [00:56&lt;00:23, 2.41MB/s]
+ 69%|██████████████████████████▉            | 125M/181M [00:56&lt;00:22, 2.46MB/s]
+ 69%|██████████████████████████▉            | 125M/181M [00:56&lt;00:23, 2.41MB/s]
+ 69%|███████████████████████████            | 126M/181M [00:56&lt;00:22, 2.46MB/s]
+ 70%|███████████████████████████            | 126M/181M [00:56&lt;00:24, 2.28MB/s]
+ 70%|███████████████████████████▏           | 126M/181M [00:56&lt;00:22, 2.43MB/s]
+ 70%|███████████████████████████▎           | 127M/181M [00:57&lt;00:22, 2.38MB/s]
+ 70%|███████████████████████████▎           | 127M/181M [00:57&lt;00:22, 2.35MB/s]
+ 70%|███████████████████████████▍           | 127M/181M [00:57&lt;00:22, 2.36MB/s]
+ 71%|███████████████████████████▌           | 128M/181M [00:57&lt;00:22, 2.37MB/s]
+ 71%|███████████████████████████▌           | 128M/181M [00:57&lt;00:24, 2.13MB/s]
+ 71%|███████████████████████████▋           | 128M/181M [00:57&lt;00:23, 2.24MB/s]
+ 71%|███████████████████████████▊           | 129M/181M [00:57&lt;00:22, 2.30MB/s]
+ 71%|███████████████████████████▊           | 129M/181M [00:58&lt;00:22, 2.32MB/s]
+ 72%|███████████████████████████▉           | 130M/181M [00:58&lt;00:21, 2.34MB/s]
+ 72%|███████████████████████████▉           | 130M/181M [00:58&lt;00:21, 2.35MB/s]
+ 72%|████████████████████████████           | 130M/181M [00:58&lt;00:21, 2.40MB/s]
+ 72%|████████████████████████████▏          | 131M/181M [00:58&lt;00:21, 2.30MB/s]
+ 72%|████████████████████████████▏          | 131M/181M [00:58&lt;00:21, 2.29MB/s]
+ 73%|████████████████████████████▎          | 131M/181M [00:59&lt;00:21, 2.33MB/s]
+ 73%|████████████████████████████▍          | 132M/181M [00:59&lt;00:20, 2.37MB/s]
+ 73%|████████████████████████████▍          | 132M/181M [00:59&lt;00:19, 2.47MB/s]
+ 73%|████████████████████████████▌          | 133M/181M [00:59&lt;00:19, 2.50MB/s]
+ 73%|████████████████████████████▋          | 133M/181M [00:59&lt;00:19, 2.49MB/s]
+ 74%|████████████████████████████▋          | 133M/181M [00:59&lt;00:19, 2.43MB/s]
+ 74%|████████████████████████████▊          | 134M/181M [01:00&lt;00:19, 2.44MB/s]
+ 74%|████████████████████████████▉          | 134M/181M [01:00&lt;00:19, 2.39MB/s]
+ 74%|████████████████████████████▉          | 135M/181M [01:00&lt;00:19, 2.35MB/s]
+ 75%|█████████████████████████████          | 135M/181M [01:00&lt;00:19, 2.33MB/s]
+ 75%|█████████████████████████████          | 135M/181M [01:00&lt;00:20, 2.19MB/s]
+ 75%|█████████████████████████████▏         | 135M/181M [01:00&lt;00:22, 2.07MB/s]
+ 75%|█████████████████████████████▎         | 136M/181M [01:00&lt;00:21, 2.10MB/s]
+ 75%|█████████████████████████████▎         | 136M/181M [01:01&lt;00:22, 1.99MB/s]
+ 75%|█████████████████████████████▍         | 136M/181M [01:01&lt;00:21, 2.11MB/s]
+ 76%|█████████████████████████████▍         | 137M/181M [01:01&lt;00:23, 1.91MB/s]
+ 76%|█████████████████████████████▌         | 137M/181M [01:01&lt;00:23, 1.90MB/s]
+ 76%|█████████████████████████████▌         | 137M/181M [01:01&lt;00:20, 2.10MB/s]
+ 76%|█████████████████████████████▋         | 138M/181M [01:01&lt;00:19, 2.21MB/s]
+ 76%|█████████████████████████████▊         | 138M/181M [01:02&lt;00:19, 2.22MB/s]
+ 76%|█████████████████████████████▊         | 139M/181M [01:02&lt;00:30, 1.38MB/s]
+ 77%|█████████████████████████████▉         | 139M/181M [01:02&lt;00:28, 1.47MB/s]
+ 77%|█████████████████████████████▉         | 139M/181M [01:02&lt;00:28, 1.47MB/s]
+ 77%|█████████████████████████████▉         | 139M/181M [01:03&lt;00:27, 1.50MB/s]
+ 77%|██████████████████████████████         | 140M/181M [01:03&lt;00:23, 1.73MB/s]
+ 77%|██████████████████████████████▏        | 140M/181M [01:03&lt;00:22, 1.81MB/s]
+ 78%|██████████████████████████████▏        | 140M/181M [01:03&lt;00:20, 1.97MB/s]
+ 78%|██████████████████████████████▎        | 141M/181M [01:03&lt;00:21, 1.91MB/s]
+ 78%|██████████████████████████████▎        | 141M/181M [01:03&lt;00:19, 2.01MB/s]
+ 78%|██████████████████████████████▌        | 142M/181M [01:03&lt;00:13, 2.98MB/s]
+ 79%|██████████████████████████████▊        | 143M/181M [01:04&lt;00:08, 4.27MB/s]
+ 80%|███████████████████████████████▏       | 145M/181M [01:04&lt;00:06, 6.06MB/s]
+ 81%|███████████████████████████████▋       | 147M/181M [01:04&lt;00:03, 8.55MB/s]
+ 83%|████████████████████████████████▎      | 150M/181M [01:04&lt;00:02, 11.5MB/s]
+ 85%|█████████████████████████████████▏     | 154M/181M [01:04&lt;00:01, 15.2MB/s]
+ 87%|█████████████████████████████████▉     | 158M/181M [01:04&lt;00:01, 19.5MB/s]
+ 88%|██████████████████████████████████▍    | 160M/181M [01:05&lt;00:01, 17.9MB/s]
+ 89%|██████████████████████████████████▉    | 162M/181M [01:05&lt;00:01, 17.1MB/s]
+ 91%|███████████████████████████████████▌   | 165M/181M [01:05&lt;00:00, 19.7MB/s]
+ 92%|████████████████████████████████████   | 167M/181M [01:05&lt;00:00, 21.0MB/s]
+ 94%|████████████████████████████████████▌  | 170M/181M [01:05&lt;00:00, 19.3MB/s]
+ 95%|█████████████████████████████████████▏ | 173M/181M [01:05&lt;00:00, 21.4MB/s]
+ 97%|█████████████████████████████████████▉ | 176M/181M [01:05&lt;00:00, 21.3MB/s]
+100%|██████████████████████████████████████▊| 180M/181M [01:05&lt;00:00, 22.4MB/s]
+  0%|                                               | 0.00/181M [00:00&lt;?, ?B/s]
+100%|████████████████████████████████████████| 181M/181M [00:00&lt;00:00, 990GB/s]
 </pre></div>
 </div>
 <p>Here, with the ElSel+Cov+TS+LDA pipeline, we reduce the computation time
 in approximately 8 times to the Cov+ElSel+TS+LDA pipeline.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Averaging the session performance:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;pipeline&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">)[[</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html#pandas.DataFrame.groupby" title="pandas.DataFrame.groupby" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-method"><span class="n">results</span><span class="o">.</span><span class="n">groupby</span></a><span class="p">(</span><span class="s2">&quot;pipeline&quot;</span><span class="p">)[[</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Averaging the session performance:
                      score      time
 pipeline
-Cov+ElSel+TS+LDA  0.770303  1.711937
-ElSel+Cov+TS+LDA  0.775472  0.329322
-Xdawn+Cov+TS+LDA  0.658810  0.314836
+Cov+ElSel+TS+LDA  0.770303  1.362695
+ElSel+Cov+TS+LDA  0.775472  0.155129
+Xdawn+Cov+TS+LDA  0.658810  0.149203
 </pre></div>
 </div>
 </section>
@@ -649,7 +1202,7 @@ Xdawn+Cov+TS+LDA  0.658810  0.314836
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a><span class="p">,</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">results</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results</span></a><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">,</span>
     <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">,</span>
@@ -658,7 +1211,7 @@ Xdawn+Cov+TS+LDA  0.658810  0.314836
     <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">,</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results</span></a><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">,</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a>
 <span class="p">)</span>
 
@@ -676,8 +1229,8 @@ Xdawn+Cov+TS+LDA  0.658810  0.314836
 <li><p>Electrode selection strategy based on covariance matrices demonstrates less variability and typically yields better performance.</p></li>
 <li><p>However, this strategy is more time-consuming compared to the simpler electrode selection based on time epoch data.</p></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.237 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  313 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 59.493 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  724 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-advanced-examples-plot-hinss2021-classification-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5abf5216139378fc86b18e340a1f77b5/plot_hinss2021_classification.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_hinss2021_classification.ipynb</span></code></a></p>
@@ -694,8 +1247,8 @@ Xdawn+Cov+TS+LDA  0.658810  0.314836
 </section>
 
 
-                </article>
-              
+</div>
+
               
               
               
@@ -738,8 +1291,8 @@ Xdawn+Cov+TS+LDA  0.658810  0.314836
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-util-transformer">Create util transformer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialization-process">Initialization Process</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-pipelines">Create Pipelines</a></li>
@@ -748,6 +1301,67 @@ Xdawn+Cov+TS+LDA  0.658810  0.314836
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-observations">Key Observations:</a></li>
 </ul>
   </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+
+  <div class="sphx-glr-sidebar-component">
+    
+      
+        <div class="sphx-glr-sidebar-item sphx-glr-download-python-sidebar" title="plot_hinss2021_classification.py">
+          <a download href="../../_downloads/e3c072bb92e76eb0c6faa0c756357fdc/plot_hinss2021_classification.py">
+            <i class="fa-solid fa-download"></i>
+            Download source code
+          </a>
+        </div>
+      
+    
+      
+        <div class="sphx-glr-sidebar-item sphx-glr-download-jupyter-sidebar" title="plot_hinss2021_classification.ipynb">
+          <a download href="../../_downloads/5abf5216139378fc86b18e340a1f77b5/plot_hinss2021_classification.ipynb">
+            <i class="fa-solid fa-download"></i>
+            Download Jupyter notebook
+          </a>
+        </div>
+      
+    
+      
+        <div class="sphx-glr-sidebar-item sphx-glr-download-zip-sidebar" title="plot_hinss2021_classification.zip">
+          <a download href="../../_downloads/13d975862a3185d53f9ceeeff453cdaa/plot_hinss2021_classification.zip">
+            <i class="fa-solid fa-download"></i>
+            Download zipped
+          </a>
+        </div>
+      
+    
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div class="sd-card sd-shadow-sm sd-mb-3 moabb-colab-card">
+  <div class="sd-card-body moabb-colab-card-body">
+    <p class="sd-card-text sd-fs-5 sd-font-weight-bold sd-mb-0">Run this example</p>
+    <a class="sd-btn sd-btn-primary" href="https://colab.research.google.com/github/NeuroTechX/moabb/blob/gh-pages/docs/auto_examples/_notebooks/advanced_examples/plot_hinss2021_classification.ipynb" target="_blank" rel="noopener">
+      <img class="moabb-colab-badge" alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg">
+    </a>
+  </div>
+</div>
+</div>
 
 </div></div>
               
@@ -762,8 +1376,8 @@ Xdawn+Cov+TS+LDA  0.658810  0.314836
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -774,7 +1388,7 @@ Xdawn+Cov+TS+LDA  0.658810  0.314836
 
   <p class="copyright">
     
-      © Copyright 2018-2025 MOABB contributors.
+      © Copyright 2018-2026 MOABB contributors.
       <br/>
     
   </p>
@@ -789,7 +1403,7 @@ Xdawn+Cov+TS+LDA  0.658810  0.314836
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
 </p></div>
       
     </div>

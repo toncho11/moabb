@@ -7,12 +7,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="moabb icon" sizes="180x180" href="../../_static/moabb_logo.png" type="image/png">
+    <link rel="moabb icon" sizes="180x180" href="../../_static/_static/moabb_logo.png" type="image/png">
     <link rel="icon" href="../../_static/favicon.svg" type="image/svg+xml">
     <link rel="icon" sizes="144x144" href="../../_static/favicon-144.png" type="image/png">
     <link rel="mask-icon" href="../../_static/favicon_mask-icon.svg" color="#222832" type="image/svg+xml">
-    <link rel="apple-touch-icon" sizes="500x500" href="../../_static/favicon-500.png" type="image/png">
-    <title>Cross-Subject SSVEP &#8212; moabb 1.3.0-dev documentation</title>
+    <link rel="apple-touch-icon" sizes="500x500" href="../../_static/favicon-500.png" type="image/png"><meta property="og:title" content="Cross-Subject SSVEP" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://moabb.neurotechx.com/docs/auto_examples/paradigm_examples/plot_cross_subject_ssvep.html" />
+<meta property="og:site_name" content="MOABB - Mother of all BCI Benchmarks" />
+<meta property="og:description" content="This example shows how to perform a cross-subject analysis on an SSVEP dataset. We will compare four pipelines : Riemannian Geometry, CCA, TRCA, MsetCCA. We will use the SSVEP paradigm, which uses ..." />
+<meta property="og:image" content="https://moabb.neurotechx.com/docs/_static/moabb_og_card.png" />
+<meta property="og:image:alt" content="MOABB - Mother of all BCI Benchmarks: 158 open EEG datasets for reproducible BCI research" />
+<meta name="description" content="This example shows how to perform a cross-subject analysis on an SSVEP dataset. We will compare four pipelines : Riemannian Geometry, CCA, TRCA, MsetCCA. We will use the SSVEP paradigm, which uses ..." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@NeuroTechX" />
+
+    <title>Cross-Subject SSVEP &#8212; MOABB Documentation</title>
   
   
   
@@ -31,70 +41,130 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/neurotechx/moabb/refs/heads/develop/docs/source/_static/css/custom.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-2.0.4/b-3.0.2/b-html5-3.0.2/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d694e5f0" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/macro-table.css?v=4c18d17a" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.0/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.2.6/css/buttons.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchpanes/2.3.5/css/searchPanes.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/3.1.3/css/select.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/4.0.6/css/fixedHeader.dataTables.css" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
 
     <script src="../../_static/jquery.js?v=5d32c60e"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../../_static/documentation_options.js?v=cba09fd8"></script>
+    <script src="../../_static/documentation_options.js?v=1558bf76"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5WJBKDMSTE"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-5WJBKDMSTE');
-            </script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-5WJBKDMSTE');
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/paradigm_examples/plot_cross_subject_ssvep';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.datatables.net/v/dt/dt-2.0.4/b-3.0.2/b-html5-3.0.2/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.2.0/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.6/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.6/js/buttons.html5.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.6/js/buttons.colVis.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.6/js/buttons.print.js"></script>
+    <script src="https://cdn.datatables.net/select/3.1.3/js/dataTables.select.js"></script>
+    <script src="https://cdn.datatables.net/searchpanes/2.3.5/js/dataTables.searchPanes.js"></script>
+    <script src="https://cdn.datatables.net/searchpanes/2.3.5/js/searchPanes.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/4.0.6/js/dataTables.fixedHeader.js"></script>
+    <script src="../../_static/js/section-nav-hierarchy.js?v=c53969c2"></script>
+    <script src="../../_static/js/macro-table.js?v=c799a707"></script>
+    <link rel="canonical" href="https://moabb.neurotechx.com/docs/auto_examples/paradigm_examples/plot_cross_subject_ssvep.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Changing epoch size in P300 VR dataset" href="plot_vr_pc_p300_different_epoch_size.html" />
     <link rel="prev" title="Cross-Session on Multiple Datasets" href="plot_cross_session_multiple_datasets.html" />
+    <link rel="canonical" href="https://moabb.neurotechx.com/docs/auto_examples/paradigm_examples/plot_cross_subject_ssvep.html" />
+
+    
+    
+
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "MOABB",
+          "item": "https://moabb.neurotechx.com/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cross-Subject SSVEP",
+          "item": "https://moabb.neurotechx.com/docs/auto_examples/paradigm_examples/plot_cross_subject_ssvep.html"
+        }
+      ]
+    }
+    </script>
+    
+
+    
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.3.0" />
-  </head>
+  <meta name="docsearch:version" content="1.5.0dev0" />
   
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
+  </head>
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -117,11 +187,13 @@
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-  <aside class="bd-header-announcement d-print-none d-none" aria-label="Announcement" data-pst-announcement-url="https://raw.githubusercontent.com/neurotechx/moabb/develop/docs/source/_templates/custom-template.html"></aside>
 </div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content"><strong>Using MOABB in academic work?</strong> <a class='moabb-announcement-cta' href='cite.html'>Cite MOABB</a> <span class='moabb-announcement-secondary'>DOI: <a href='https://doi.org/10.5281/zenodo.10034223'>10.5281/zenodo.10034223</a> · Explore <a href='paper_results.html'>benchmark results</a></span></div>
+</aside>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
   <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
@@ -145,8 +217,8 @@
     
     
     
-    <img src="../../_static/moabb_light.svg" class="logo__image only-light" alt="moabb 1.3.0-dev documentation - Home"/>
-    <img src="../../_static/moabb_dark.svg" class="logo__image only-dark pst-js-only" alt="moabb 1.3.0-dev documentation - Home"/>
+    <img src="../../_static/moabb_light.svg" class="logo__image only-light" alt="MOABB Documentation - Home"/>
+    <img src="../../_static/moabb_dark.svg" class="logo__image only-dark pst-js-only" alt="MOABB Documentation - Home"/>
   
   
 </a></div>
@@ -240,11 +312,44 @@
       
         <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="External Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/NeuroTechX/moabb" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/moabb/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
       
     </div>
     
@@ -352,18 +457,58 @@
         
           <div class="navbar-item">
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button></div>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="External Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/NeuroTechX/moabb" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/moabb/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
         
       </div>
     
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
         <div class="sidebar-primary-item">
+
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
@@ -373,8 +518,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_1_simple_example_motor_imagery.html">Tutorial 1: Simple Motor Imagery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_2_using_mulitple_datasets.html">Tutorial 2: Using multiple datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_3_benchmarking_multiple_pipelines.html">Tutorial 3: Benchmarking multiple pipelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_4_adding_a_dataset.html">Tutorial 4: Creating a dataset class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_5_build_a_custom_dataset.html">Tutorial 5: Creating a dataset class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_4_adding_a_dataset.html">Tutorial 4: Creating custom datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial_5_combining_datasets.html">Tutorial 5: Combining Multiple Datasets into a Single Dataset</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Paradigm-Specific Evaluation Examples (Within- &amp; Cross-Session)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -396,25 +541,28 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../how_to_benchmark/index.html">Benchmarking and Pipeline Evaluation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../how_to_benchmark/example_codecarbon.html">Benchmarking with MOABB showing the CO2 footprint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how_to_benchmark/noplot_example_codecarbon.html">Benchmarking with MOABB showing the CO2 footprint</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how_to_benchmark/plot_benchmark.html">Benchmarking with MOABB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how_to_benchmark/plot_benchmark_grid_search.html">Benchmarking with MOABB with Grid Search</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how_to_benchmark/plot_within_session_splitter.html">Tutorial: Within-Session Splitting on Real MI Dataset</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced_examples/index.html">Advanced examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_examples/noplot_mne_features_pipeline.html">Pipelines using the mne-features library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_dataset_bubbles.html">Dataset bubble plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_dreyer_clf_scores_vs_subj_info.html">Examples of analysis of a Dreyer2023 A dataset.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_filterbank_csp_vs_csp.html">FilterBank CSP versus CSP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_grid_search_withinsession.html">GridSearch within a session</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_hinss2021_classification.html">Hinss2021 classification example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_mne_and_scikit_estimators.html">MNE Epochs-based pipelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_mne_features_pipeline.html">Pipelines using the mne-features library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_phmd_ml_spectrum.html">Spectral analysis of the trials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_pre_processing_steps.html">Playing with the pre-processing steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_pseudoonline.html">Pseudo-Online Motor Imagery with Sliding Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_riemannian_artifact_rejection.html">Riemannian Artifact Rejection as a Pre-processing Step</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_select_electrodes_resample.html">Select Electrodes and Resampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_statistical_analysis.html">Statistical Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_use_an_X_y_dataset.html">Tutorial 6: Using X y data (epoched data) instead of continuous signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_sliding_estimator.html">Time-Resolved Decoding with SlidingEstimator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_statistical_analysis.html">Statistical Analysis and Chance Level Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced_examples/plot_use_an_X_y_dataset.html">Using X y data (epoched data) instead of continuous signal</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../learning_curve/index.html">Evaluation with learning curve</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -481,11 +629,9 @@
 </div>
               
               
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
+<div>
+  
+  
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="#sphx-glr-download-auto-examples-paradigm-examples-plot-cross-subject-ssvep-py"><span class="std std-ref">Go to the end</span></a>
@@ -510,17 +656,18 @@ We will compare four pipelines :</p>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.estimation</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.tangentspace</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" title="sklearn.linear_model.LogisticRegression" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-class"><span class="n">LogisticRegression</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.estimation</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyriemann.tangentspace</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" title="sklearn.linear_model.LogisticRegression" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-class"><span class="n">LogisticRegression</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">moabb</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">moabb.analysis.plotting</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">moabb_plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">moabb.analysis.chance_level</span><span class="w"> </span><span class="kn">import</span> <span class="n">chance_by_chance</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">moabb.datasets</span><span class="w"> </span><span class="kn">import</span> <a href="../../generated/moabb.datasets.Kalunga2016.html#moabb.datasets.Kalunga2016" title="moabb.datasets.Kalunga2016" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class"><span class="n">Kalunga2016</span></a>
 <span class="kn">from</span><span class="w"> </span><span class="nn">moabb.evaluations</span><span class="w"> </span><span class="kn">import</span> <a href="../../generated/moabb.evaluations.CrossSubjectEvaluation.html#moabb.evaluations.CrossSubjectEvaluation" title="moabb.evaluations.CrossSubjectEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class"><span class="n">CrossSubjectEvaluation</span></a>
 <span class="kn">from</span><span class="w"> </span><span class="nn">moabb.paradigms</span><span class="w"> </span><span class="kn">import</span> <a href="../../generated/moabb.paradigms.SSVEP.html#moabb.paradigms.SSVEP" title="moabb.paradigms.SSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class"><span class="n">SSVEP</span></a><span class="p">,</span> <a href="../../generated/moabb.paradigms.FilterBankSSVEP.html#moabb.paradigms.FilterBankSSVEP" title="moabb.paradigms.FilterBankSSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class"><span class="n">FilterBankSSVEP</span></a>
-<span class="kn">from</span><span class="w"> </span><span class="nn">moabb.pipelines</span><span class="w"> </span><span class="kn">import</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_CCA</span></a><span class="p">,</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_TRCA</span></a><span class="p">,</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">ExtendedSSVEPSignal</span></a><span class="p">,</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_MsetCCA</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">moabb.pipelines</span><span class="w"> </span><span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_CCA</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_TRCA</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">ExtendedSSVEPSignal</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_MsetCCA</span></a>
 
 
 <a href="https://docs.python.org/3/library/warnings.html#warnings.simplefilter" title="warnings.simplefilter" class="sphx-glr-backref-module-warnings sphx-glr-backref-type-py-function"><span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span></a><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
@@ -530,15 +677,13 @@ We will compare four pipelines :</p>
 </div>
 <section id="loading-dataset">
 <h2>Loading Dataset<a class="headerlink" href="#loading-dataset" title="Link to this heading">#</a></h2>
-<p>We will load the data from the first 2 subjects of the <code class="docutils literal notranslate"><span class="pre">SSVEP_Exo</span></code> dataset
-and compare two algorithms on this set. One of the algorithms could only
+<p>We will load the data from all 12 subjects of the <code class="docutils literal notranslate"><span class="pre">SSVEP_Exo</span></code> dataset
+and compare four algorithms on this set. One of the algorithms could only
 process class associated with a stimulation frequency, we will thus drop
 the resting class. As the resting class is the last defined class, picking
 the first three classes (out of four) allows to focus only on the stimulation
 frequency.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subject</span></a> <span class="o">=</span> <span class="mi">2</span>
-<a href="../../generated/moabb.datasets.Kalunga2016.html#moabb.datasets.Kalunga2016" title="moabb.datasets.Kalunga2016" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span></a> <span class="o">=</span> <a href="../../generated/moabb.datasets.Kalunga2016.html#moabb.datasets.Kalunga2016" title="moabb.datasets.Kalunga2016" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class"><span class="n">Kalunga2016</span></a><span class="p">()</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">subject_list</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">subject_list</span></a><span class="p">[:</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subject</span></a><span class="p">]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../generated/moabb.datasets.Kalunga2016.html#moabb.datasets.Kalunga2016" title="moabb.datasets.Kalunga2016" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span></a> <span class="o">=</span> <a href="../../generated/moabb.datasets.Kalunga2016.html#moabb.datasets.Kalunga2016" title="moabb.datasets.Kalunga2016" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class"><span class="n">Kalunga2016</span></a><span class="p">()</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">interval</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">interval</span></a>
 </pre></div>
 </div>
@@ -560,9 +705,9 @@ class, as used in the filterbank motor imagery paradigms.</p>
 </pre></div>
 </div>
 <p>Classes are defined by the frequency of the stimulation, here we use
-the first two frequencies of the dataset, 13 and 17 Hz.
+the first three frequencies of the dataset, 13, 17, and 21 Hz.
 The evaluation function uses a LabelEncoder, transforming them
-to 0 and 1</p>
+to 0, 1, and 2.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">freqs</span></a> <span class="o">=</span> <a href="../../generated/moabb.paradigms.SSVEP.html#moabb.paradigms.SSVEP" title="moabb.paradigms.SSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a><span class="o">.</span><span class="n">used_events</span><span class="p">(</span><a href="../../generated/moabb.datasets.Kalunga2016.html#moabb.datasets.Kalunga2016" title="moabb.datasets.Kalunga2016" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span></a><span class="p">)</span>
 </pre></div>
 </div>
@@ -578,21 +723,21 @@ The third pipeline relies on the TRCA algorithm,
 and the fourth uses the MsetCCA algorithm. Both CCA based methods
 (i.e. CCA and MsetCCA) used 3 CCA components.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_fb</span></a> <span class="o">=</span> <span class="p">{}</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_fb</span></a><span class="p">[</span><span class="s2">&quot;RG+LogReg&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span>
-    <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">ExtendedSSVEPSignal</span></a><span class="p">(),</span>
-    <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="s2">&quot;lwf&quot;</span><span class="p">),</span>
-    <a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a><span class="p">(),</span>
-    <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" title="sklearn.linear_model.LogisticRegression" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-class"><span class="n">LogisticRegression</span></a><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">),</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_fb</span></a><span class="p">[</span><span class="s2">&quot;RG+LogReg&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">ExtendedSSVEPSignal</span></a><span class="p">(),</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">Covariances</span></a><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="s2">&quot;lwf&quot;</span><span class="p">),</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html#sklearn.base.TransformerMixin" title="sklearn.base.TransformerMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">TangentSpace</span></a><span class="p">(),</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" title="sklearn.linear_model.LogisticRegression" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-class"><span class="n">LogisticRegression</span></a><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">),</span>
 <span class="p">)</span>
 
 <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a> <span class="o">=</span> <span class="p">{}</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">[</span><span class="s2">&quot;CCA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span><a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_CCA</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">interval</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">interval</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">freqs</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">freqs</span></a><span class="p">,</span> <span class="n">n_harmonics</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">[</span><span class="s2">&quot;CCA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_CCA</span></a><span class="p">(</span><span class="n">n_harmonics</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 
 <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_TRCA</span></a> <span class="o">=</span> <span class="p">{}</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_TRCA</span></a><span class="p">[</span><span class="s2">&quot;TRCA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span><a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_TRCA</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">interval</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">interval</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">freqs</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">freqs</span></a><span class="p">))</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_TRCA</span></a><span class="p">[</span><span class="s2">&quot;TRCA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_TRCA</span></a><span class="p">(</span><span class="n">n_fbands</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
 
 <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_MSET_CCA</span></a> <span class="o">=</span> <span class="p">{}</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_MSET_CCA</span></a><span class="p">[</span><span class="s2">&quot;MSET_CCA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="http://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span><a href="http://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_MsetCCA</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">freqs</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">freqs</span></a><span class="p">))</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_MSET_CCA</span></a><span class="p">[</span><span class="s2">&quot;MSET_CCA&quot;</span><span class="p">]</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator" title="sklearn.base.BaseEstimator" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SSVEP_MsetCCA</span></a><span class="p">())</span>
 </pre></div>
 </div>
 </section>
@@ -603,12 +748,851 @@ each subject / session of the dataset, and for each pipeline.</p>
 <p>Results are saved into the database, so that if you add a new pipeline, it
 will not run again the evaluation unless a parameter has changed. Results can
 be overwritten if necessary.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">overwrite</span></a> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># set to True if we want to overwrite cached results</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">overwrite</span></a> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># set to True if we want to overwrite cached results</span>
 
 <a href="../../generated/moabb.evaluations.CrossSubjectEvaluation.html#moabb.evaluations.CrossSubjectEvaluation" title="moabb.evaluations.CrossSubjectEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">evaluation</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.CrossSubjectEvaluation.html#moabb.evaluations.CrossSubjectEvaluation" title="moabb.evaluations.CrossSubjectEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class"><span class="n">CrossSubjectEvaluation</span></a><span class="p">(</span>
     <a href="../../generated/moabb.paradigms.SSVEP.html#moabb.paradigms.SSVEP" title="moabb.paradigms.SSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a><span class="o">=</span><a href="../../generated/moabb.paradigms.SSVEP.html#moabb.paradigms.SSVEP" title="moabb.paradigms.SSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a><span class="p">,</span> <span class="n">datasets</span><span class="o">=</span><a href="../../generated/moabb.datasets.Kalunga2016.html#moabb.datasets.Kalunga2016" title="moabb.datasets.Kalunga2016" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">overwrite</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">overwrite</span></a>
 <span class="p">)</span>
-<span class="n">results</span> <span class="o">=</span> <a href="../../generated/moabb.evaluations.base.BaseEvaluation.html#moabb.evaluations.base.BaseEvaluation.process" title="moabb.evaluations.base.BaseEvaluation.process" class="sphx-glr-backref-module-moabb-evaluations-base sphx-glr-backref-type-py-method"><span class="n">evaluation</span><span class="o">.</span><span class="n">process</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">)</span>
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.base.BaseEvaluation.html#moabb.evaluations.base.BaseEvaluation.process" title="moabb.evaluations.base.BaseEvaluation.process" class="sphx-glr-backref-module-moabb-evaluations-base sphx-glr-backref-type-py-method"><span class="n">evaluation</span><span class="o">.</span><span class="n">process</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>  0%|                                              | 0.00/2.27M [00:00&lt;?, ?B/s]
+  0%|                                     | 5.12k/2.27M [00:00&lt;01:20, 28.3kB/s]
+  2%|▋                                     | 39.9k/2.27M [00:00&lt;00:16, 137kB/s]
+  4%|█▍                                    | 89.1k/2.27M [00:00&lt;00:10, 218kB/s]
+  8%|███                                    | 181k/2.27M [00:00&lt;00:05, 364kB/s]
+ 10%|███▊                                   | 219k/2.27M [00:00&lt;00:06, 324kB/s]
+ 12%|████▊                                  | 282k/2.27M [00:00&lt;00:05, 352kB/s]
+ 16%|██████▍                                | 375k/2.27M [00:01&lt;00:04, 434kB/s]
+ 21%|████████                               | 473k/2.27M [00:01&lt;00:03, 500kB/s]
+ 23%|█████████                              | 524k/2.27M [00:01&lt;00:03, 448kB/s]
+ 27%|██████████▋                            | 621k/2.27M [00:01&lt;00:03, 503kB/s]
+ 32%|████████████▎                          | 719k/2.27M [00:01&lt;00:02, 545kB/s]
+ 35%|█████████████▋                         | 800k/2.27M [00:01&lt;00:02, 539kB/s]
+ 40%|███████████████▍                       | 898k/2.27M [00:02&lt;00:02, 569kB/s]
+ 44%|█████████████████                      | 996k/2.27M [00:02&lt;00:02, 591kB/s]
+ 46%|█████████████████▋                    | 1.06M/2.27M [00:02&lt;00:02, 529kB/s]
+ 50%|██████████████████▊                   | 1.13M/2.27M [00:02&lt;00:02, 510kB/s]
+ 53%|███████████████████▉                  | 1.19M/2.27M [00:02&lt;00:02, 485kB/s]
+ 56%|█████████████████████▎                | 1.27M/2.27M [00:02&lt;00:01, 499kB/s]
+ 60%|██████████████████████▋               | 1.36M/2.27M [00:02&lt;00:01, 506kB/s]
+ 65%|████████████████████████▊             | 1.49M/2.27M [00:03&lt;00:01, 611kB/s]
+ 68%|█████████████████████████▉            | 1.55M/2.27M [00:03&lt;00:01, 556kB/s]
+ 72%|███████████████████████████▎          | 1.63M/2.27M [00:03&lt;00:01, 548kB/s]
+ 76%|████████████████████████████▋         | 1.72M/2.27M [00:03&lt;00:01, 543kB/s]
+ 80%|██████████████████████████████▎       | 1.81M/2.27M [00:03&lt;00:00, 572kB/s]
+ 83%|███████████████████████████████▋      | 1.90M/2.27M [00:03&lt;00:00, 558kB/s]
+ 87%|█████████████████████████████████     | 1.98M/2.27M [00:04&lt;00:00, 550kB/s]
+ 91%|██████████████████████████████████▋   | 2.08M/2.27M [00:04&lt;00:00, 576kB/s]
+ 97%|████████████████████████████████████▉ | 2.21M/2.27M [00:04&lt;00:00, 658kB/s]
+  0%|                                              | 0.00/2.27M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.27M/2.27M [00:00&lt;00:00, 13.8GB/s]
+
+  0%|                                              | 0.00/2.13M [00:00&lt;?, ?B/s]
+  1%|▏                                    | 12.3k/2.13M [00:00&lt;00:32, 65.1kB/s]
+  2%|▋                                     | 41.0k/2.13M [00:00&lt;00:16, 129kB/s]
+  4%|█▋                                    | 92.2k/2.13M [00:00&lt;00:09, 215kB/s]
+  8%|███▏                                   | 174k/2.13M [00:00&lt;00:05, 332kB/s]
+ 11%|████▏                                  | 226k/2.13M [00:00&lt;00:05, 332kB/s]
+ 14%|█████▎                                 | 290k/2.13M [00:00&lt;00:05, 356kB/s]
+ 17%|██████▌                                | 355k/2.13M [00:01&lt;00:04, 375kB/s]
+ 20%|███████▋                               | 419k/2.13M [00:01&lt;00:04, 384kB/s]
+ 23%|████████▉                              | 484k/2.13M [00:01&lt;00:04, 394kB/s]
+ 27%|██████████▋                            | 583k/2.13M [00:01&lt;00:03, 464kB/s]
+ 31%|████████████▏                          | 664k/2.13M [00:01&lt;00:03, 479kB/s]
+ 37%|██████████████▎                        | 778k/2.13M [00:01&lt;00:02, 553kB/s]
+ 40%|███████████████▍                       | 844k/2.13M [00:02&lt;00:02, 507kB/s]
+ 43%|████████████████▋                      | 909k/2.13M [00:02&lt;00:02, 479kB/s]
+ 50%|██████████████████▊                   | 1.06M/2.13M [00:02&lt;00:01, 615kB/s]
+ 54%|████████████████████▌                 | 1.15M/2.13M [00:02&lt;00:01, 615kB/s]
+ 59%|██████████████████████▎               | 1.25M/2.13M [00:02&lt;00:01, 616kB/s]
+ 66%|████████████████████████▉             | 1.40M/2.13M [00:02&lt;00:01, 711kB/s]
+ 70%|██████████████████████████▊           | 1.50M/2.13M [00:03&lt;00:00, 684kB/s]
+ 77%|█████████████████████████████         | 1.63M/2.13M [00:03&lt;00:00, 722kB/s]
+ 83%|███████████████████████████████▋      | 1.78M/2.13M [00:03&lt;00:00, 782kB/s]
+ 88%|█████████████████████████████████▍    | 1.87M/2.13M [00:03&lt;00:00, 734kB/s]
+ 93%|███████████████████████████████████▏  | 1.97M/2.13M [00:03&lt;00:00, 700kB/s]
+ 97%|████████████████████████████████████▋ | 2.05M/2.13M [00:03&lt;00:00, 645kB/s]
+  0%|                                              | 0.00/2.13M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.13M/2.13M [00:00&lt;00:00, 14.9GB/s]
+
+  0%|                                              | 0.00/2.29M [00:00&lt;?, ?B/s]
+  0%|                                     | 5.12k/2.29M [00:00&lt;01:18, 29.3kB/s]
+  2%|▋                                     | 41.0k/2.29M [00:00&lt;00:15, 143kB/s]
+  4%|█▍                                    | 86.0k/2.29M [00:00&lt;00:10, 210kB/s]
+  7%|██▊                                    | 168k/2.29M [00:00&lt;00:06, 335kB/s]
+ 10%|███▉                                   | 233k/2.29M [00:00&lt;00:05, 368kB/s]
+ 14%|█████▌                                 | 331k/2.29M [00:00&lt;00:04, 458kB/s]
+ 17%|██████▋                                | 396k/2.29M [00:01&lt;00:04, 448kB/s]
+ 22%|████████▋                              | 511k/2.29M [00:01&lt;00:03, 542kB/s]
+ 27%|██████████▎                            | 609k/2.29M [00:01&lt;00:02, 572kB/s]
+ 31%|████████████                           | 708k/2.29M [00:01&lt;00:02, 593kB/s]
+ 35%|█████████████▋                         | 806k/2.29M [00:01&lt;00:02, 607kB/s]
+ 38%|██████████████▊                        | 871k/2.29M [00:01&lt;00:02, 553kB/s]
+ 42%|████████████████▏                      | 952k/2.29M [00:02&lt;00:02, 544kB/s]
+ 47%|█████████████████▋                    | 1.07M/2.29M [00:02&lt;00:02, 605kB/s]
+ 51%|███████████████████▎                  | 1.17M/2.29M [00:02&lt;00:01, 614kB/s]
+ 57%|█████████████████████▍                | 1.30M/2.29M [00:02&lt;00:01, 685kB/s]
+ 60%|██████████████████████▊               | 1.38M/2.29M [00:02&lt;00:01, 639kB/s]
+ 63%|███████████████████████▉              | 1.44M/2.29M [00:02&lt;00:01, 573kB/s]
+ 66%|█████████████████████████▎            | 1.52M/2.29M [00:02&lt;00:01, 560kB/s]
+ 73%|███████████████████████████▋          | 1.67M/2.29M [00:03&lt;00:00, 679kB/s]
+ 76%|█████████████████████████████         | 1.75M/2.29M [00:03&lt;00:00, 634kB/s]
+ 80%|██████████████████████████████▍       | 1.84M/2.29M [00:03&lt;00:00, 603kB/s]
+ 84%|███████████████████████████████▊      | 1.92M/2.29M [00:03&lt;00:00, 581kB/s]
+ 86%|████████████████████████████████▊     | 1.98M/2.29M [00:03&lt;00:00, 533kB/s]
+ 91%|██████████████████████████████████▍   | 2.08M/2.29M [00:03&lt;00:00, 564kB/s]
+ 97%|████████████████████████████████████▉ | 2.23M/2.29M [00:04&lt;00:00, 681kB/s]
+  0%|                                              | 0.00/2.29M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.29M/2.29M [00:00&lt;00:00, 16.5GB/s]
+
+  0%|                                              | 0.00/2.06M [00:00&lt;?, ?B/s]
+  1%|▏                                    | 12.3k/2.06M [00:00&lt;00:28, 71.4kB/s]
+  2%|▋                                     | 39.9k/2.06M [00:00&lt;00:15, 132kB/s]
+  4%|█▌                                    | 82.9k/2.06M [00:00&lt;00:10, 198kB/s]
+  9%|███▍                                   | 180k/2.06M [00:00&lt;00:05, 366kB/s]
+ 12%|████▋                                  | 250k/2.06M [00:00&lt;00:04, 398kB/s]
+ 17%|██████▌                                | 346k/2.06M [00:00&lt;00:03, 472kB/s]
+ 20%|███████▊                               | 412k/2.06M [00:01&lt;00:03, 457kB/s]
+ 24%|█████████▍                             | 500k/2.06M [00:01&lt;00:03, 493kB/s]
+ 29%|███████████▎                           | 598k/2.06M [00:01&lt;00:02, 538kB/s]
+ 32%|████████████▌                          | 664k/2.06M [00:01&lt;00:02, 501kB/s]
+ 39%|███████████████                        | 795k/2.06M [00:01&lt;00:02, 608kB/s]
+ 43%|████████████████▉                      | 892k/2.06M [00:01&lt;00:01, 613kB/s]
+ 47%|██████████████████▍                    | 974k/2.06M [00:02&lt;00:01, 587kB/s]
+ 52%|███████████████████▊                  | 1.07M/2.06M [00:02&lt;00:01, 601kB/s]
+ 60%|██████████████████████▊               | 1.24M/2.06M [00:02&lt;00:01, 739kB/s]
+ 64%|████████████████████████▏             | 1.31M/2.06M [00:02&lt;00:01, 663kB/s]
+ 67%|█████████████████████████▌            | 1.38M/2.06M [00:02&lt;00:01, 605kB/s]
+ 74%|███████████████████████████▉          | 1.51M/2.06M [00:02&lt;00:00, 678kB/s]
+ 78%|█████████████████████████████▊        | 1.61M/2.06M [00:02&lt;00:00, 667kB/s]
+ 84%|███████████████████████████████▊      | 1.73M/2.06M [00:03&lt;00:00, 690kB/s]
+ 89%|█████████████████████████████████▋    | 1.82M/2.06M [00:03&lt;00:00, 675kB/s]
+ 92%|██████████████████████████████████▉   | 1.89M/2.06M [00:03&lt;00:00, 604kB/s]
+ 96%|████████████████████████████████████▍ | 1.97M/2.06M [00:03&lt;00:00, 576kB/s]
+  0%|                                              | 0.00/2.06M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.06M/2.06M [00:00&lt;00:00, 14.8GB/s]
+
+  0%|                                              | 0.00/2.12M [00:00&lt;?, ?B/s]
+  1%|▏                                    | 11.3k/2.12M [00:00&lt;00:35, 59.3kB/s]
+  2%|▋                                     | 37.9k/2.12M [00:00&lt;00:17, 117kB/s]
+  4%|█▋                                    | 92.2k/2.12M [00:00&lt;00:09, 215kB/s]
+  8%|███▎                                   | 180k/2.12M [00:00&lt;00:05, 343kB/s]
+ 10%|███▉                                   | 217k/2.12M [00:00&lt;00:06, 304kB/s]
+ 14%|█████▌                                 | 305k/2.12M [00:00&lt;00:04, 388kB/s]
+ 20%|███████▉                               | 432k/2.12M [00:01&lt;00:03, 523kB/s]
+ 24%|█████████▏                             | 501k/2.12M [00:01&lt;00:03, 495kB/s]
+ 27%|██████████▋                            | 583k/2.12M [00:01&lt;00:03, 502kB/s]
+ 34%|█████████████▍                         | 730k/2.12M [00:01&lt;00:02, 634kB/s]
+ 39%|███████████████▏                       | 828k/2.12M [00:01&lt;00:02, 630kB/s]
+ 46%|█████████████████▉                     | 976k/2.12M [00:01&lt;00:01, 722kB/s]
+ 52%|███████████████████▊                  | 1.11M/2.12M [00:02&lt;00:01, 752kB/s]
+ 57%|█████████████████████▌                | 1.20M/2.12M [00:02&lt;00:01, 711kB/s]
+ 61%|███████████████████████▎              | 1.30M/2.12M [00:02&lt;00:01, 685kB/s]
+ 67%|█████████████████████████▍            | 1.42M/2.12M [00:02&lt;00:01, 697kB/s]
+ 70%|██████████████████████████▋           | 1.49M/2.12M [00:02&lt;00:01, 622kB/s]
+ 78%|█████████████████████████████▍        | 1.65M/2.12M [00:02&lt;00:00, 736kB/s]
+ 84%|███████████████████████████████▊      | 1.78M/2.12M [00:03&lt;00:00, 764kB/s]
+ 88%|█████████████████████████████████▎    | 1.86M/2.12M [00:03&lt;00:00, 690kB/s]
+ 93%|███████████████████████████████████▎  | 1.97M/2.12M [00:03&lt;00:00, 701kB/s]
+ 99%|█████████████████████████████████████▋| 2.10M/2.12M [00:03&lt;00:00, 737kB/s]
+  0%|                                              | 0.00/2.12M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.12M/2.12M [00:00&lt;00:00, 15.1GB/s]
+
+  0%|                                              | 0.00/2.47M [00:00&lt;?, ?B/s]
+  1%|▏                                    | 13.3k/2.47M [00:00&lt;00:34, 70.7kB/s]
+  1%|▌                                     | 34.8k/2.47M [00:00&lt;00:23, 104kB/s]
+  4%|█▍                                    | 94.2k/2.47M [00:00&lt;00:10, 218kB/s]
+  7%|██▊                                    | 176k/2.47M [00:00&lt;00:07, 327kB/s]
+  9%|███▌                                   | 225k/2.47M [00:00&lt;00:07, 317kB/s]
+ 12%|████▌                                  | 291k/2.47M [00:01&lt;00:06, 345kB/s]
+ 14%|█████▌                                 | 355k/2.47M [00:01&lt;00:05, 361kB/s]
+ 18%|██████▉                                | 437k/2.47M [00:01&lt;00:05, 404kB/s]
+ 22%|████████▍                              | 536k/2.47M [00:01&lt;00:04, 464kB/s]
+ 26%|██████████                             | 634k/2.47M [00:01&lt;00:03, 506kB/s]
+ 30%|███████████▊                           | 749k/2.47M [00:01&lt;00:03, 565kB/s]
+ 34%|█████████████▎                         | 847k/2.47M [00:01&lt;00:02, 573kB/s]
+ 38%|██████████████▋                        | 928k/2.47M [00:02&lt;00:02, 548kB/s]
+ 40%|███████████████▋                       | 993k/2.47M [00:02&lt;00:02, 503kB/s]
+ 45%|█████████████████▎                    | 1.12M/2.47M [00:02&lt;00:02, 590kB/s]
+ 48%|██████████████████▎                   | 1.19M/2.47M [00:02&lt;00:02, 532kB/s]
+ 51%|███████████████████▌                  | 1.27M/2.47M [00:02&lt;00:02, 522kB/s]
+ 56%|█████████████████████▎                | 1.39M/2.47M [00:02&lt;00:01, 572kB/s]
+ 60%|██████████████████████▊               | 1.48M/2.47M [00:03&lt;00:01, 579kB/s]
+ 63%|████████████████████████              | 1.57M/2.47M [00:03&lt;00:01, 554kB/s]
+ 67%|█████████████████████████▌            | 1.66M/2.47M [00:03&lt;00:01, 567kB/s]
+ 71%|███████████████████████████           | 1.76M/2.47M [00:03&lt;00:01, 576kB/s]
+ 75%|████████████████████████████▌         | 1.86M/2.47M [00:03&lt;00:01, 582kB/s]
+ 82%|███████████████████████████████       | 2.02M/2.47M [00:03&lt;00:00, 703kB/s]
+ 89%|█████████████████████████████████▉    | 2.20M/2.47M [00:04&lt;00:00, 823kB/s]
+ 93%|███████████████████████████████████▏  | 2.29M/2.47M [00:04&lt;00:00, 728kB/s]
+ 96%|████████████████████████████████████▎ | 2.36M/2.47M [00:04&lt;00:00, 644kB/s]
+  0%|                                              | 0.00/2.47M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.47M/2.47M [00:00&lt;00:00, 14.4GB/s]
+
+  0%|                                              | 0.00/2.71M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 12.3k/2.71M [00:00&lt;00:38, 70.6kB/s]
+  1%|▌                                     | 39.9k/2.71M [00:00&lt;00:20, 132kB/s]
+  3%|█▎                                    | 93.2k/2.71M [00:00&lt;00:11, 227kB/s]
+  5%|██                                     | 145k/2.71M [00:00&lt;00:09, 271kB/s]
+  8%|███▏                                   | 218k/2.71M [00:00&lt;00:07, 343kB/s]
+ 11%|████▏                                  | 288k/2.71M [00:00&lt;00:06, 380kB/s]
+ 13%|█████▏                                 | 365k/2.71M [00:01&lt;00:05, 419kB/s]
+ 16%|██████▍                                | 446k/2.71M [00:01&lt;00:04, 455kB/s]
+ 19%|███████▎                               | 512k/2.71M [00:01&lt;00:04, 446kB/s]
+ 23%|█████████                              | 627k/2.71M [00:01&lt;00:03, 539kB/s]
+ 26%|██████████▏                            | 709k/2.71M [00:01&lt;00:03, 536kB/s]
+ 29%|███████████▎                           | 790k/2.71M [00:01&lt;00:03, 532kB/s]
+ 35%|█████████████▍                         | 937k/2.71M [00:02&lt;00:02, 660kB/s]
+ 39%|██████████████▋                       | 1.05M/2.71M [00:02&lt;00:02, 686kB/s]
+ 42%|████████████████                      | 1.15M/2.71M [00:02&lt;00:02, 670kB/s]
+ 47%|█████████████████▋                    | 1.26M/2.71M [00:02&lt;00:02, 689kB/s]
+ 50%|██████████████████▊                   | 1.35M/2.71M [00:02&lt;00:02, 642kB/s]
+ 55%|████████████████████▉                 | 1.49M/2.71M [00:02&lt;00:01, 736kB/s]
+ 58%|██████████████████████                | 1.57M/2.71M [00:02&lt;00:01, 676kB/s]
+ 62%|███████████████████████▋              | 1.69M/2.71M [00:03&lt;00:01, 696kB/s]
+ 67%|█████████████████████████▍            | 1.82M/2.71M [00:03&lt;00:01, 740kB/s]
+ 70%|██████████████████████████▋           | 1.90M/2.71M [00:03&lt;00:01, 679kB/s]
+ 74%|████████████████████████████▏         | 2.02M/2.71M [00:03&lt;00:00, 698kB/s]
+ 77%|█████████████████████████████▍        | 2.10M/2.71M [00:03&lt;00:00, 647kB/s]
+ 83%|███████████████████████████████▍      | 2.25M/2.71M [00:03&lt;00:00, 739kB/s]
+ 86%|████████████████████████████████▌     | 2.33M/2.71M [00:04&lt;00:00, 676kB/s]
+ 89%|█████████████████████████████████▋    | 2.41M/2.71M [00:04&lt;00:00, 633kB/s]
+ 94%|███████████████████████████████████▌  | 2.54M/2.71M [00:04&lt;00:00, 698kB/s]
+ 97%|████████████████████████████████████▋ | 2.62M/2.71M [00:04&lt;00:00, 647kB/s]
+  0%|                                              | 0.00/2.71M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.71M/2.71M [00:00&lt;00:00, 18.8GB/s]
+
+  0%|                                              | 0.00/2.33M [00:00&lt;?, ?B/s]
+  0%|                                     | 5.12k/2.33M [00:00&lt;01:23, 27.8kB/s]
+  2%|▌                                     | 35.8k/2.33M [00:00&lt;00:19, 117kB/s]
+  4%|█▎                                    | 84.0k/2.33M [00:00&lt;00:11, 195kB/s]
+  7%|██▌                                    | 154k/2.33M [00:00&lt;00:07, 284kB/s]
+  9%|███▌                                   | 210k/2.33M [00:00&lt;00:06, 305kB/s]
+ 13%|████▉                                  | 291k/2.33M [00:01&lt;00:05, 367kB/s]
+ 15%|█████▋                                 | 342k/2.33M [00:01&lt;00:05, 349kB/s]
+ 18%|███████                                | 424k/2.33M [00:01&lt;00:04, 396kB/s]
+ 21%|████████▏                              | 489k/2.33M [00:01&lt;00:04, 397kB/s]
+ 27%|██████████▍                            | 620k/2.33M [00:01&lt;00:03, 517kB/s]
+ 29%|███████████▍                           | 685k/2.33M [00:01&lt;00:03, 481kB/s]
+ 37%|██████████████▌                        | 865k/2.33M [00:01&lt;00:02, 667kB/s]
+ 40%|███████████████▋                       | 933k/2.33M [00:02&lt;00:02, 589kB/s]
+ 44%|████████████████▌                     | 1.01M/2.33M [00:02&lt;00:02, 557kB/s]
+ 48%|██████████████████▏                   | 1.11M/2.33M [00:02&lt;00:02, 567kB/s]
+ 52%|███████████████████▋                  | 1.21M/2.33M [00:02&lt;00:01, 576kB/s]
+ 56%|█████████████████████▎                | 1.31M/2.33M [00:02&lt;00:01, 582kB/s]
+ 60%|██████████████████████▉               | 1.40M/2.33M [00:02&lt;00:01, 585kB/s]
+ 65%|████████████████████████▊             | 1.52M/2.33M [00:03&lt;00:01, 617kB/s]
+ 70%|██████████████████████████▋           | 1.63M/2.33M [00:03&lt;00:01, 639kB/s]
+ 77%|█████████████████████████████▎        | 1.80M/2.33M [00:03&lt;00:00, 745kB/s]
+ 81%|██████████████████████████████▉       | 1.90M/2.33M [00:03&lt;00:00, 698kB/s]
+ 87%|█████████████████████████████████     | 2.03M/2.33M [00:03&lt;00:00, 723kB/s]
+ 93%|███████████████████████████████████▍  | 2.17M/2.33M [00:03&lt;00:00, 771kB/s]
+ 99%|█████████████████████████████████████▋| 2.30M/2.33M [00:04&lt;00:00, 778kB/s]
+  0%|                                              | 0.00/2.33M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.33M/2.33M [00:00&lt;00:00, 17.5GB/s]
+
+  0%|                                              | 0.00/2.27M [00:00&lt;?, ?B/s]
+  1%|▏                                    | 12.3k/2.27M [00:00&lt;00:34, 66.2kB/s]
+  1%|▌                                     | 33.8k/2.27M [00:00&lt;00:21, 106kB/s]
+  4%|█▌                                    | 95.2k/2.27M [00:00&lt;00:09, 235kB/s]
+  8%|███                                    | 178k/2.27M [00:00&lt;00:05, 351kB/s]
+ 10%|███▉                                   | 230k/2.27M [00:00&lt;00:05, 349kB/s]
+ 13%|█████                                  | 297k/2.27M [00:00&lt;00:05, 377kB/s]
+ 16%|██████▎                                | 365k/2.27M [00:01&lt;00:04, 397kB/s]
+ 20%|███████▉                               | 462k/2.27M [00:01&lt;00:03, 471kB/s]
+ 24%|█████████▎                             | 544k/2.27M [00:01&lt;00:03, 491kB/s]
+ 27%|██████████▍                            | 609k/2.27M [00:01&lt;00:03, 471kB/s]
+ 30%|███████████▊                           | 691k/2.27M [00:01&lt;00:03, 490kB/s]
+ 35%|█████████████▊                         | 806k/2.27M [00:01&lt;00:02, 568kB/s]
+ 41%|███████████████▊                       | 921k/2.27M [00:02&lt;00:02, 621kB/s]
+ 46%|█████████████████▌                    | 1.05M/2.27M [00:02&lt;00:01, 688kB/s]
+ 53%|████████████████████                  | 1.20M/2.27M [00:02&lt;00:01, 769kB/s]
+ 56%|█████████████████████▎                | 1.28M/2.27M [00:02&lt;00:01, 688kB/s]
+ 62%|███████████████████████▌              | 1.41M/2.27M [00:02&lt;00:01, 742kB/s]
+ 66%|████████████████████████▉             | 1.49M/2.27M [00:02&lt;00:01, 679kB/s]
+ 69%|██████████████████████████▎           | 1.57M/2.27M [00:02&lt;00:01, 633kB/s]
+ 73%|███████████████████████████▋          | 1.66M/2.27M [00:03&lt;00:01, 603kB/s]
+ 76%|█████████████████████████████         | 1.74M/2.27M [00:03&lt;00:00, 582kB/s]
+ 80%|██████████████████████████████▍       | 1.82M/2.27M [00:03&lt;00:00, 567kB/s]
+ 84%|████████████████████████████████      | 1.92M/2.27M [00:03&lt;00:00, 588kB/s]
+ 90%|██████████████████████████████████▎   | 2.05M/2.27M [00:03&lt;00:00, 665kB/s]
+ 93%|███████████████████████████████████▎  | 2.11M/2.27M [00:03&lt;00:00, 593kB/s]
+ 97%|████████████████████████████████████▋ | 2.20M/2.27M [00:04&lt;00:00, 574kB/s]
+  0%|                                              | 0.00/2.27M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.27M/2.27M [00:00&lt;00:00, 16.3GB/s]
+
+  0%|                                              | 0.00/1.99M [00:00&lt;?, ?B/s]
+  0%|                                     | 1.02k/1.99M [00:00&lt;04:22, 7.58kB/s]
+  1%|▏                                    | 12.3k/1.99M [00:00&lt;00:40, 48.3kB/s]
+  2%|▊                                     | 39.9k/1.99M [00:00&lt;00:17, 110kB/s]
+  5%|█▊                                    | 93.2k/1.99M [00:00&lt;00:09, 205kB/s]
+  9%|███▌                                   | 181k/1.99M [00:00&lt;00:05, 340kB/s]
+ 13%|█████▏                                 | 266k/1.99M [00:00&lt;00:04, 413kB/s]
+ 16%|██████▍                                | 327k/1.99M [00:01&lt;00:04, 406kB/s]
+ 20%|███████▉                               | 407k/1.99M [00:01&lt;00:03, 442kB/s]
+ 25%|█████████▌                             | 488k/1.99M [00:01&lt;00:03, 470kB/s]
+ 30%|███████████▊                           | 603k/1.99M [00:01&lt;00:02, 555kB/s]
+ 36%|██████████████                         | 717k/1.99M [00:01&lt;00:02, 610kB/s]
+ 43%|████████████████▌                      | 848k/1.99M [00:01&lt;00:01, 685kB/s]
+ 48%|██████████████████▊                    | 963k/1.99M [00:01&lt;00:01, 704kB/s]
+ 56%|█████████████████████▏                | 1.11M/1.99M [00:02&lt;00:01, 778kB/s]
+ 63%|███████████████████████▉              | 1.26M/1.99M [00:02&lt;00:00, 829kB/s]
+ 67%|█████████████████████████▌            | 1.34M/1.99M [00:02&lt;00:00, 741kB/s]
+ 74%|████████████████████████████          | 1.47M/1.99M [00:02&lt;00:00, 772kB/s]
+ 79%|█████████████████████████████▉        | 1.57M/1.99M [00:02&lt;00:00, 731kB/s]
+ 85%|████████████████████████████████▏     | 1.68M/1.99M [00:02&lt;00:00, 735kB/s]
+ 88%|█████████████████████████████████▌    | 1.76M/1.99M [00:03&lt;00:00, 657kB/s]
+ 95%|████████████████████████████████████▏ | 1.89M/1.99M [00:03&lt;00:00, 727kB/s]
+ 99%|█████████████████████████████████████▌| 1.97M/1.99M [00:03&lt;00:00, 650kB/s]
+  0%|                                              | 0.00/1.99M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 1.99M/1.99M [00:00&lt;00:00, 14.3GB/s]
+
+  0%|                                              | 0.00/2.98M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 13.3k/2.98M [00:00&lt;00:41, 71.3kB/s]
+  1%|▌                                     | 41.0k/2.98M [00:00&lt;00:23, 125kB/s]
+  3%|█▏                                    | 95.2k/2.98M [00:00&lt;00:13, 216kB/s]
+  6%|██▎                                    | 177k/2.98M [00:00&lt;00:08, 326kB/s]
+  8%|███                                    | 232k/2.98M [00:00&lt;00:08, 330kB/s]
+ 10%|███▊                                   | 289k/2.98M [00:01&lt;00:08, 334kB/s]
+ 12%|████▌                                  | 350k/2.98M [00:01&lt;00:07, 347kB/s]
+ 15%|█████▊                                 | 449k/2.98M [00:01&lt;00:05, 427kB/s]
+ 18%|███████▏                               | 547k/2.98M [00:01&lt;00:05, 479kB/s]
+ 22%|████████▋                              | 662k/2.98M [00:01&lt;00:04, 546kB/s]
+ 25%|█████████▉                             | 760k/2.98M [00:01&lt;00:03, 561kB/s]
+ 29%|███████████▏                           | 857k/2.98M [00:01&lt;00:03, 570kB/s]
+ 31%|████████████▎                          | 939k/2.98M [00:02&lt;00:03, 548kB/s]
+ 34%|█████████████                         | 1.02M/2.98M [00:02&lt;00:03, 532kB/s]
+ 36%|█████████████▊                        | 1.09M/2.98M [00:02&lt;00:03, 492kB/s]
+ 39%|██████████████▉                       | 1.17M/2.98M [00:02&lt;00:03, 494kB/s]
+ 42%|████████████████▏                     | 1.27M/2.98M [00:02&lt;00:03, 524kB/s]
+ 47%|█████████████████▊                    | 1.40M/2.98M [00:02&lt;00:02, 605kB/s]
+ 52%|███████████████████▉                  | 1.56M/2.98M [00:03&lt;00:01, 720kB/s]
+ 56%|█████████████████████▎                | 1.68M/2.98M [00:03&lt;00:01, 713kB/s]
+ 61%|███████████████████████▏              | 1.82M/2.98M [00:03&lt;00:01, 767kB/s]
+ 68%|█████████████████████████▋            | 2.02M/2.98M [00:03&lt;00:01, 894kB/s]
+ 71%|██████████████████████████▊           | 2.11M/2.98M [00:03&lt;00:01, 790kB/s]
+ 74%|████████████████████████████▏         | 2.21M/2.98M [00:03&lt;00:01, 748kB/s]
+ 78%|█████████████████████████████▋        | 2.33M/2.98M [00:04&lt;00:00, 732kB/s]
+ 86%|████████████████████████████████▌     | 2.56M/2.98M [00:04&lt;00:00, 928kB/s]
+ 90%|██████████████████████████████████    | 2.67M/2.98M [00:04&lt;00:00, 858kB/s]
+ 94%|███████████████████████████████████▋  | 2.80M/2.98M [00:04&lt;00:00, 839kB/s]
+  0%|                                              | 0.00/2.98M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.98M/2.98M [00:00&lt;00:00, 19.2GB/s]
+
+  0%|                                              | 0.00/2.72M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 12.3k/2.72M [00:00&lt;00:38, 70.4kB/s]
+  2%|▌                                     | 41.0k/2.72M [00:00&lt;00:20, 133kB/s]
+  4%|█▎                                    | 96.3k/2.72M [00:00&lt;00:11, 231kB/s]
+  6%|██▍                                    | 171k/2.72M [00:00&lt;00:07, 325kB/s]
+  9%|███▎                                   | 231k/2.72M [00:00&lt;00:07, 346kB/s]
+ 10%|████                                   | 284k/2.72M [00:00&lt;00:07, 341kB/s]
+ 13%|████▉                                  | 341k/2.72M [00:01&lt;00:06, 349kB/s]
+ 17%|██████▌                                | 459k/2.72M [00:01&lt;00:04, 474kB/s]
+ 20%|███████▊                               | 541k/2.72M [00:01&lt;00:04, 489kB/s]
+ 23%|████████▉                              | 623k/2.72M [00:01&lt;00:04, 498kB/s]
+ 27%|██████████▌                            | 737k/2.72M [00:01&lt;00:03, 567kB/s]
+ 31%|███████████▉                           | 836k/2.72M [00:01&lt;00:03, 584kB/s]
+ 34%|█████████████▏                         | 918k/2.72M [00:02&lt;00:03, 564kB/s]
+ 36%|██████████████                         | 982k/2.72M [00:02&lt;00:03, 517kB/s]
+ 40%|███████████████                       | 1.08M/2.72M [00:02&lt;00:02, 549kB/s]
+ 45%|████████████████▉                     | 1.21M/2.72M [00:02&lt;00:02, 634kB/s]
+ 49%|██████████████████▌                   | 1.33M/2.72M [00:02&lt;00:02, 661kB/s]
+ 52%|███████████████████▋                  | 1.41M/2.72M [00:02&lt;00:02, 618kB/s]
+ 57%|█████████████████████▌                | 1.54M/2.72M [00:03&lt;00:01, 679kB/s]
+ 60%|██████████████████████▉               | 1.64M/2.72M [00:03&lt;00:01, 661kB/s]
+ 65%|████████████████████████▋             | 1.77M/2.72M [00:03&lt;00:01, 712kB/s]
+ 68%|█████████████████████████▊            | 1.85M/2.72M [00:03&lt;00:01, 654kB/s]
+ 72%|███████████████████████████▏          | 1.95M/2.72M [00:03&lt;00:01, 644kB/s]
+ 78%|█████████████████████████████▌        | 2.11M/2.72M [00:03&lt;00:00, 759kB/s]
+ 83%|███████████████████████████████▎      | 2.24M/2.72M [00:03&lt;00:00, 780kB/s]
+ 86%|████████████████████████████████▋     | 2.34M/2.72M [00:04&lt;00:00, 733kB/s]
+ 90%|██████████████████████████████████    | 2.44M/2.72M [00:04&lt;00:00, 698kB/s]
+ 93%|███████████████████████████████████▎  | 2.52M/2.72M [00:04&lt;00:00, 644kB/s]
+ 96%|████████████████████████████████████▌ | 2.62M/2.72M [00:04&lt;00:00, 636kB/s]
+  0%|                                              | 0.00/2.72M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.72M/2.72M [00:00&lt;00:00, 19.6GB/s]
+
+  0%|                                              | 0.00/2.74M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 12.3k/2.74M [00:00&lt;00:37, 72.5kB/s]
+  1%|▍                                     | 33.8k/2.74M [00:00&lt;00:24, 111kB/s]
+  3%|█▏                                    | 82.9k/2.74M [00:00&lt;00:13, 203kB/s]
+  5%|██                                     | 141k/2.74M [00:00&lt;00:09, 272kB/s]
+  7%|██▊                                    | 198k/2.74M [00:00&lt;00:08, 306kB/s]
+ 10%|███▉                                   | 273k/2.74M [00:00&lt;00:06, 369kB/s]
+ 13%|█████                                  | 359k/2.74M [00:01&lt;00:05, 431kB/s]
+ 17%|██████▋                                | 469k/2.74M [00:01&lt;00:04, 519kB/s]
+ 21%|████████                               | 567k/2.74M [00:01&lt;00:03, 557kB/s]
+ 23%|█████████                              | 633k/2.74M [00:01&lt;00:04, 516kB/s]
+ 28%|██████████▉                            | 764k/2.74M [00:01&lt;00:03, 618kB/s]
+ 31%|████████████▎                          | 861k/2.74M [00:01&lt;00:03, 622kB/s]
+ 35%|█████████████▋                         | 959k/2.74M [00:02&lt;00:02, 627kB/s]
+ 40%|███████████████▏                      | 1.09M/2.74M [00:02&lt;00:02, 695kB/s]
+ 43%|████████████████▌                     | 1.19M/2.74M [00:02&lt;00:02, 677kB/s]
+ 49%|██████████████████▌                   | 1.34M/2.74M [00:02&lt;00:01, 760kB/s]
+ 54%|████████████████████▎                 | 1.47M/2.74M [00:02&lt;00:01, 785kB/s]
+ 57%|█████████████████████▋                | 1.56M/2.74M [00:02&lt;00:01, 741kB/s]
+ 62%|███████████████████████▌              | 1.70M/2.74M [00:02&lt;00:01, 773kB/s]
+ 66%|█████████████████████████▏            | 1.81M/2.74M [00:03&lt;00:01, 764kB/s]
+ 71%|██████████████████████████▉           | 1.94M/2.74M [00:03&lt;00:01, 788kB/s]
+ 76%|████████████████████████████▉         | 2.09M/2.74M [00:03&lt;00:00, 837kB/s]
+ 82%|███████████████████████████████       | 2.24M/2.74M [00:03&lt;00:00, 869kB/s]
+ 88%|█████████████████████████████████▎    | 2.40M/2.74M [00:03&lt;00:00, 929kB/s]
+ 92%|███████████████████████████████████   | 2.53M/2.74M [00:03&lt;00:00, 902kB/s]
+ 97%|████████████████████████████████████▋ | 2.64M/2.74M [00:04&lt;00:00, 854kB/s]
+  0%|                                              | 0.00/2.74M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.74M/2.74M [00:00&lt;00:00, 18.2GB/s]
+
+  0%|                                              | 0.00/2.74M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 11.3k/2.74M [00:00&lt;00:45, 59.5kB/s]
+  1%|▌                                     | 41.0k/2.74M [00:00&lt;00:21, 127kB/s]
+  3%|█▏                                    | 81.9k/2.74M [00:00&lt;00:14, 181kB/s]
+  7%|██▌                                    | 182k/2.74M [00:00&lt;00:07, 346kB/s]
+  9%|███▍                                   | 241k/2.74M [00:00&lt;00:07, 351kB/s]
+ 11%|████▏                                  | 293k/2.74M [00:01&lt;00:07, 340kB/s]
+ 14%|█████▍                                 | 385k/2.74M [00:01&lt;00:05, 411kB/s]
+ 17%|██████▍                                | 455k/2.74M [00:01&lt;00:05, 415kB/s]
+ 21%|████████▎                              | 585k/2.74M [00:01&lt;00:04, 532kB/s]
+ 25%|█████████▋                             | 683k/2.74M [00:01&lt;00:03, 552kB/s]
+ 30%|███████████▌                           | 814k/2.74M [00:01&lt;00:03, 626kB/s]
+ 33%|████████████▊                          | 896k/2.74M [00:01&lt;00:03, 587kB/s]
+ 38%|██████████████▎                       | 1.03M/2.74M [00:02&lt;00:02, 650kB/s]
+ 40%|███████████████▍                      | 1.11M/2.74M [00:02&lt;00:02, 602kB/s]
+ 43%|████████████████▌                     | 1.19M/2.74M [00:02&lt;00:02, 570kB/s]
+ 49%|██████████████████▌                   | 1.34M/2.74M [00:02&lt;00:02, 668kB/s]
+ 53%|████████████████████▏                 | 1.45M/2.74M [00:02&lt;00:01, 677kB/s]
+ 56%|█████████████████████▎                | 1.53M/2.74M [00:02&lt;00:01, 623kB/s]
+ 61%|███████████████████████▎              | 1.68M/2.74M [00:03&lt;00:01, 702kB/s]
+ 67%|█████████████████████████▍            | 1.83M/2.74M [00:03&lt;00:01, 760kB/s]
+ 72%|███████████████████████████▏          | 1.96M/2.74M [00:03&lt;00:01, 770kB/s]
+ 75%|████████████████████████████▌         | 2.06M/2.74M [00:03&lt;00:00, 718kB/s]
+ 80%|██████████████████████████████▍       | 2.19M/2.74M [00:03&lt;00:00, 738kB/s]
+ 85%|████████████████████████████████▏     | 2.32M/2.74M [00:03&lt;00:00, 755kB/s]
+ 89%|█████████████████████████████████▊    | 2.43M/2.74M [00:04&lt;00:00, 738kB/s]
+ 93%|███████████████████████████████████▏  | 2.53M/2.74M [00:04&lt;00:00, 695kB/s]
+ 96%|████████████████████████████████████▎ | 2.61M/2.74M [00:04&lt;00:00, 636kB/s]
+ 98%|█████████████████████████████████████▏| 2.68M/2.74M [00:04&lt;00:00, 565kB/s]
+  0%|                                              | 0.00/2.74M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.74M/2.74M [00:00&lt;00:00, 17.4GB/s]
+
+  0%|                                              | 0.00/2.73M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 12.3k/2.73M [00:00&lt;00:42, 64.1kB/s]
+  1%|▌                                     | 37.9k/2.73M [00:00&lt;00:23, 115kB/s]
+  3%|█▎                                    | 92.2k/2.73M [00:00&lt;00:12, 210kB/s]
+  6%|██▍                                    | 171k/2.73M [00:00&lt;00:08, 315kB/s]
+  9%|███▎                                   | 232k/2.73M [00:00&lt;00:07, 336kB/s]
+ 10%|███▊                                   | 267k/2.73M [00:01&lt;00:08, 294kB/s]
+ 12%|████▋                                  | 331k/2.73M [00:01&lt;00:07, 325kB/s]
+ 16%|██████                                 | 428k/2.73M [00:01&lt;00:05, 410kB/s]
+ 20%|███████▊                               | 543k/2.73M [00:01&lt;00:04, 499kB/s]
+ 24%|█████████▍                             | 657k/2.73M [00:01&lt;00:03, 560kB/s]
+ 27%|██████████▌                            | 739k/2.73M [00:01&lt;00:03, 541kB/s]
+ 31%|███████████▉                           | 838k/2.73M [00:01&lt;00:03, 558kB/s]
+ 35%|█████████████▌                         | 951k/2.73M [00:02&lt;00:02, 597kB/s]
+ 37%|██████████████▏                       | 1.02M/2.73M [00:02&lt;00:03, 537kB/s]
+ 41%|███████████████▌                      | 1.12M/2.73M [00:02&lt;00:02, 555kB/s]
+ 46%|█████████████████▌                    | 1.26M/2.73M [00:02&lt;00:02, 657kB/s]
+ 50%|██████████████████▉                   | 1.36M/2.73M [00:02&lt;00:02, 639kB/s]
+ 54%|████████████████████▌                 | 1.47M/2.73M [00:02&lt;00:01, 654kB/s]
+ 56%|█████████████████████▍                | 1.54M/2.73M [00:03&lt;00:02, 576kB/s]
+ 60%|██████████████████████▊               | 1.64M/2.73M [00:03&lt;00:01, 582kB/s]
+ 64%|████████████████████████▏             | 1.74M/2.73M [00:03&lt;00:01, 587kB/s]
+ 68%|██████████████████████████            | 1.87M/2.73M [00:03&lt;00:01, 649kB/s]
+ 71%|██████████████████████████▉           | 1.93M/2.73M [00:03&lt;00:01, 574kB/s]
+ 75%|████████████████████████████▌         | 2.05M/2.73M [00:03&lt;00:01, 608kB/s]
+ 81%|██████████████████████████████▊       | 2.21M/2.73M [00:04&lt;00:00, 725kB/s]
+ 85%|████████████████████████████████▍     | 2.33M/2.73M [00:04&lt;00:00, 716kB/s]
+ 92%|██████████████████████████████████▉   | 2.51M/2.73M [00:04&lt;00:00, 828kB/s]
+ 97%|████████████████████████████████████▋ | 2.64M/2.73M [00:04&lt;00:00, 817kB/s]
+  0%|                                              | 0.00/2.73M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.73M/2.73M [00:00&lt;00:00, 18.9GB/s]
+
+  0%|                                              | 0.00/3.97M [00:00&lt;?, ?B/s]
+  0%|                                     | 5.12k/3.97M [00:00&lt;02:21, 28.1kB/s]
+  1%|▍                                     | 41.0k/3.97M [00:00&lt;00:29, 135kB/s]
+  2%|▉                                     | 95.2k/3.97M [00:00&lt;00:17, 222kB/s]
+  4%|█▋                                     | 174k/3.97M [00:00&lt;00:11, 322kB/s]
+  6%|██▍                                    | 252k/3.97M [00:00&lt;00:09, 376kB/s]
+  9%|███▍                                   | 355k/3.97M [00:01&lt;00:07, 461kB/s]
+ 12%|████▊                                  | 485k/3.97M [00:01&lt;00:06, 568kB/s]
+ 17%|██████▌                                | 665k/3.97M [00:01&lt;00:04, 733kB/s]
+ 23%|████████▊                              | 894k/3.97M [00:01&lt;00:03, 939kB/s]
+ 31%|███████████▎                         | 1.22M/3.97M [00:01&lt;00:02, 1.26MB/s]
+ 41%|███████████████▏                     | 1.63M/3.97M [00:01&lt;00:01, 1.64MB/s]
+ 53%|███████████████████▊                 | 2.12M/3.97M [00:01&lt;00:00, 2.04MB/s]
+ 70%|█████████████████████████▊           | 2.77M/3.97M [00:02&lt;00:00, 2.63MB/s]
+ 88%|████████████████████████████████▌    | 3.49M/3.97M [00:02&lt;00:00, 3.15MB/s]
+  0%|                                              | 0.00/3.97M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 3.97M/3.97M [00:00&lt;00:00, 24.9GB/s]
+
+  0%|                                              | 0.00/2.72M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 13.3k/2.72M [00:00&lt;00:40, 67.5kB/s]
+  2%|▌                                     | 41.0k/2.72M [00:00&lt;00:21, 125kB/s]
+  4%|█▎                                    | 96.3k/2.72M [00:00&lt;00:11, 223kB/s]
+  7%|██▌                                    | 182k/2.72M [00:00&lt;00:07, 347kB/s]
+  9%|███▍                                   | 237k/2.72M [00:00&lt;00:07, 346kB/s]
+ 11%|████▎                                  | 299k/2.72M [00:00&lt;00:06, 363kB/s]
+ 14%|█████▍                                 | 382k/2.72M [00:01&lt;00:05, 415kB/s]
+ 19%|███████▎                               | 513k/2.72M [00:01&lt;00:04, 546kB/s]
+ 22%|████████▊                              | 611k/2.72M [00:01&lt;00:03, 570kB/s]
+ 26%|██████████▏                            | 709k/2.72M [00:01&lt;00:03, 584kB/s]
+ 30%|███████████▊                           | 823k/2.72M [00:01&lt;00:03, 627kB/s]
+ 35%|█████████████▋                         | 954k/2.72M [00:01&lt;00:02, 688kB/s]
+ 38%|██████████████▍                       | 1.04M/2.72M [00:02&lt;00:02, 637kB/s]
+ 41%|███████████████▌                      | 1.12M/2.72M [00:02&lt;00:02, 602kB/s]
+ 45%|█████████████████▏                    | 1.23M/2.72M [00:02&lt;00:02, 637kB/s]
+ 49%|██████████████████▊                   | 1.35M/2.72M [00:02&lt;00:02, 664kB/s]
+ 53%|████████████████████▏                 | 1.44M/2.72M [00:02&lt;00:01, 651kB/s]
+ 56%|█████████████████████▎                | 1.53M/2.72M [00:02&lt;00:01, 611kB/s]
+ 61%|███████████████████████▏              | 1.66M/2.72M [00:03&lt;00:01, 677kB/s]
+ 64%|████████████████████████▍             | 1.76M/2.72M [00:03&lt;00:01, 657kB/s]
+ 69%|██████████████████████████            | 1.87M/2.72M [00:03&lt;00:01, 678kB/s]
+ 72%|███████████████████████████▍          | 1.97M/2.72M [00:03&lt;00:01, 662kB/s]
+ 75%|████████████████████████████▌         | 2.05M/2.72M [00:03&lt;00:01, 619kB/s]
+ 79%|██████████████████████████████▏       | 2.16M/2.72M [00:03&lt;00:00, 651kB/s]
+ 83%|███████████████████████████████▌      | 2.26M/2.72M [00:03&lt;00:00, 640kB/s]
+ 86%|████████████████████████████████▋     | 2.34M/2.72M [00:04&lt;00:00, 604kB/s]
+ 90%|██████████████████████████████████    | 2.44M/2.72M [00:04&lt;00:00, 610kB/s]
+ 92%|██████████████████████████████████▉   | 2.51M/2.72M [00:04&lt;00:00, 552kB/s]
+ 95%|████████████████████████████████████▏ | 2.59M/2.72M [00:04&lt;00:00, 542kB/s]
+ 99%|█████████████████████████████████████▋| 2.70M/2.72M [00:04&lt;00:00, 596kB/s]
+  0%|                                              | 0.00/2.72M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.72M/2.72M [00:00&lt;00:00, 20.8GB/s]
+
+  0%|                                              | 0.00/2.82M [00:00&lt;?, ?B/s]
+  0%|                                     | 9.22k/2.82M [00:00&lt;00:54, 51.5kB/s]
+  1%|▌                                     | 41.0k/2.82M [00:00&lt;00:20, 137kB/s]
+  3%|█▏                                    | 86.0k/2.82M [00:00&lt;00:13, 206kB/s]
+  6%|██▍                                    | 172k/2.82M [00:00&lt;00:07, 341kB/s]
+  8%|███▏                                   | 231k/2.82M [00:00&lt;00:07, 359kB/s]
+ 10%|███▊                                   | 276k/2.82M [00:00&lt;00:07, 337kB/s]
+ 13%|████▉                                  | 358k/2.82M [00:01&lt;00:06, 400kB/s]
+ 16%|██████▎                                | 453k/2.82M [00:01&lt;00:05, 468kB/s]
+ 19%|███████▍                               | 534k/2.82M [00:01&lt;00:04, 486kB/s]
+ 21%|████████▎                              | 599k/2.82M [00:01&lt;00:04, 467kB/s]
+ 24%|█████████▍                             | 681k/2.82M [00:01&lt;00:04, 487kB/s]
+ 28%|██████████▊                            | 779k/2.82M [00:01&lt;00:03, 533kB/s]
+ 31%|███████████▉                           | 861k/2.82M [00:02&lt;00:03, 532kB/s]
+ 35%|█████████████▋                         | 992k/2.82M [00:02&lt;00:02, 629kB/s]
+ 40%|███████████████▎                      | 1.14M/2.82M [00:02&lt;00:02, 723kB/s]
+ 43%|████████████████▎                     | 1.21M/2.82M [00:02&lt;00:02, 647kB/s]
+ 48%|██████████████████▏                   | 1.35M/2.82M [00:02&lt;00:02, 726kB/s]
+ 53%|███████████████████▉                  | 1.48M/2.82M [00:02&lt;00:01, 763kB/s]
+ 57%|█████████████████████▌                | 1.60M/2.82M [00:02&lt;00:01, 755kB/s]
+ 59%|██████████████████████▌               | 1.67M/2.82M [00:03&lt;00:01, 677kB/s]
+ 62%|███████████████████████▌              | 1.74M/2.82M [00:03&lt;00:01, 613kB/s]
+ 68%|█████████████████████████▉            | 1.92M/2.82M [00:03&lt;00:01, 779kB/s]
+ 72%|███████████████████████████▎          | 2.02M/2.82M [00:03&lt;00:01, 737kB/s]
+ 75%|████████████████████████████▌         | 2.12M/2.82M [00:03&lt;00:00, 704kB/s]
+ 80%|██████████████████████████████▌       | 2.27M/2.82M [00:03&lt;00:00, 779kB/s]
+ 86%|████████████████████████████████▌     | 2.41M/2.82M [00:04&lt;00:00, 831kB/s]
+ 90%|██████████████████████████████████    | 2.53M/2.82M [00:04&lt;00:00, 805kB/s]
+ 93%|███████████████████████████████████▍  | 2.63M/2.82M [00:04&lt;00:00, 752kB/s]
+ 98%|█████████████████████████████████████▏| 2.76M/2.82M [00:04&lt;00:00, 779kB/s]
+  0%|                                              | 0.00/2.82M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.82M/2.82M [00:00&lt;00:00, 20.7GB/s]
+
+  0%|                                              | 0.00/2.77M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 11.3k/2.77M [00:00&lt;00:51, 53.7kB/s]
+  1%|▌                                     | 41.0k/2.77M [00:00&lt;00:22, 121kB/s]
+  3%|█▎                                    | 95.2k/2.77M [00:00&lt;00:12, 211kB/s]
+  6%|██▍                                    | 174k/2.77M [00:00&lt;00:08, 318kB/s]
+  9%|███▌                                   | 256k/2.77M [00:00&lt;00:06, 383kB/s]
+ 11%|████▎                                  | 305k/2.77M [00:01&lt;00:06, 355kB/s]
+ 15%|█████▋                                 | 403k/2.77M [00:01&lt;00:05, 433kB/s]
+ 18%|███████                                | 501k/2.77M [00:01&lt;00:04, 484kB/s]
+ 22%|████████▍                              | 599k/2.77M [00:01&lt;00:04, 520kB/s]
+ 24%|█████████▏                             | 651k/2.77M [00:01&lt;00:04, 458kB/s]
+ 26%|██████████▎                            | 730k/2.77M [00:01&lt;00:04, 464kB/s]
+ 31%|████████████                           | 861k/2.77M [00:02&lt;00:03, 566kB/s]
+ 35%|█████████████▋                         | 975k/2.77M [00:02&lt;00:02, 603kB/s]
+ 39%|██████████████▋                       | 1.07M/2.77M [00:02&lt;00:02, 601kB/s]
+ 41%|███████████████▌                      | 1.14M/2.77M [00:02&lt;00:03, 540kB/s]
+ 45%|████████████████▉                     | 1.24M/2.77M [00:02&lt;00:02, 556kB/s]
+ 49%|██████████████████▊                   | 1.37M/2.77M [00:02&lt;00:02, 628kB/s]
+ 53%|████████████████████                  | 1.47M/2.77M [00:03&lt;00:02, 616kB/s]
+ 56%|█████████████████████▏                | 1.55M/2.77M [00:03&lt;00:02, 580kB/s]
+ 58%|██████████████████████                | 1.61M/2.77M [00:03&lt;00:02, 526kB/s]
+ 62%|███████████████████████▋              | 1.73M/2.77M [00:03&lt;00:01, 577kB/s]
+ 65%|████████████████████████▊             | 1.81M/2.77M [00:03&lt;00:01, 554kB/s]
+ 68%|█████████████████████████▋            | 1.87M/2.77M [00:03&lt;00:01, 508kB/s]
+ 71%|███████████████████████████           | 1.97M/2.77M [00:03&lt;00:01, 534kB/s]
+ 76%|████████████████████████████▊         | 2.10M/2.77M [00:04&lt;00:01, 611kB/s]
+ 79%|██████████████████████████████▏       | 2.20M/2.77M [00:04&lt;00:00, 606kB/s]
+ 84%|███████████████████████████████▉      | 2.33M/2.77M [00:04&lt;00:00, 663kB/s]
+ 88%|█████████████████████████████████▌    | 2.45M/2.77M [00:04&lt;00:00, 672kB/s]
+ 93%|███████████████████████████████████▎  | 2.58M/2.77M [00:04&lt;00:00, 707kB/s]
+ 97%|████████████████████████████████████▉ | 2.69M/2.77M [00:04&lt;00:00, 704kB/s]
+  0%|                                              | 0.00/2.77M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.77M/2.77M [00:00&lt;00:00, 20.1GB/s]
+
+  0%|                                              | 0.00/2.72M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 12.3k/2.72M [00:00&lt;00:43, 62.5kB/s]
+  1%|▌                                     | 39.9k/2.72M [00:00&lt;00:21, 122kB/s]
+  3%|█▏                                    | 89.1k/2.72M [00:00&lt;00:12, 203kB/s]
+  6%|██▍                                    | 168k/2.72M [00:00&lt;00:08, 313kB/s]
+  8%|███▏                                   | 219k/2.72M [00:00&lt;00:07, 316kB/s]
+ 11%|████▎                                  | 298k/2.72M [00:00&lt;00:06, 375kB/s]
+ 14%|█████▍                                 | 380k/2.72M [00:01&lt;00:05, 418kB/s]
+ 16%|██████▍                                | 445k/2.72M [00:01&lt;00:05, 415kB/s]
+ 19%|███████▎                               | 511k/2.72M [00:01&lt;00:05, 413kB/s]
+ 22%|████████▋                              | 609k/2.72M [00:01&lt;00:04, 474kB/s]
+ 27%|██████████▌                            | 739k/2.72M [00:01&lt;00:03, 576kB/s]
+ 30%|███████████▌                           | 805k/2.72M [00:01&lt;00:03, 525kB/s]
+ 33%|████████████▉                          | 903k/2.72M [00:02&lt;00:03, 552kB/s]
+ 38%|██████████████▍                       | 1.03M/2.72M [00:02&lt;00:02, 631kB/s]
+ 40%|███████████████▎                      | 1.10M/2.72M [00:02&lt;00:02, 565kB/s]
+ 43%|████████████████▌                     | 1.18M/2.72M [00:02&lt;00:02, 548kB/s]
+ 48%|██████████████████▎                   | 1.31M/2.72M [00:02&lt;00:02, 626kB/s]
+ 53%|████████████████████▏                 | 1.44M/2.72M [00:02&lt;00:01, 683kB/s]
+ 58%|██████████████████████▏               | 1.59M/2.72M [00:03&lt;00:01, 755kB/s]
+ 63%|████████████████████████              | 1.72M/2.72M [00:03&lt;00:01, 768kB/s]
+ 68%|█████████████████████████▉            | 1.85M/2.72M [00:03&lt;00:01, 781kB/s]
+ 72%|███████████████████████████▏          | 1.95M/2.72M [00:03&lt;00:01, 731kB/s]
+ 78%|█████████████████████████████▌        | 2.11M/2.72M [00:03&lt;00:00, 817kB/s]
+ 81%|██████████████████████████████▉       | 2.21M/2.72M [00:03&lt;00:00, 756kB/s]
+ 86%|████████████████████████████████▋     | 2.34M/2.72M [00:04&lt;00:00, 772kB/s]
+ 92%|███████████████████████████████████   | 2.51M/2.72M [00:04&lt;00:00, 846kB/s]
+ 97%|████████████████████████████████████▊ | 2.64M/2.72M [00:04&lt;00:00, 837kB/s]
+  0%|                                              | 0.00/2.72M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.72M/2.72M [00:00&lt;00:00, 15.7GB/s]
+
+  0%|                                              | 0.00/2.75M [00:00&lt;?, ?B/s]
+  0%|                                     | 1.02k/2.75M [00:00&lt;08:21, 5.49kB/s]
+  1%|▍                                     | 31.7k/2.75M [00:00&lt;00:25, 106kB/s]
+  3%|█▎                                    | 93.2k/2.75M [00:00&lt;00:11, 225kB/s]
+  6%|██▍                                    | 175k/2.75M [00:00&lt;00:07, 330kB/s]
+ 11%|████▏                                  | 293k/2.75M [00:00&lt;00:05, 467kB/s]
+ 15%|█████▉                                 | 419k/2.75M [00:01&lt;00:04, 568kB/s]
+ 22%|████████▋                              | 615k/2.75M [00:01&lt;00:02, 771kB/s]
+ 29%|███████████▎                           | 795k/2.75M [00:01&lt;00:02, 872kB/s]
+ 41%|███████████████                      | 1.12M/2.75M [00:01&lt;00:01, 1.22MB/s]
+ 53%|███████████████████▋                 | 1.47M/2.75M [00:01&lt;00:00, 1.49MB/s]
+ 71%|██████████████████████████▎          | 1.96M/2.75M [00:01&lt;00:00, 1.94MB/s]
+ 87%|████████████████████████████████▏    | 2.40M/2.75M [00:01&lt;00:00, 2.17MB/s]
+  0%|                                              | 0.00/2.75M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 2.75M/2.75M [00:00&lt;00:00, 14.5GB/s]
+
+  0%|                                              | 0.00/3.26M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 12.3k/3.26M [00:00&lt;00:45, 71.8kB/s]
+  1%|▍                                     | 41.0k/3.26M [00:00&lt;00:23, 136kB/s]
+  3%|█                                     | 92.2k/3.26M [00:00&lt;00:14, 224kB/s]
+  5%|██                                     | 169k/3.26M [00:00&lt;00:09, 332kB/s]
+  7%|██▋                                    | 224k/3.26M [00:00&lt;00:08, 342kB/s]
+  8%|███▏                                   | 267k/3.26M [00:00&lt;00:09, 321kB/s]
+ 11%|████▎                                  | 365k/3.26M [00:01&lt;00:06, 422kB/s]
+ 14%|█████▍                                 | 450k/3.26M [00:01&lt;00:06, 463kB/s]
+ 16%|██████▏                                | 515k/3.26M [00:01&lt;00:06, 451kB/s]
+ 18%|██████▉                                | 580k/3.26M [00:01&lt;00:06, 441kB/s]
+ 20%|███████▉                               | 662k/3.26M [00:01&lt;00:05, 469kB/s]
+ 23%|████████▉                              | 743k/3.26M [00:01&lt;00:05, 488kB/s]
+ 26%|██████████                             | 842k/3.26M [00:02&lt;00:04, 533kB/s]
+ 29%|███████████▍                           | 956k/3.26M [00:02&lt;00:03, 598kB/s]
+ 34%|█████████████                         | 1.12M/3.26M [00:02&lt;00:02, 734kB/s]
+ 37%|██████████████▏                       | 1.22M/3.26M [00:02&lt;00:02, 706kB/s]
+ 40%|███████████████▎                      | 1.32M/3.26M [00:02&lt;00:02, 686kB/s]
+ 43%|████████████████▎                     | 1.40M/3.26M [00:02&lt;00:02, 639kB/s]
+ 47%|██████████████████                    | 1.55M/3.26M [00:02&lt;00:02, 735kB/s]
+ 52%|███████████████████▋                  | 1.69M/3.26M [00:03&lt;00:01, 799kB/s]
+ 54%|████████████████████▋                 | 1.77M/3.26M [00:03&lt;00:02, 719kB/s]
+ 57%|█████████████████████▌                | 1.86M/3.26M [00:03&lt;00:02, 664kB/s]
+ 60%|██████████████████████▊               | 1.95M/3.26M [00:03&lt;00:01, 656kB/s]
+ 62%|███████████████████████▋              | 2.04M/3.26M [00:03&lt;00:01, 619kB/s]
+ 65%|████████████████████████▊             | 2.13M/3.26M [00:03&lt;00:01, 623kB/s]
+ 68%|█████████████████████████▉            | 2.23M/3.26M [00:04&lt;00:01, 627kB/s]
+ 72%|███████████████████████████▎          | 2.35M/3.26M [00:04&lt;00:01, 662kB/s]
+ 75%|████████████████████████████▍         | 2.44M/3.26M [00:04&lt;00:01, 655kB/s]
+ 77%|█████████████████████████████▍        | 2.53M/3.26M [00:04&lt;00:01, 617kB/s]
+ 80%|██████████████████████████████▍       | 2.61M/3.26M [00:04&lt;00:01, 591kB/s]
+ 84%|███████████████████████████████▉      | 2.74M/3.26M [00:04&lt;00:00, 665kB/s]
+ 88%|█████████████████████████████████▍    | 2.87M/3.26M [00:04&lt;00:00, 717kB/s]
+ 91%|██████████████████████████████████▌   | 2.97M/3.26M [00:05&lt;00:00, 693kB/s]
+ 95%|████████████████████████████████████  | 3.10M/3.26M [00:05&lt;00:00, 740kB/s]
+ 99%|█████████████████████████████████████▌| 3.23M/3.26M [00:05&lt;00:00, 771kB/s]
+  0%|                                              | 0.00/3.26M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 3.26M/3.26M [00:00&lt;00:00, 24.1GB/s]
+
+  0%|                                              | 0.00/3.33M [00:00&lt;?, ?B/s]
+  0%|▏                                    | 12.3k/3.33M [00:00&lt;00:47, 69.4kB/s]
+  1%|▍                                     | 39.9k/3.33M [00:00&lt;00:25, 129kB/s]
+  3%|█                                     | 93.2k/3.33M [00:00&lt;00:14, 222kB/s]
+  5%|█▉                                     | 165k/3.33M [00:00&lt;00:10, 313kB/s]
+  7%|██▋                                    | 233k/3.33M [00:00&lt;00:08, 357kB/s]
+  9%|███▌                                   | 307k/3.33M [00:00&lt;00:07, 394kB/s]
+ 13%|████▉                                  | 422k/3.33M [00:01&lt;00:05, 502kB/s]
+ 15%|█████▊                                 | 501k/3.33M [00:01&lt;00:05, 501kB/s]
+ 17%|██████▊                                | 582k/3.33M [00:01&lt;00:05, 505kB/s]
+ 19%|███████▌                               | 647k/3.33M [00:01&lt;00:05, 477kB/s]
+ 23%|█████████                              | 778k/3.33M [00:01&lt;00:04, 585kB/s]
+ 28%|██████████▊                            | 926k/3.33M [00:01&lt;00:03, 690kB/s]
+ 31%|███████████▋                          | 1.02M/3.33M [00:02&lt;00:03, 670kB/s]
+ 33%|████████████▌                         | 1.10M/3.33M [00:02&lt;00:03, 623kB/s]
+ 36%|█████████████▌                        | 1.19M/3.33M [00:02&lt;00:03, 591kB/s]
+ 40%|███████████████                       | 1.32M/3.33M [00:02&lt;00:03, 663kB/s]
+ 43%|████████████████▏                     | 1.42M/3.33M [00:02&lt;00:02, 651kB/s]
+ 47%|█████████████████▊                    | 1.56M/3.33M [00:02&lt;00:02, 735kB/s]
+ 51%|███████████████████▎                  | 1.69M/3.33M [00:03&lt;00:02, 762kB/s]
+ 53%|████████████████████▎                 | 1.78M/3.33M [00:03&lt;00:02, 688kB/s]
+ 58%|█████████████████████▉                | 1.92M/3.33M [00:03&lt;00:01, 762kB/s]
+ 62%|███████████████████████▋              | 2.07M/3.33M [00:03&lt;00:01, 813kB/s]
+ 65%|████████████████████████▋             | 2.17M/3.33M [00:03&lt;00:01, 754kB/s]
+ 68%|█████████████████████████▊            | 2.27M/3.33M [00:03&lt;00:01, 714kB/s]
+ 73%|███████████████████████████▌          | 2.41M/3.33M [00:03&lt;00:01, 780kB/s]
+ 76%|████████████████████████████▊         | 2.53M/3.33M [00:04&lt;00:01, 764kB/s]
+ 79%|█████████████████████████████▉        | 2.63M/3.33M [00:04&lt;00:00, 722kB/s]
+ 82%|███████████████████████████████       | 2.72M/3.33M [00:04&lt;00:00, 690kB/s]
+ 84%|████████████████████████████████      | 2.81M/3.33M [00:04&lt;00:00, 638kB/s]
+ 88%|█████████████████████████████████▌    | 2.94M/3.33M [00:04&lt;00:00, 696kB/s]
+ 91%|██████████████████████████████████▋   | 3.04M/3.33M [00:04&lt;00:00, 674kB/s]
+ 96%|████████████████████████████████████▎ | 3.18M/3.33M [00:05&lt;00:00, 749kB/s]
+ 99%|█████████████████████████████████████▍| 3.28M/3.33M [00:05&lt;00:00, 711kB/s]
+  0%|                                              | 0.00/3.33M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 3.33M/3.33M [00:00&lt;00:00, 23.7GB/s]
+
+  0%|                                              | 0.00/3.23M [00:00&lt;?, ?B/s]
+  0%|                                     | 1.02k/3.23M [00:00&lt;09:32, 5.64kB/s]
+  1%|▍                                     | 32.8k/3.23M [00:00&lt;00:28, 111kB/s]
+  3%|█                                     | 95.2k/3.23M [00:00&lt;00:13, 231kB/s]
+  5%|█▉                                     | 165k/3.23M [00:00&lt;00:10, 306kB/s]
+  8%|███▎                                   | 273k/3.23M [00:00&lt;00:06, 432kB/s]
+ 11%|████▍                                  | 370k/3.23M [00:01&lt;00:05, 484kB/s]
+ 18%|██████▊                                | 566k/3.23M [00:01&lt;00:03, 715kB/s]
+ 23%|█████████                              | 746k/3.23M [00:01&lt;00:02, 835kB/s]
+ 34%|████████████▋                        | 1.11M/3.23M [00:01&lt;00:01, 1.26MB/s]
+ 46%|█████████████████▏                   | 1.50M/3.23M [00:01&lt;00:01, 1.60MB/s]
+ 64%|███████████████████████▋             | 2.07M/3.23M [00:01&lt;00:00, 2.18MB/s]
+ 85%|███████████████████████████████▌     | 2.76M/3.23M [00:01&lt;00:00, 2.78MB/s]
+  0%|                                              | 0.00/3.23M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 3.23M/3.23M [00:00&lt;00:00, 17.9GB/s]
+
+  0%|                                              | 0.00/6.92M [00:00&lt;?, ?B/s]
+  0%|                                     | 5.12k/6.92M [00:00&lt;04:02, 28.6kB/s]
+  1%|▏                                     | 41.0k/6.92M [00:00&lt;00:48, 141kB/s]
+  1%|▌                                     | 95.2k/6.92M [00:00&lt;00:29, 235kB/s]
+  2%|▊                                      | 145k/6.92M [00:00&lt;00:25, 270kB/s]
+  3%|█▏                                     | 204k/6.92M [00:00&lt;00:21, 309kB/s]
+  4%|█▍                                     | 251k/6.92M [00:00&lt;00:21, 307kB/s]
+  4%|█▋                                     | 304k/6.92M [00:01&lt;00:20, 320kB/s]
+  5%|██                                     | 372k/6.92M [00:01&lt;00:18, 358kB/s]
+  7%|██▌                                    | 458k/6.92M [00:01&lt;00:15, 420kB/s]
+  8%|██▉                                    | 523k/6.92M [00:01&lt;00:15, 422kB/s]
+  9%|███▎                                   | 589k/6.92M [00:01&lt;00:14, 423kB/s]
+ 10%|███▊                                   | 671k/6.92M [00:01&lt;00:13, 457kB/s]
+ 10%|████                                   | 717k/6.92M [00:02&lt;00:15, 409kB/s]
+ 12%|████▌                                  | 802k/6.92M [00:02&lt;00:13, 453kB/s]
+ 13%|████▉                                  | 867k/6.92M [00:02&lt;00:13, 445kB/s]
+ 14%|█████▍                                 | 965k/6.92M [00:02&lt;00:11, 501kB/s]
+ 16%|██████                                | 1.10M/6.92M [00:02&lt;00:09, 606kB/s]
+ 17%|██████▌                               | 1.19M/6.92M [00:02&lt;00:09, 618kB/s]
+ 19%|███████▎                              | 1.33M/6.92M [00:02&lt;00:08, 686kB/s]
+ 20%|███████▋                              | 1.41M/6.92M [00:03&lt;00:08, 639kB/s]
+ 21%|████████▏                             | 1.49M/6.92M [00:03&lt;00:08, 605kB/s]
+ 24%|████████▉                             | 1.64M/6.92M [00:03&lt;00:07, 710kB/s]
+ 25%|█████████▌                            | 1.73M/6.92M [00:03&lt;00:07, 689kB/s]
+ 26%|█████████▉                            | 1.82M/6.92M [00:03&lt;00:07, 641kB/s]
+ 27%|██████████▍                           | 1.90M/6.92M [00:03&lt;00:08, 608kB/s]
+ 30%|███████████▎                          | 2.06M/6.92M [00:04&lt;00:06, 743kB/s]
+ 31%|███████████▊                          | 2.14M/6.92M [00:04&lt;00:07, 680kB/s]
+ 32%|████████████▎                         | 2.24M/6.92M [00:04&lt;00:07, 667kB/s]
+ 34%|████████████▊                         | 2.34M/6.92M [00:04&lt;00:06, 658kB/s]
+ 35%|█████████████▍                        | 2.44M/6.92M [00:04&lt;00:06, 651kB/s]
+ 38%|██████████████▍                       | 2.63M/6.92M [00:04&lt;00:05, 836kB/s]
+ 39%|██████████████▉                       | 2.72M/6.92M [00:04&lt;00:05, 748kB/s]
+ 40%|███████████████▎                      | 2.80M/6.92M [00:05&lt;00:06, 680kB/s]
+ 42%|███████████████▉                      | 2.89M/6.92M [00:05&lt;00:06, 668kB/s]
+ 43%|████████████████▍                     | 2.99M/6.92M [00:05&lt;00:05, 656kB/s]
+ 44%|████████████████▊                     | 3.07M/6.92M [00:05&lt;00:06, 617kB/s]
+ 46%|█████████████████▌                    | 3.21M/6.92M [00:05&lt;00:05, 687kB/s]
+ 47%|██████████████████                    | 3.29M/6.92M [00:05&lt;00:05, 640kB/s]
+ 49%|██████████████████▋                   | 3.40M/6.92M [00:06&lt;00:05, 671kB/s]
+ 50%|███████████████████                   | 3.48M/6.92M [00:06&lt;00:05, 630kB/s]
+ 52%|███████████████████▌                  | 3.57M/6.92M [00:06&lt;00:05, 601kB/s]
+ 53%|████████████████████                  | 3.66M/6.92M [00:06&lt;00:05, 610kB/s]
+ 54%|████████████████████▌                 | 3.74M/6.92M [00:06&lt;00:05, 586kB/s]
+ 56%|█████████████████████                 | 3.84M/6.92M [00:06&lt;00:05, 600kB/s]
+ 57%|█████████████████████▌                | 3.92M/6.92M [00:06&lt;00:05, 580kB/s]
+ 58%|██████████████████████                | 4.02M/6.92M [00:07&lt;00:04, 597kB/s]
+ 59%|██████████████████████▌               | 4.10M/6.92M [00:07&lt;00:04, 576kB/s]
+ 61%|███████████████████████▎              | 4.25M/6.92M [00:07&lt;00:03, 687kB/s]
+ 63%|████████████████████████              | 4.38M/6.92M [00:07&lt;00:03, 736kB/s]
+ 64%|████████████████████████▌             | 4.46M/6.92M [00:07&lt;00:03, 675kB/s]
+ 66%|█████████████████████████             | 4.56M/6.92M [00:07&lt;00:03, 664kB/s]
+ 68%|█████████████████████████▉            | 4.73M/6.92M [00:08&lt;00:02, 781kB/s]
+ 70%|██████████████████████████▍           | 4.82M/6.92M [00:08&lt;00:02, 739kB/s]
+ 71%|██████████████████████████▉           | 4.90M/6.92M [00:08&lt;00:03, 663kB/s]
+ 72%|███████████████████████████▍          | 4.99M/6.92M [00:08&lt;00:03, 638kB/s]
+ 73%|███████████████████████████▊          | 5.07M/6.92M [00:08&lt;00:03, 607kB/s]
+ 75%|████████████████████████████▎         | 5.17M/6.92M [00:08&lt;00:02, 614kB/s]
+ 77%|█████████████████████████████▍        | 5.36M/6.92M [00:08&lt;00:01, 813kB/s]
+ 79%|██████████████████████████████        | 5.48M/6.92M [00:09&lt;00:01, 792kB/s]
+ 81%|██████████████████████████████▋       | 5.59M/6.92M [00:09&lt;00:01, 777kB/s]
+ 83%|███████████████████████████████▌      | 5.74M/6.92M [00:09&lt;00:01, 829kB/s]
+ 84%|████████████████████████████████      | 5.84M/6.92M [00:09&lt;00:01, 772kB/s]
+ 86%|████████████████████████████████▊     | 5.97M/6.92M [00:09&lt;00:01, 795kB/s]
+ 88%|█████████████████████████████████▍    | 6.08M/6.92M [00:09&lt;00:01, 779kB/s]
+ 90%|██████████████████████████████████▏   | 6.23M/6.92M [00:10&lt;00:00, 831kB/s]
+ 92%|██████████████████████████████████▉   | 6.36M/6.92M [00:10&lt;00:00, 837kB/s]
+ 94%|███████████████████████████████████▋  | 6.49M/6.92M [00:10&lt;00:00, 841kB/s]
+ 96%|████████████████████████████████████▍ | 6.64M/6.92M [00:10&lt;00:00, 875kB/s]
+ 98%|█████████████████████████████████████▎| 6.80M/6.92M [00:10&lt;00:00, 930kB/s]
+  0%|                                              | 0.00/6.92M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 6.92M/6.92M [00:00&lt;00:00, 47.6GB/s]
+
+  0%|                                              | 0.00/5.35M [00:00&lt;?, ?B/s]
+  0%|                                     | 12.3k/5.35M [00:00&lt;01:19, 67.2kB/s]
+  1%|▎                                     | 41.0k/5.35M [00:00&lt;00:41, 127kB/s]
+  2%|▋                                     | 95.2k/5.35M [00:00&lt;00:24, 215kB/s]
+  3%|█▏                                     | 162k/5.35M [00:00&lt;00:18, 284kB/s]
+  5%|█▉                                     | 259k/5.35M [00:00&lt;00:13, 391kB/s]
+  6%|██▎                                    | 324k/5.35M [00:01&lt;00:12, 392kB/s]
+  7%|██▉                                    | 397k/5.35M [00:01&lt;00:12, 410kB/s]
+  9%|███▌                                   | 486k/5.35M [00:01&lt;00:10, 451kB/s]
+ 11%|████▎                                  | 585k/5.35M [00:01&lt;00:09, 496kB/s]
+ 13%|████▉                                  | 683k/5.35M [00:01&lt;00:08, 527kB/s]
+ 14%|█████▌                                 | 764k/5.35M [00:01&lt;00:08, 516kB/s]
+ 16%|██████▎                                | 862k/5.35M [00:02&lt;00:08, 539kB/s]
+ 18%|███████                                | 961k/5.35M [00:02&lt;00:07, 554kB/s]
+ 20%|███████▋                              | 1.08M/5.35M [00:02&lt;00:07, 596kB/s]
+ 22%|████████▏                             | 1.16M/5.35M [00:02&lt;00:07, 565kB/s]
+ 24%|█████████▏                            | 1.29M/5.35M [00:02&lt;00:06, 633kB/s]
+ 26%|█████████▊                            | 1.39M/5.35M [00:02&lt;00:06, 623kB/s]
+ 28%|██████████▌                           | 1.48M/5.35M [00:02&lt;00:06, 614kB/s]
+ 30%|███████████▎                          | 1.60M/5.35M [00:03&lt;00:05, 639kB/s]
+ 31%|███████████▉                          | 1.68M/5.35M [00:03&lt;00:06, 596kB/s]
+ 34%|████████████▉                         | 1.83M/5.35M [00:03&lt;00:05, 684kB/s]
+ 36%|█████████████▌                        | 1.91M/5.35M [00:03&lt;00:05, 627kB/s]
+ 38%|██████████████▌                       | 2.06M/5.35M [00:03&lt;00:04, 704kB/s]
+ 41%|███████████████▍                      | 2.17M/5.35M [00:03&lt;00:04, 701kB/s]
+ 42%|████████████████                      | 2.27M/5.35M [00:04&lt;00:04, 667kB/s]
+ 45%|█████████████████▏                    | 2.42M/5.35M [00:04&lt;00:04, 733kB/s]
+ 47%|█████████████████▋                    | 2.50M/5.35M [00:04&lt;00:04, 663kB/s]
+ 48%|██████████████████▎                   | 2.58M/5.35M [00:04&lt;00:04, 611kB/s]
+ 50%|███████████████████                   | 2.68M/5.35M [00:04&lt;00:04, 606kB/s]
+ 52%|███████████████████▊                  | 2.79M/5.35M [00:04&lt;00:04, 632kB/s]
+ 53%|████████████████████▎                 | 2.86M/5.35M [00:05&lt;00:04, 558kB/s]
+ 55%|████████████████████▊                 | 2.94M/5.35M [00:05&lt;00:04, 540kB/s]
+ 57%|█████████████████████▌                | 3.04M/5.35M [00:05&lt;00:04, 557kB/s]
+ 59%|██████████████████████▍               | 3.15M/5.35M [00:05&lt;00:03, 598kB/s]
+ 61%|███████████████████████▎              | 3.28M/5.35M [00:05&lt;00:03, 657kB/s]
+ 63%|████████████████████████              | 3.40M/5.35M [00:05&lt;00:02, 665kB/s]
+ 66%|████████████████████████▉             | 3.51M/5.35M [00:06&lt;00:02, 673kB/s]
+ 67%|█████████████████████████▋            | 3.61M/5.35M [00:06&lt;00:02, 650kB/s]
+ 71%|███████████████████████████           | 3.81M/5.35M [00:06&lt;00:01, 813kB/s]
+ 73%|███████████████████████████▌          | 3.89M/5.35M [00:06&lt;00:02, 717kB/s]
+ 75%|████████████████████████████▍         | 4.00M/5.35M [00:06&lt;00:01, 708kB/s]
+ 77%|█████████████████████████████▎        | 4.13M/5.35M [00:06&lt;00:01, 732kB/s]
+ 79%|██████████████████████████████▏       | 4.25M/5.35M [00:07&lt;00:01, 720kB/s]
+ 82%|██████████████████████████████▉       | 4.36M/5.35M [00:07&lt;00:01, 712kB/s]
+ 83%|███████████████████████████████▋      | 4.46M/5.35M [00:07&lt;00:01, 676kB/s]
+ 86%|████████████████████████████████▌     | 4.59M/5.35M [00:07&lt;00:01, 711kB/s]
+ 88%|█████████████████████████████████▎    | 4.69M/5.35M [00:07&lt;00:00, 677kB/s]
+ 90%|██████████████████████████████████    | 4.80M/5.35M [00:07&lt;00:00, 681kB/s]
+ 92%|██████████████████████████████████▊   | 4.90M/5.35M [00:08&lt;00:00, 656kB/s]
+ 94%|███████████████████████████████████▊  | 5.05M/5.35M [00:08&lt;00:00, 725kB/s]
+ 96%|████████████████████████████████████▌ | 5.15M/5.35M [00:08&lt;00:00, 684kB/s]
+ 99%|█████████████████████████████████████▋| 5.31M/5.35M [00:08&lt;00:00, 776kB/s]
+  0%|                                              | 0.00/5.35M [00:00&lt;?, ?B/s]
+100%|█████████████████████████████████████| 5.35M/5.35M [00:00&lt;00:00, 38.0GB/s]
 </pre></div>
 </div>
 <p>Filter bank processing, determine the filter automatically from the
@@ -616,50 +1600,41 @@ stimulation frequency values of events.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../generated/moabb.evaluations.CrossSubjectEvaluation.html#moabb.evaluations.CrossSubjectEvaluation" title="moabb.evaluations.CrossSubjectEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">evaluation_fb</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.CrossSubjectEvaluation.html#moabb.evaluations.CrossSubjectEvaluation" title="moabb.evaluations.CrossSubjectEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class"><span class="n">CrossSubjectEvaluation</span></a><span class="p">(</span>
     <a href="../../generated/moabb.paradigms.SSVEP.html#moabb.paradigms.SSVEP" title="moabb.paradigms.SSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a><span class="o">=</span><a href="../../generated/moabb.paradigms.FilterBankSSVEP.html#moabb.paradigms.FilterBankSSVEP" title="moabb.paradigms.FilterBankSSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm_fb</span></a><span class="p">,</span> <span class="n">datasets</span><span class="o">=</span><a href="../../generated/moabb.datasets.Kalunga2016.html#moabb.datasets.Kalunga2016" title="moabb.datasets.Kalunga2016" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">overwrite</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">overwrite</span></a>
 <span class="p">)</span>
-<span class="n">results_fb</span> <span class="o">=</span> <a href="../../generated/moabb.evaluations.base.BaseEvaluation.html#moabb.evaluations.base.BaseEvaluation.process" title="moabb.evaluations.base.BaseEvaluation.process" class="sphx-glr-backref-module-moabb-evaluations-base sphx-glr-backref-type-py-method"><span class="n">evaluation_fb</span><span class="o">.</span><span class="n">process</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_fb</span></a><span class="p">)</span>
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results_fb</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.base.BaseEvaluation.html#moabb.evaluations.base.BaseEvaluation.process" title="moabb.evaluations.base.BaseEvaluation.process" class="sphx-glr-backref-module-moabb-evaluations-base sphx-glr-backref-type-py-method"><span class="n">evaluation_fb</span><span class="o">.</span><span class="n">process</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_fb</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p>TRCA processing also relies on filter bank that is automatically designed.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../generated/moabb.evaluations.CrossSubjectEvaluation.html#moabb.evaluations.CrossSubjectEvaluation" title="moabb.evaluations.CrossSubjectEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">evaluation_TRCA</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.CrossSubjectEvaluation.html#moabb.evaluations.CrossSubjectEvaluation" title="moabb.evaluations.CrossSubjectEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class"><span class="n">CrossSubjectEvaluation</span></a><span class="p">(</span>
     <a href="../../generated/moabb.paradigms.SSVEP.html#moabb.paradigms.SSVEP" title="moabb.paradigms.SSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a><span class="o">=</span><a href="../../generated/moabb.paradigms.SSVEP.html#moabb.paradigms.SSVEP" title="moabb.paradigms.SSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm_TRCA</span></a><span class="p">,</span> <span class="n">datasets</span><span class="o">=</span><a href="../../generated/moabb.datasets.Kalunga2016.html#moabb.datasets.Kalunga2016" title="moabb.datasets.Kalunga2016" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">overwrite</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">overwrite</span></a>
 <span class="p">)</span>
-<span class="n">results_TRCA</span> <span class="o">=</span> <a href="../../generated/moabb.evaluations.base.BaseEvaluation.html#moabb.evaluations.base.BaseEvaluation.process" title="moabb.evaluations.base.BaseEvaluation.process" class="sphx-glr-backref-module-moabb-evaluations-base sphx-glr-backref-type-py-method"><span class="n">evaluation_TRCA</span><span class="o">.</span><span class="n">process</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_TRCA</span></a><span class="p">)</span>
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results_TRCA</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.base.BaseEvaluation.html#moabb.evaluations.base.BaseEvaluation.process" title="moabb.evaluations.base.BaseEvaluation.process" class="sphx-glr-backref-module-moabb-evaluations-base sphx-glr-backref-type-py-method"><span class="n">evaluation_TRCA</span><span class="o">.</span><span class="n">process</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_TRCA</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p>MsetCCA processing</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../generated/moabb.evaluations.CrossSubjectEvaluation.html#moabb.evaluations.CrossSubjectEvaluation" title="moabb.evaluations.CrossSubjectEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">evaluation_MSET_CCA</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.CrossSubjectEvaluation.html#moabb.evaluations.CrossSubjectEvaluation" title="moabb.evaluations.CrossSubjectEvaluation" class="sphx-glr-backref-module-moabb-evaluations sphx-glr-backref-type-py-class"><span class="n">CrossSubjectEvaluation</span></a><span class="p">(</span>
     <a href="../../generated/moabb.paradigms.SSVEP.html#moabb.paradigms.SSVEP" title="moabb.paradigms.SSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm</span></a><span class="o">=</span><a href="../../generated/moabb.paradigms.SSVEP.html#moabb.paradigms.SSVEP" title="moabb.paradigms.SSVEP" class="sphx-glr-backref-module-moabb-paradigms sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">paradigm_MSET_CCA</span></a><span class="p">,</span> <span class="n">datasets</span><span class="o">=</span><a href="../../generated/moabb.datasets.Kalunga2016.html#moabb.datasets.Kalunga2016" title="moabb.datasets.Kalunga2016" class="sphx-glr-backref-module-moabb-datasets sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">overwrite</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">overwrite</span></a>
 <span class="p">)</span>
-<span class="n">results_MSET_CCA</span> <span class="o">=</span> <a href="../../generated/moabb.evaluations.base.BaseEvaluation.html#moabb.evaluations.base.BaseEvaluation.process" title="moabb.evaluations.base.BaseEvaluation.process" class="sphx-glr-backref-module-moabb-evaluations-base sphx-glr-backref-type-py-method"><span class="n">evaluation_MSET_CCA</span><span class="o">.</span><span class="n">process</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_MSET_CCA</span></a><span class="p">)</span>
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results_MSET_CCA</span></a> <span class="o">=</span> <a href="../../generated/moabb.evaluations.base.BaseEvaluation.html#moabb.evaluations.base.BaseEvaluation.process" title="moabb.evaluations.base.BaseEvaluation.process" class="sphx-glr-backref-module-moabb-evaluations-base sphx-glr-backref-type-py-method"><span class="n">evaluation_MSET_CCA</span><span class="o">.</span><span class="n">process</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pipelines_MSET_CCA</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p>After processing the four, we simply concatenate the results.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">results</span><span class="p">,</span> <span class="n">results_fb</span><span class="p">,</span> <span class="n">results_TRCA</span><span class="p">,</span> <span class="n">results_MSET_CCA</span><span class="p">])</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results</span></a> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html#pandas.concat" title="pandas.concat" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-function"><span class="n">pd</span><span class="o">.</span><span class="n">concat</span></a><span class="p">([</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results_fb</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results_TRCA</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results_MSET_CCA</span></a><span class="p">])</span>
 </pre></div>
 </div>
 </section>
 <section id="plot-results">
 <h2>Plot Results<a class="headerlink" href="#plot-results" title="Link to this heading">#</a></h2>
-<p>Here we display the results as stripplot, with a pointplot for error bar.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a><span class="p">,</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">results</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">,</span>
-    <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">,</span>
-    <span class="n">jitter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">,</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span>
-<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_ylabel.html#matplotlib.axes.Axes.set_ylabel" title="matplotlib.axes.Axes.set_ylabel" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method"><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span></a><span class="p">(</span><span class="s2">&quot;Accuracy&quot;</span><span class="p">)</span>
-<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_ylim.html#matplotlib.axes.Axes.set_ylim" title="matplotlib.axes.Axes.set_ylim" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method"><span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span></a><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+<p>Here we display the results using the MOABB score plot with chance level
+annotations. The 3-class SSVEP paradigm has a theoretical chance level
+of 33.3%.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">chance_levels</span></a> <span class="o">=</span> <span class="n">chance_by_chance</span><span class="p">(</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results</span></a><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">])</span>
+
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">_</span></a> <span class="o">=</span> <a href="../../generated/moabb.analysis.plotting.score_plot.html#moabb.analysis.plotting.score_plot" title="moabb.analysis.plotting.score_plot" class="sphx-glr-backref-module-moabb-analysis-plotting sphx-glr-backref-type-py-function"><span class="n">moabb_plt</span><span class="o">.</span><span class="n">score_plot</span></a><span class="p">(</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">results</span></a><span class="p">,</span> <span class="n">chance_level</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">chance_levels</span></a><span class="p">)</span>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_cross_subject_ssvep_001.png" srcset="../../_images/sphx_glr_plot_cross_subject_ssvep_001.png" alt="plot cross subject ssvep" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.546 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  313 MB</p>
+<img src="../../_images/sphx_glr_plot_cross_subject_ssvep_001.png" srcset="../../_images/sphx_glr_plot_cross_subject_ssvep_001.png" alt="plot cross subject ssvep" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (8 minutes 49.579 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  417 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-paradigm-examples-plot-cross-subject-ssvep-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a4e70780cba83241d5102b821a19c363/plot_cross_subject_ssvep.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_cross_subject_ssvep.ipynb</span></code></a></p>
@@ -676,8 +1651,8 @@ stimulation frequency values of events.</p>
 </section>
 
 
-                </article>
-              
+</div>
+
               
               
               
@@ -720,8 +1695,8 @@ stimulation frequency values of events.</p>
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-dataset">Loading Dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-paradigm">Choose Paradigm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-pipelines">Create Pipelines</a></li>
@@ -729,6 +1704,67 @@ stimulation frequency values of events.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results">Plot Results</a></li>
 </ul>
   </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+
+  <div class="sphx-glr-sidebar-component">
+    
+      
+        <div class="sphx-glr-sidebar-item sphx-glr-download-python-sidebar" title="plot_cross_subject_ssvep.py">
+          <a download href="../../_downloads/de80e7c1e3685f38b65d7bfa81dc7173/plot_cross_subject_ssvep.py">
+            <i class="fa-solid fa-download"></i>
+            Download source code
+          </a>
+        </div>
+      
+    
+      
+        <div class="sphx-glr-sidebar-item sphx-glr-download-jupyter-sidebar" title="plot_cross_subject_ssvep.ipynb">
+          <a download href="../../_downloads/a4e70780cba83241d5102b821a19c363/plot_cross_subject_ssvep.ipynb">
+            <i class="fa-solid fa-download"></i>
+            Download Jupyter notebook
+          </a>
+        </div>
+      
+    
+      
+        <div class="sphx-glr-sidebar-item sphx-glr-download-zip-sidebar" title="plot_cross_subject_ssvep.zip">
+          <a download href="../../_downloads/b0b241fa31cbe4886b91f597e7c90d20/plot_cross_subject_ssvep.zip">
+            <i class="fa-solid fa-download"></i>
+            Download zipped
+          </a>
+        </div>
+      
+    
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div class="sd-card sd-shadow-sm sd-mb-3 moabb-colab-card">
+  <div class="sd-card-body moabb-colab-card-body">
+    <p class="sd-card-text sd-fs-5 sd-font-weight-bold sd-mb-0">Run this example</p>
+    <a class="sd-btn sd-btn-primary" href="https://colab.research.google.com/github/NeuroTechX/moabb/blob/gh-pages/docs/auto_examples/_notebooks/paradigm_examples/plot_cross_subject_ssvep.ipynb" target="_blank" rel="noopener">
+      <img class="moabb-colab-badge" alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg">
+    </a>
+  </div>
+</div>
+</div>
 
 </div></div>
               
@@ -743,8 +1779,8 @@ stimulation frequency values of events.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -755,7 +1791,7 @@ stimulation frequency values of events.</p>
 
   <p class="copyright">
     
-      © Copyright 2018-2025 MOABB contributors.
+      © Copyright 2018-2026 MOABB contributors.
       <br/>
     
   </p>
@@ -770,7 +1806,7 @@ stimulation frequency values of events.</p>
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
 </p></div>
       
     </div>

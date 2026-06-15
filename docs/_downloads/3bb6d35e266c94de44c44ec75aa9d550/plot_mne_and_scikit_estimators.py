@@ -33,6 +33,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 import moabb
+from moabb.analysis.chance_level import chance_by_chance
 from moabb.analysis.meta_analysis import (  # noqa: E501
     compute_dataset_statistics,
     find_significant_differences,
@@ -113,7 +114,7 @@ class MyVectorizer(BaseEstimator, TransformerMixin):
 
 mne_ppl = {}
 mne_ppl["MNE LR"] = make_pipeline(
-    MyVectorizer(), StandardScaler(), LogisticRegression(penalty="l1", solver="liblinear")
+    MyVectorizer(), StandardScaler(), LogisticRegression(l1_ratio=1.0, solver="saga")
 )
 
 mne_eval = CrossSessionEvaluation(
@@ -140,7 +141,7 @@ mne_adv["XDAWN LR"] = make_pipeline(
     Xdawn(n_components=5, reg="ledoit_wolf", correct_overlap=False),
     Vectorizer(),
     StandardScaler(),
-    LogisticRegression(penalty="l1", solver="liblinear"),
+    LogisticRegression(l1_ratio=1.0, solver="saga"),
 )
 adv_eval = CrossSessionEvaluation(
     paradigm=paradigm,
@@ -164,13 +165,10 @@ sk_ppl = {}
 sk_ppl["RG LR"] = make_pipeline(
     XdawnCovariances(nfilter=5, estimator="lwf", xdawn_estimator="scm"),
     TangentSpace(),
-    LogisticRegression(penalty="l1", solver="liblinear"),
+    LogisticRegression(l1_ratio=1.0, solver="saga"),
 )
 sk_eval = CrossSessionEvaluation(
-    paradigm=paradigm,
-    datasets=datasets,
-    suffix="examples",
-    overwrite=True,
+    paradigm=paradigm, datasets=datasets, suffix="examples", overwrite=True
 )
 sk_res = sk_eval.process(sk_ppl)
 
@@ -187,7 +185,9 @@ all_res = pd.concat([mne_res, adv_res, sk_res])
 ##############################################################################
 # We could compare the Euclidean and Riemannian performance using a `paired_plot`
 
-paired_plot(all_res, "XDAWN LR", "RG LR")
+chance_levels = chance_by_chance(all_res, alpha=[0.05, 0.01])
+
+paired_plot(all_res, "XDAWN LR", "RG LR", chance_level=chance_levels)
 
 ##############################################################################
 # All the results could be compared and statistical analysis could highlight the

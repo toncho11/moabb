@@ -33,6 +33,7 @@ from sklearn.pipeline import make_pipeline
 import moabb
 from moabb.datasets import BNCI2014_009
 from moabb.evaluations import WithinSessionEvaluation
+from moabb.evaluations.splitters import LearningCurveSplitter
 from moabb.paradigms import P300
 
 
@@ -81,7 +82,7 @@ dataset = BNCI2014_009()
 dataset.subject_list = dataset.subject_list[1:2]
 datasets = [dataset]
 overwrite = True  # set to True if we want to overwrite cached results
-data_size = dict(policy="ratio", value=np.geomspace(0.02, 1, 4))
+data_size = {"policy": "ratio", "value": np.geomspace(0.02, 1, 4)}
 # When the training data is sparse, perform more permutations than when we have a lot of data
 n_perms = np.floor(np.geomspace(20, 2, len(data_size["value"]))).astype(int)
 # Guarantee reproducibility
@@ -89,8 +90,8 @@ np.random.seed(7536298)
 evaluation = WithinSessionEvaluation(
     paradigm=paradigm,
     datasets=datasets,
-    data_size=data_size,
-    n_perms=n_perms,
+    cv_class=LearningCurveSplitter,
+    cv_kwargs={"data_size": data_size, "n_perms": n_perms},
     suffix="examples_lr",
     overwrite=overwrite,
 )

@@ -86,7 +86,7 @@ class EpochSelectChannel(TransformerMixin):
 # 3) Select a subset of subjects and specific events for analysis
 
 # Here we define the mne events for the RestingState paradigm.
-events = dict(easy=2, diff=3)
+events = {"easy": 2, "diff": 3}
 # The paradigm is adapted to the P300 paradigm.
 paradigm = RestingStateToP300Adapter(events=events, tmin=0, tmax=0.5)
 # We define a list with the dataset to use
@@ -132,11 +132,7 @@ pipelines["ElSel+Cov+TS+LDA"] = make_pipeline(
 # Compare the pipeline using a cross session evaluation.
 
 # Here should be cross-session
-evaluation = CrossSessionEvaluation(
-    paradigm=paradigm,
-    datasets=datasets,
-    overwrite=False,
-)
+evaluation = CrossSessionEvaluation(paradigm=paradigm, datasets=datasets, overwrite=False)
 
 results = evaluation.process(pipelines)
 
@@ -145,7 +141,7 @@ results = evaluation.process(pipelines)
 # in approximately 8 times to the Cov+ElSel+TS+LDA pipeline.
 
 print("Averaging the session performance:")
-print(results.groupby("pipeline").mean("score")[["score", "time"]])
+print(results.groupby("pipeline")[["score", "time"]].mean())
 
 ###############################################################################
 # Plot Results

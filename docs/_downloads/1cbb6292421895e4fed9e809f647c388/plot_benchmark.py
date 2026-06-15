@@ -16,6 +16,7 @@ to easily scale to many datasets.
 import matplotlib.pyplot as plt
 
 from moabb import benchmark, set_log_level
+from moabb.analysis.chance_level import chance_by_chance
 from moabb.analysis.plotting import score_plot
 from moabb.paradigms import LeftRightImagery
 
@@ -81,6 +82,27 @@ for d in paradigm.datasets:
 # It is possible to indicate the folder to cache the results and the one to save
 # the analysis & figures. By default, the results are saved in the ``results``
 # folder, and the analysis & figures are saved in the ``benchmark`` folder.
+#
+# Optional: CodeCarbon Configuration
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+# If CodeCarbon is installed, you can track the energy consumption and CO2
+# emissions of your benchmark. Configure it using the ``codecarbon_config``
+# parameter. By default, CodeCarbon is configured to not save files and use
+# error-level logging to minimize overhead.
+#
+# To enable emissions tracking, you can pass a configuration dictionary:
+#
+# .. code-block:: python
+#
+#     codecarbon_config = {
+#         'save_to_file': True,
+#         'log_level': 'info',
+#         'output_file': 'emissions.csv',
+#         'experiment_name': 'MOABB_Benchmark_Zhou2016'
+#     }
+#
+# This will log detailed emissions data during the benchmark run.
 
 results = benchmark(
     pipelines="./sample_pipelines/",
@@ -89,8 +111,9 @@ results = benchmark(
     include_datasets=["Zhou2016"],
     results="./results/",
     overwrite=False,
-    plot=False,
     output="./benchmark/",
+    suffix="benchmark",
+    plot=False,
 )
 
 ###############################################################################
@@ -98,5 +121,10 @@ results = benchmark(
 # pandas dataframe, and can be used to generate figures. The analysis & figures
 # are saved in the ``benchmark`` folder.
 
-score_plot(results)
+###############################################################################
+# Compute chance levels for the dataset used in the benchmark.
+
+chance_levels = chance_by_chance(results, alpha=[0.05, 0.01])
+
+score_plot(results, chance_level=chance_levels)
 plt.show()
