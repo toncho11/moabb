@@ -43,8 +43,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -63,16 +63,16 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/4.0.6/css/fixedHeader.dataTables.css" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <script defer src="_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="_static/documentation_options.js?v=1558bf76"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=797ada32"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/sg-tags.js?v=d80f6fa4"></script>
@@ -106,6 +106,7 @@
     <script src="https://cdn.datatables.net/searchpanes/2.3.5/js/dataTables.searchPanes.js"></script>
     <script src="https://cdn.datatables.net/searchpanes/2.3.5/js/searchPanes.dataTables.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/4.0.6/js/dataTables.fixedHeader.js"></script>
+    <script src="_static/js/sortable-numeric.js?v=9b328e85"></script>
     <script src="_static/js/section-nav-hierarchy.js?v=c53969c2"></script>
     <script src="_static/js/macro-table.js?v=c799a707"></script>
     <link rel="canonical" href="https://moabb.neurotechx.com/docs/paper_results.html" />
@@ -145,7 +146,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.5.0dev0" />
+  <meta name="docsearch:version" content="1.8.0dev0" />
   
     
     <script src="_static/searchtools.js"></script>
@@ -636,7 +637,7 @@
 </figure>
 <p>This study conducts an extensive Brain-computer interfaces (BCI) reproducibility analysis on open electroencephalography datasets,
 aiming to assess existing solutions and establish open and reproducible benchmarks for effective comparison within the field. Please note that the results are obtained using <a class="reference external" href="https://moabb.neurotechx.com/docs/generated/moabb.evaluations.WithinSessionEvaluation.html">Within-Session evaluation</a>.
-The results are reported regarding mean accuracy and standard deviation across all folds for all sessions and subjects.</p>
+The score depends on the number of classes in the scenario: two-class scenarios are scored with ROC-AUC and scenarios with more than two classes with accuracy, as <a class="reference internal" href="generated/moabb.paradigms.MotorImagery.html#moabb.paradigms.MotorImagery" title="moabb.paradigms.MotorImagery"><code class="xref py py-class docutils literal notranslate"><span class="pre">MotorImagery</span></code></a> selects the metric. The results below are reported as the mean and standard deviation of that score over all sessions and subjects. Note that Within-Session evaluation averages the cross-validation folds within each session before returning a score, so the standard deviation is computed across (subject, session) pairs rather than across individual folds.</p>
 <p>If you use the same evaluation procedure, you should expect similar results if you use the same pipelines and datasets, with some minor variations due to the randomness of the cross-validation procedure.</p>
 <p><strong>You can copy and use the table in your work</strong>, but please <a class="reference external" href="http://moabb.neurotechx.com/docs/cite.html">**cite the paper**</a> if you do so.</p>
 </section>
@@ -816,7 +817,7 @@ Each imagery task is associated with a different class, and each task has its di
       <td>92.54±6.67</td>
     </tr>
     <tr>
-      <td><a href="https://github.com/NeuroTechX/moabb/blob/develop/pipelines/LogVar_grid.yml">LogVariance+LDA</a></td>
+      <td><a href="https://github.com/NeuroTechX/moabb/blob/develop/pipelines/LogVar.yml">LogVariance+LDA</a></td>
       <td>77.96±15.09</td>
       <td>78.51±15.25</td>
       <td>64.49±10.08</td>
@@ -829,7 +830,7 @@ Each imagery task is associated with a different class, and each task has its di
       <td>88.39±8.57</td>
     </tr>
     <tr>
-      <td><a href="https://github.com/NeuroTechX/moabb/blob/develop/pipelines/LogVar_grid.yml#L7">LogVariance+SVM</a></td>
+      <td><a href="https://github.com/NeuroTechX/moabb/blob/develop/pipelines/LogVar_grid.yml">LogVariance+SVM</a></td>
       <td>75.86±16.45</td>
       <td>78.30±15.18</td>
       <td>65.46±11.71</td>
@@ -1591,8 +1592,8 @@ We use all the classes available in the dataset.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1618,7 +1619,7 @@ We use all the classes available in the dataset.</p>
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
 </p></div>
       
     </div>

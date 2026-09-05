@@ -41,8 +41,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -61,16 +61,16 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/4.0.6/css/fixedHeader.dataTables.css" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <script defer src="_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="_static/documentation_options.js?v=1558bf76"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=797ada32"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/sg-tags.js?v=d80f6fa4"></script>
@@ -104,6 +104,7 @@
     <script src="https://cdn.datatables.net/searchpanes/2.3.5/js/dataTables.searchPanes.js"></script>
     <script src="https://cdn.datatables.net/searchpanes/2.3.5/js/searchPanes.dataTables.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/4.0.6/js/dataTables.fixedHeader.js"></script>
+    <script src="_static/js/sortable-numeric.js?v=9b328e85"></script>
     <script src="_static/js/section-nav-hierarchy.js?v=c53969c2"></script>
     <script src="_static/js/macro-table.js?v=c799a707"></script>
     <link rel="canonical" href="https://moabb.neurotechx.com/docs/README.html" />
@@ -141,7 +142,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="1.5.0dev0" />
+  <meta name="docsearch:version" content="1.8.0dev0" />
   
     
     <script src="_static/searchtools.js"></script>
@@ -593,9 +594,9 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.discriminant_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span> <span class="k">as</span> <span class="n">LDA</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
 
-<span class="n">moabb</span><span class="o">.</span><span class="n">set_log_level</span><span class="p">(</span><span class="s2">&quot;info&quot;</span><span class="p">)</span>
+<span class="n">moabb</span><span class="o">.</span><span class="n">set_log_level</span><span class="p">(</span><span class="s2">"info"</span><span class="p">)</span>
 
-<span class="n">pipelines</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;LogVar+LDA&quot;</span><span class="p">:</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">LogVariance</span><span class="p">(),</span> <span class="n">LDA</span><span class="p">())}</span>
+<span class="n">pipelines</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"LogVar+LDA"</span><span class="p">:</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">LogVariance</span><span class="p">(),</span> <span class="n">LDA</span><span class="p">())}</span>
 
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">BNCI2014_001</span><span class="p">()</span>
 <span class="n">dataset</span><span class="o">.</span><span class="n">subject_list</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">subject_list</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
@@ -699,15 +700,18 @@ we’re here to help.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Aristimunha, B., Carrara, I., Guetschel, P., Sedlar, S., Rodrigues, P., Sosulski, J.,
 Narayanan, D., Bjareholt, E., Barthelemy, Q., Schirrmeister, R. T., Kobler, R.,
 Kalunga, E., Darmet, L., Gregoire, C., Abdul Hussain, A., Gatti, R., Goncharenko, V.,
-Andreev, A., Thielen, J., Hajhassani, D., Begany, K., Moreau, T., Roy, Y., Jayaram, V.,
-Barachant, A., &amp; Chevallier, S. (2026). Mother of all BCI Benchmarks (MOABB) (Version 1.5.0).
+Andreev, A., Tates, A., Kojima, S., Thielen, J., Hajhassani, D., Graignic, P.-A.,
+Begany, K., Leto, B., Davis, E., Munro, Z., Romani, M., Talar, B., Schrag, E.,
+Kowshik, B., Badang, R. A., Xu, G., Polychroniadou, D., Lefundes da Silva, H.,
+Bano, A., Singh, A., Sokolova, A., Rahimipour, M., Moreau, T., Roy, Y., Jayaram, V., Barachant, A.,
+&amp; Chevallier, S. (2026). Mother of all BCI Benchmarks (MOABB) (Version 1.7.1).
 Zenodo. https://doi.org/10.5281/zenodo.10034223
 </pre></div>
 </div>
 </section>
 <section id="bibtex-format">
 <h3>BibTeX Format<a class="headerlink" href="#bibtex-format" title="Link to this heading">#</a></h3>
-<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@software</span><span class="p">{</span><span class="nl">Aristimunha_Mother_of_all</span><span class="p">,</span>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@misc</span><span class="p">{</span><span class="nl">Aristimunha_Mother_of_all</span><span class="p">,</span>
 <span class="w">  </span><span class="na">author</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="s">{Aristimunha, Bruno and</span>
 <span class="s">                  Carrara, Igor and</span>
 <span class="s">                  Guetschel, Pierre and</span>
@@ -726,9 +730,27 @@ Zenodo. https://doi.org/10.5281/zenodo.10034223
 <span class="s">                  Gatti, Ramiro and</span>
 <span class="s">                  Goncharenko, Vladislav and</span>
 <span class="s">                  Andreev, Anton and</span>
+<span class="s">                  Tates, Alberto and</span>
+<span class="s">                  Kojima, Simon and</span>
 <span class="s">                  Thielen, Jordy and</span>
 <span class="s">                  Hajhassani, Davoud and</span>
+<span class="s">                  Graignic, Paul-Adrien and</span>
 <span class="s">                  Begany, Katelyn and</span>
+<span class="s">                  Leto, Benedetto and</span>
+<span class="s">                  Davis, Ethan and</span>
+<span class="s">                  Munro, Zachary and</span>
+<span class="s">                  Romani, Michele and</span>
+<span class="s">                  Talar, Baris and</span>
+<span class="s">                  Schrag, Emily and</span>
+<span class="s">                  Kowshik, Bhargav and</span>
+<span class="s">                  Badang, Ralph Angelo and</span>
+<span class="s">                  Xu, Grace and</span>
+<span class="s">                  Polychroniadou, Danae and</span>
+<span class="s">                  Lefundes da Silva, Henrique and</span>
+<span class="s">                  Bano, Azra and</span>
+<span class="s">                  Singh, Aditya and</span>
+<span class="s">                  Sokolova, Anna and</span>
+<span class="s">                  Rahimipour, Meysam and</span>
 <span class="s">                  Moreau, Thomas and</span>
 <span class="s">                  Roy, Yannick and</span>
 <span class="s">                  Jayaram, Vinay and</span>
@@ -737,7 +759,7 @@ Zenodo. https://doi.org/10.5281/zenodo.10034223
 <span class="w">  </span><span class="na">title</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="s">{Mother of all BCI Benchmarks}</span><span class="p">,</span>
 <span class="w">  </span><span class="na">year</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="m">2026</span><span class="p">,</span>
 <span class="w">  </span><span class="na">publisher</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{Zenodo}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">version</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="s">{1.5.0}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">version</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="s">{1.7.1}</span><span class="p">,</span>
 <span class="w">  </span><span class="na">url</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/NeuroTechX/moabb}</span><span class="p">,</span>
 <span class="w">  </span><span class="na">doi</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="s">{10.5281/zenodo.10034223}</span><span class="p">,</span>
 <span class="p">}</span>
@@ -848,8 +870,8 @@ because then we can get right on it.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -875,7 +897,7 @@ because then we can get right on it.</p>
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
 </p></div>
       
     </div>
